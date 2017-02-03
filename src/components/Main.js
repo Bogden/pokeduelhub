@@ -36,7 +36,7 @@ class AppComponent extends React.Component {
     }
 
     const id1 = parseInt(pickText1.substring(0, pickText1.indexOf('-') - 1));
-    const id2 = parseInt(pickText2.substring(0, pickText1.indexOf('-') - 1));
+    const id2 = parseInt(pickText2.substring(0, pickText2.indexOf('-') - 1));
 
     if (!id1 || !id2) {
       return;
@@ -63,6 +63,7 @@ class AppComponent extends React.Component {
         <h1>Pokemon Duel Battle Calculator</h1>
 
         <div className="configuration">
+          <div className="team-1"></div>
           <div className="pokemon-picker">
             <span>Pokemon 1</span>
             <PokemonPicker onChange={this.pickPokemon1.bind(this)} />

@@ -226,3 +226,7 @@ h2 {
 .outcome-tables {
   margin: 40px;
 }
+
+.outcome-tie {
+  color: #ccc;
+}

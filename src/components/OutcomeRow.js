@@ -8,8 +8,9 @@ class OutcomeRow extends React.Component {
     const loserName = get(this.props, 'outcome.losingMove.pokemon.name') || get(this.props, 'outcome.moveB.pokemon.name');
     const winningMoveName = get(this.props, 'outcome.winningMove.name') || get(this.props, 'outcome.moveA.name');
     const losingMoveName = get(this.props, 'outcome.losingMove.name') || get(this.props, 'outcome.moveB.name');
+    const tieClass = !!get(this.props, 'outcome.winningMove.name') ? '' : 'outcome-tie';
     return (
-      <tr>
+      <tr className={tieClass}>
         <td className="chance-data text-center" data-percentage={percentage}>{percentage}%</td>
         <td className="text-center">{winnerName}</td>
         <td className="text-center">{loserName}</td>

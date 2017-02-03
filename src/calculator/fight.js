@@ -5,55 +5,20 @@ import cloneDeep from 'lodash/cloneDeep';
 // Weedle beats Snorlax in Special Combat. Snorlax is Poisoned.
 // It's a tie, nothing happens.
 
-const OUTCOMES = {
-  PHYSICAL_COMBAT: 'Physical combat',
-  TIE: 'Tie'
-}
-
-const STATUSES = {
-  KNOCKS_OUT: 'Knocked out',
-  POISONS: 'Poisoned',
-}
-
-const MOVE_MATCHUP_OUTCOMES = {
-  MOVE_A: -1,
-  TIE: 0,
-  MOVE_B: 1
-}
-
-const MOVE_ACTIONS = {
-  KNOCKS_OUT: 'knocks out',
-  POISONS: 'poisons',
-  PARALYZES: 'paralyzes',
-  FREEZES: 'freezes',
-  PUTS_TO_SLEEP: 'puts to sleep',
-  BURNS: 'burns'
-}
-
 const MOVE_RESULTS = {
   MOVE_A: -1,
   TIE: 0,
   MOVE_B: 1
 }
 
-function simulateFight(pokemonA, pokemonB) {
-
-  let result;
-
-  result = {
-    winner: pokemonA,
-    loser: pokemonB,
-    status: STATUSES.KNOCKED_OUT
-  }
-
-  return result;
-}
-
 function getMoveOutcomeVsBlue(moveA, moveB) {
   if (moveB.type === MOVE_TYPES.BLUE) {
     return MOVE_RESULTS.TIE;
-  } else {
+  } else if (moveB.notes) {
     return MOVE_RESULTS.MOVE_A;
+  } else {
+    // Treat blue as a tie unless it has notes
+    return MOVE_RESULTS.TIE;
   }
 }
 
@@ -64,7 +29,12 @@ function getMoveOutcomeVsPurple(moveA, moveB) {
   // ties to same purple
   switch (moveB.type) {
     case MOVE_TYPES.BLUE:
-      return MOVE_RESULTS.MOVE_B;
+      // Treat blue as a tie unless it has notes
+      if (moveB.notes) {
+        return MOVE_RESULTS.MOVE_B;
+      } else {
+        return MOVE_RESULTS.TIE;
+      }
     case MOVE_TYPES.PURPLE:
       return getMoveOutcomeWithPower(moveA, moveB);
     case MOVE_TYPES.GOLD:
@@ -84,7 +54,12 @@ function getMoveOutcomeVsGold(moveA, moveB) {
   // ties to same gold
   switch (moveB.type) {
     case MOVE_TYPES.BLUE:
-      return MOVE_RESULTS.MOVE_B;
+      // Treat blue as a tie unless it has notes
+      if (moveB.notes) {
+        return MOVE_RESULTS.MOVE_B;
+      } else {
+        return MOVE_RESULTS.TIE;
+      }
     case MOVE_TYPES.PURPLE:
       return MOVE_RESULTS.MOVE_A;
     case MOVE_TYPES.GOLD:
@@ -105,7 +80,12 @@ function getMoveOutcomeVsWhite(moveA, moveB) {
   // ties to same gold
   switch (moveB.type) {
     case MOVE_TYPES.BLUE:
-      return MOVE_RESULTS.MOVE_B;
+      // Treat blue as a tie unless it has notes
+      if (moveB.notes) {
+        return MOVE_RESULTS.MOVE_B;
+      } else {
+        return MOVE_RESULTS.TIE;
+      }
     case MOVE_TYPES.PURPLE:
       return MOVE_RESULTS.MOVE_B;
     case MOVE_TYPES.GOLD:
@@ -123,7 +103,12 @@ function getMoveOutcomeVsMiss(moveA, moveB) {
   // loses to all else
   switch (moveB.type) {
     case MOVE_TYPES.BLUE:
-      return MOVE_RESULTS.MOVE_B;
+      // Treat blue as a tie unless it has notes
+      if (moveB.notes) {
+        return MOVE_RESULTS.MOVE_B;
+      } else {
+        return MOVE_RESULTS.TIE;
+      }
     case MOVE_TYPES.MISS:
       return MOVE_RESULTS.TIE;
     default:
@@ -132,8 +117,6 @@ function getMoveOutcomeVsMiss(moveA, moveB) {
 }
 
 function getMoveOutcomeWithPower(moveA, moveB) {
-
-
   if (moveA.power === moveB.power) {
     return MOVE_RESULTS.TIE;
   } else {
@@ -147,8 +130,6 @@ function getMoveOutcome(moveA, moveB) {
   // 0 = tie
   // 1 = moveB wins
   let result = MOVE_RESULTS.TIE;
-  let winningMove;
-  let losingMove;
 
   switch (moveA.type) {
     case MOVE_TYPES.BLUE:
@@ -169,19 +150,39 @@ function getMoveOutcome(moveA, moveB) {
   }
 
   if (result === MOVE_RESULTS.MOVE_A) {
-    winningMove = moveA;
-    losingMove = moveB;
+    return createMoveAWinningOutcome(moveA, moveB);
   } else if (result === MOVE_RESULTS.MOVE_B) {
-    winningMove = moveB;
-    losingMove = moveA;
+    return createMoveBWinningOutcome(moveA, moveB);
+  } else {
+    return createTieOutcome(moveA, moveB);
   }
+}
 
+function createMoveAWinningOutcome(moveA, moveB, probability) {
   return {
     moveA,
     moveB,
-    winningMove,
-    losingMove,
-    probability: moveA.getProbability() * moveB.getProbability()
+    winningMove: moveA,
+    losingMove: moveB,
+    probability: probability || moveA.getProbability() * moveB.getProbability()
+  }
+}
+
+function createMoveBWinningOutcome(moveA, moveB, probability) {
+  return {
+    moveA,
+    moveB,
+    winningMove: moveB,
+    losingMove: moveA,
+    probability: probability || moveA.getProbability() * moveB.getProbability()
+  }
+}
+
+function createTieOutcome(moveA, moveB, probability) {
+  return {
+    moveA,
+    moveB,
+    probability: probability || moveA.getProbability() * moveB.getProbability()
   }
 }
 
@@ -195,30 +196,69 @@ function shouldCompareDamage(moveA, moveB) {
 }
 
 function getBasePower(multiplierMove = {}) {
-  return multiplierMove.power.substring(0, multiplierMove.power.indexOf('x'));
+  return multiplierMove.power.substring(0,  multiplierMove.power.indexOf('x'));
 }
 
 function getMultiplierOutcomes(moveA, moveB) {
-  const isMoveBMultiplier = isMultiplierMove(moveB);
   const isMoveAMultiplier = isMultiplierMove(moveA);
+  const isMoveBMultiplier = isMultiplierMove(moveB);
 
-  if (isMoveAMultiplier && !isMoveBMultiplier) {
-    if (isMoveAMultiplier && moveB.power > getBasePower(moveA)) {
+  const multiplierOutcomes = [];
+  
+  if (isMoveAMultiplier && isMoveBMultiplier) {
+    // TODO: Account for double multipliers
+  } else {
+    let multiplierMove;
+    let staticMove;
+
+    if (isMoveAMultiplier) {
+      multiplierMove = moveA;
+      staticMove = moveB;
+    } else {
+      multiplierMove = moveB;
+      staticMove = moveA;
+    }
+
+    const multiplierMovePower = getBasePower(multiplierMove);
+    if (multiplierMovePower > staticMove.power) {
+      multiplierOutcomes.push(createMoveBWinningOutcome(staticMove, multiplierMove));
+    } else {
+      // Including the initial spin
+      const requiredSpinsToWin = Math.floor(staticMove.power / multiplierMovePower);
       
-    }
-  } else if (!isMoveAMultiplier && isMoveBMultiplier) {
-    // One is multiplier, other is not
-    if (moveB.power > getBasePower(moveA)) {
-      // Always wins
+      const baseProbability = staticMove.getProbability() * multiplierMove.getProbability();
 
+      let canTie = ((staticMove.power / multiplierMovePower) === requiredSpinsToWin);
+      let multiplierWinProbability = Math.pow(multiplierMove.getProbability(), requiredSpinsToWin);
+      let multiplierLoseProbability = 1 - multiplierWinProbability;
+
+      if (canTie) {
+        const tieProbability = multiplierWinProbability / multiplierMove.getProbability() - multiplierWinProbability;
+        multiplierLoseProbability -= tieProbability;
+        
+        multiplierOutcomes.push(createTieOutcome(moveA, moveB, baseProbability * tieProbability));
+      }
+
+      if (isMoveAMultiplier) {
+        multiplierOutcomes.push(createMoveAWinningOutcome(moveA, moveB, baseProbability * multiplierWinProbability));
+        
+        if (multiplierLoseProbability > 0) {
+          multiplierOutcomes.push(createMoveBWinningOutcome(moveA, moveB, baseProbability * multiplierLoseProbability));
+        }
+      } else {
+        if (multiplierLoseProbability > 0) {
+          multiplierOutcomes.push(createMoveAWinningOutcome(moveA, moveB, baseProbability * multiplierLoseProbability));
+        }
+        multiplierOutcomes.push(createMoveBWinningOutcome(moveA, moveB, baseProbability * multiplierWinProbability));
+      }
     }
-  } else if (isMoveAMultiplier && isMoveBMultiplier) {
-    // Both are multipliers
   }
+
+  return multiplierOutcomes;
 }
 
 function generateBattleOutcomes(pokemonA, pokemonB) {
-  const outcomes = [];
+  let outcomes = [];
 
   pokemonA.moves.forEach(moveA => {
     pokemonB.moves.forEach(moveB => {
@@ -227,9 +267,10 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
         const isMoveAMultiplier = isMultiplierMove(moveA);
         
         if (isMoveAMultiplier || isMoveBMultiplier) {
-          // const multiplierOutcomes = getMultiplierOutcomes(moveA, moveB);
-          // outcomes.concat(multiplierOutcomes);
-          // return;
+          const multiplierOutcomes = getMultiplierOutcomes(moveA, moveB);
+
+          outcomes = outcomes.concat(multiplierOutcomes);
+          return;
         }
       }
 
@@ -238,6 +279,8 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
       outcomes.push(outcome);
     });
   });
+
+  // TODO: Add initial simplification that combines identical outcomes
 
   return outcomes.sort((a, b) => b.probability - a.probability);
 }

@@ -104,6 +104,32 @@ POKEMON_DATA.set(234, {
   ]
 });
 
+POKEMON_DATA.set(57, {
+  id: 57,
+  name: 'Eevee',
+  moves: [
+    generateBlue(8),
+    generateWhite({
+      name: 'Tackle',
+      wheelSize: 24,
+      power: 30
+    }),
+    generateWhite({
+      name: 'Focus Energy',
+      wheelSize: 28,
+      power: '+20',
+      action: 'focuses against'
+    }),
+    generateWhite({
+      name: 'Tackle',
+      wheelSize: 16,
+      power: 20
+    }),
+    generateBlue(12),
+    generateMiss(8)
+  ]
+});
+
 POKEMON_DATA.set(251, {
   id: 251,
   name: 'Shuppet',
@@ -174,7 +200,7 @@ POKEMON_DATA.set(170, {
   id: 170,
   name: 'Greninja',
   moves: [{
-    name: 'Miss (1)',
+    name: 'Miss',
     type: 'miss',
     wheelSize: 4
   }, {
@@ -189,7 +215,7 @@ POKEMON_DATA.set(170, {
     wheelSize: 20,
     action: 'knocks out'
   }, {
-    name: 'Miss (2)',
+    name: 'Miss',
     type: 'miss',
     wheelSize: 4
   }, {
@@ -225,7 +251,7 @@ POKEMON_DATA.set(179, {
     type: 'purple',
     power: 1,
     wheelSize: 28,
-    action: 'puts to sleep'
+    action: 'inflicts sleep on'
   }]
 });
 
