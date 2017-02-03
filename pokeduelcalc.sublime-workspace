@@ -1,0 +1,1776 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"picktex",
+				"pickText2"
+			],
+			[
+				"pickte",
+				"pickText1"
+			],
+			[
+				"pickP",
+				"pickPokemon2"
+			],
+			[
+				"MOVE",
+				"MOVE_RESULTS"
+			],
+			[
+				"P",
+				"POKEMON_DATA"
+			],
+			[
+				"gener",
+				"generateBattleOutcomes"
+			],
+			[
+				"getmoveout",
+				"getMoveOutcomeWithPower"
+			],
+			[
+				"MOVE_",
+				"MOVE_MATCHUP_OUTCOMES"
+			],
+			[
+				"pu",
+				"PURPLE"
+			],
+			[
+				"getm",
+				"getMoveOutcomeVsPurple"
+			],
+			[
+				"getmove",
+				"getMoveOutcomeVsBlue"
+			],
+			[
+				"playergl",
+				"playerGlyphId"
+			],
+			[
+				"localGly",
+				"localGlyphsCopy"
+			],
+			[
+				"STRU",
+				"STRUCTURE_WALL"
+			],
+			[
+				"RAN",
+				"RANGED_ATTACK"
+			],
+			[
+				"stru",
+				"structures"
+			],
+			[
+				"structu",
+				"structureMemory"
+			],
+			[
+				"strucu",
+				"structureMemory"
+			],
+			[
+				"depos",
+				"depositEnergy"
+			],
+			[
+				"pickup",
+				"pickupNearbyEnergy"
+			],
+			[
+				"FIND_DROPP",
+				"FIND_DROPPED_RESOURCES"
+			],
+			[
+				"findClo",
+				"findClosestByRange"
+			],
+			[
+				"structure",
+				"structureType"
+			],
+			[
+				"struc",
+				"structureTypes"
+			],
+			[
+				"depo",
+				"depositEnergy"
+			],
+			[
+				"ener",
+				"energyMinimum"
+			],
+			[
+				"exten",
+				"extensionSites"
+			],
+			[
+				"extens",
+				"extensions"
+			],
+			[
+				"STRUCTURE",
+				"STRUCTURE_EXTENSION"
+			],
+			[
+				"dropp",
+				"droppedEnergy"
+			],
+			[
+				"withd",
+				"withdrawTarget"
+			],
+			[
+				"FIND_SOU",
+				"FIND_SOURCES_ACTIVE"
+			],
+			[
+				"ST",
+				"STRUCTURE_STORAGE"
+			],
+			[
+				"en",
+				"energyCapacity"
+			],
+			[
+				"tra",
+				"transferEnergy"
+			],
+			[
+				"FIND_M",
+				"FIND_MY_STRUCTURES"
+			],
+			[
+				"findC",
+				"findClosestByRange"
+			],
+			[
+				"FIND_MY",
+				"FIND_MY_CREEPS"
+			],
+			[
+				"extra",
+				"extractors"
+			],
+			[
+				"find",
+				"findClosestByPath"
+			],
+			[
+				"findclo",
+				"findClosestByPath"
+			],
+			[
+				"STR",
+				"STRUCTURE_LINK"
+			],
+			[
+				"STRUC",
+				"STRUCTURE_SPAWN"
+			],
+			[
+				"STRUCTU",
+				"STRUCTURE_STORAGE"
+			],
+			[
+				"str",
+				"structureType"
+			],
+			[
+				"EXTE",
+				"STRUCTURE_EXTENSION"
+			],
+			[
+				"beh",
+				"behaviorName"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"FIN",
+				"FIND_CONSTRUCTION_SITES"
+			],
+			[
+				"behav",
+				"behaviors"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"randomNU",
+				"randomNums"
+			],
+			[
+				"ques",
+				"questionNode"
+			],
+			[
+				"TIME",
+				"ANSWER_TIME"
+			],
+			[
+				"high",
+				"highScore"
+			],
+			[
+				"instr",
+				"instructions-page"
+			],
+			[
+				"spaw",
+				"spawnPos"
+			],
+			[
+				"get",
+				"getSpawnPosition"
+			],
+			[
+				"tim",
+				"timeToNextSpawn"
+			],
+			[
+				"col",
+				"collectable"
+			],
+			[
+				"coll",
+				"collectables"
+			],
+			[
+				"%mouse",
+				"%mousePosY%"
+			],
+			[
+				"%mouseP",
+				"%mousePosX%"
+			],
+			[
+				"startx",
+				"startx"
+			],
+			[
+				"Abil",
+				"AbilityBehavior\tTeam Type"
+			],
+			[
+				"D",
+				"DRAFT_FORMATS"
+			],
+			[
+				"Homing",
+				"HomingBurstEnemy"
+			],
+			[
+				"Bur",
+				"HomingBurstEnemy"
+			],
+			[
+				"Hom",
+				"HomingAccelEnemy"
+			],
+			[
+				"Homin",
+				"HomingEnemy"
+			],
+			[
+				"Ene",
+				"Enemy"
+			],
+			[
+				"Stat",
+				"StationaryEnemy"
+			],
+			[
+				"check",
+				"checkLevelEnd"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"Enemy",
+				"EnemyCollection"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"Enem",
+				"EnemyCollection"
+			],
+			[
+				"handle",
+				"handleKeyUp"
+			],
+			[
+				"se",
+				"sequenceIndex"
+			],
+			[
+				"curre",
+				"currentTurn"
+			],
+			[
+				"gl",
+				"Glory"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"glo",
+				"gloryUser"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"highli",
+				"highlightNodes"
+			],
+			[
+				"tabconte",
+				"tabContentContainer"
+			],
+			[
+				"selec",
+				"selectedTab"
+			],
+			[
+				"curen",
+				"currentSlideIndex"
+			],
+			[
+				"trans",
+				"transformString"
+			],
+			[
+				"rotat",
+				"rotatorWidth"
+			],
+			[
+				"searc",
+				"searchString"
+			],
+			[
+				"searct",
+				"searchTermRegEx"
+			],
+			[
+				"mS",
+				"mSelectedFilterColl"
+			],
+			[
+				"return",
+				"returnString"
+			],
+			[
+				"g",
+				"generateSingleFilterHTTPText"
+			],
+			[
+				"Fil",
+				"FilterSection"
+			],
+			[
+				"valu",
+				"valuesMatch"
+			],
+			[
+				"retu",
+				"returnString"
+			],
+			[
+				"dat",
+				"dataObj"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/components/Main.js",
+			"settings":
+			{
+				"buffer_size": 1972,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/OutcomeTables.js",
+			"settings":
+			{
+				"buffer_size": 1279,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/styles/App.css",
+			"settings":
+			{
+				"buffer_size": 2418,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/development/AwesomeProject/index.android.js",
+			"settings":
+			{
+				"buffer_size": 2279,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/OutcomeRow.js",
+			"settings":
+			{
+				"buffer_size": 1011,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/components/SimplifiedOutcomeRow.js",
+			"settings":
+			{
+				"buffer_size": 723,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/calculator/fight.js",
+			"settings":
+			{
+				"buffer_size": 7610,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/data/pokemon-data.js",
+			"settings":
+			{
+				"buffer_size": 3067,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/pokemon.js",
+			"settings":
+			{
+				"buffer_size": 444,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/constants/move-types.js",
+			"settings":
+			{
+				"buffer_size": 136,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 2245,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "webpack.config.js",
+			"settings":
+			{
+				"buffer_size": 824,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 45 files for \"static\" (regex)\n\nC:\\development\\pokeduelcalc\\dist\\static\\README.md:\n    1: # static\n    2  \n    3: Files and directories that you put in `static` will be copied to the\n    4: `dist/static` directory during the build step. Use it to provide\n    5: arbitrary static assets that can be referenced by path in your\n    6  application.\n    7  \n\n4 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 383,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "Need to account for:\nEvolutions\nStatus effects\n  Burn\n  Poison\n  Noxious\n  Confusion\n  Paralysis\n  Freeze\nExtra damage modifiers\nCLvl modifiers\nLevel up modifiers\nSpecial effects on loss\nRespin moves (multi-attacks, swords dance, etc)\nMultipliers like Round\nPlates\n\nOther features:\nFull battle calculator, 5v5\nPokedex with sorting and filtering\nColor code fight results\nSelect and sum rows for total probability of multiple outcomes\n\nTodo:\nStart with EX and common lower level pokes\nInclude winning and losing move info\nAdd status options to move comparison\nPokemon Selector\nPokemon data by ID",
+			"settings":
+			{
+				"buffer_size": 593,
+				"line_ending": "Windows",
+				"name": "Need to account for:"
+			}
+		},
+		{
+			"file": "src/components/PokemonPicker.js",
+			"settings":
+			{
+				"buffer_size": 879,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 150.0,
+		"last_filter": "coffee",
+		"selected_items":
+		[
+			[
+				"coffee",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"gml",
+				"Set Syntax: GameMaker Language"
+			],
+			[
+				"togl",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"toggle lint",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"toggl",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"showal",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"lint this",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"show all",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"toggle lin",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"toggle",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"js next",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"show err",
+				"SublimeLinter: Don’t Show Errors on Save"
+			],
+			[
+				"lint on",
+				"SublimeLinter: Show Errors on Save"
+			],
+			[
+				"errors",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"js n",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"js ",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"list pack",
+				"Package Control: List Packages"
+			],
+			[
+				"word w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"javascr",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"word wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"javascri",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"linter",
+				"SublimeLinter: Don’t Show Errors on Save"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ahk",
+				"AutoHotkey - Compile"
+			],
+			[
+				"kv",
+				"Set Syntax: Dota KV"
+			],
+			[
+				"dota",
+				"Set Syntax: Lua Dota"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"color",
+				"Color Picker"
+			],
+			[
+				"packages",
+				"Package Control: List Packages"
+			],
+			[
+				"auto",
+				"Autoprefix CSS"
+			],
+			[
+				"prefix",
+				"Autoprefix CSS"
+			],
+			[
+				"pref",
+				"Autoprefix CSS"
+			],
+			[
+				"cfoll",
+				"Code Folding: Unfold All"
+			],
+			[
+				"aut",
+				"Autoprefix CSS"
+			],
+			[
+				"au",
+				"Autoprefix CSS"
+			],
+			[
+				"fold",
+				"Code Folding: Unfold All"
+			],
+			[
+				"tags",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"error",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"linter setting",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/development/pokeduelcalc",
+		"/C/development/pokeduelcalc/cfg",
+		"/C/development/pokeduelcalc/dist",
+		"/C/development/pokeduelcalc/dist/static",
+		"/C/development/pokeduelcalc/src",
+		"/C/development/pokeduelcalc/src/classes",
+		"/C/development/pokeduelcalc/src/components",
+		"/C/development/pokeduelcalc/src/constants",
+		"/C/development/pokeduelcalc/src/data",
+		"/C/development/pokeduelcalc/src/styles",
+		"/C/development/pokeduelcalc/src/vendor"
+	],
+	"file_history":
+	[
+		"/C/development/pokeduelcalc/src/components/Awesomplete.js",
+		"/C/development/pokeduelcalc/node_modules/awesomplete/index.js",
+		"/C/development/pokeduelcalc/src/components/Main.js",
+		"/C/development/pokeduelcalc/src/classes/move.js",
+		"/C/development/pokeduelcalc/src/calculator/fight.js",
+		"/C/development/slots/app/scripts/main.js",
+		"/C/development/slots/app/index.html",
+		"/C/development/slots/game notes.txt",
+		"/C/development/gearsketch/gear notes.txt",
+		"/C/development/gearsketch/src/gearsketch_main.coffee",
+		"/C/development/gearsketch/src/gearsketch_model.coffee",
+		"/C/development/gearsketch/src/gearsketch_util.coffee",
+		"/F/Downloads/The.Witness-GOG/README.txt",
+		"/F/Downloads/2016-11-23T10-33-44_r3dlog.txt",
+		"/F/Downloads/RDOctoberBuild1_Windows/RDOctoberBuild_Data/level2",
+		"/C/development/gearsketch/site/gearsketch_main.js",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/F/Documents/GameMaker/Projects/VelociousVolley.gmx/scripts/moveSelf.gml",
+		"/F/Downloads/Adobe Photoshop CC 2015 (20150529.r.88) (32+64Bit) + Crack/ReadMe.txt",
+		"/C/development/gearsketch/site/upload_board.php",
+		"/C/development/ld36/config/environment.js",
+		"/C/development/ld36/good-glyphs.txt",
+		"/C/development/ld36/app/puzzle/service.js",
+		"/C/development/ld36/app/glyph-map/service.js",
+		"/C/development/ld36/app/index.html",
+		"/C/development/ld36/app/index/route.js",
+		"/C/development/ld36/app/glyph-library/service.js",
+		"/C/development/ld36/app/components/glyph-puzzle/component.js",
+		"/C/development/ld36/app/styles/app.styl",
+		"/C/development/ld36/app/components/glyph-guess/template.hbs",
+		"/C/development/ld36/app/components/glyph-display/template.hbs",
+		"/C/development/ld36/app/components/glyph-display/component.js",
+		"/C/Users/Max/AsteroidsClone/options.ini",
+		"/C/Users/Max/AsteroidsClone/data.win",
+		"/C/development/ld36/app/glyph-creation/service.js",
+		"/C/development/ld36/app/loading/template.hbs",
+		"/C/development/ld36/app/components/glyph-guess/component.js",
+		"/C/development/ld36/app/player-id/service.js",
+		"/C/development/ld36/app/index/gallery/template.hbs",
+		"/C/development/ld36/art-glyphs.txt",
+		"/C/development/ld36/tutorial-ideas.txt",
+		"/C/development/ld36/node_modules/ember-cli-modernizr/lib/filter-files.js",
+		"/C/development/ld36/app/components/glyph-puzzle/template.hbs",
+		"/C/development/ld36/app/components/main-game/component.js",
+		"/C/development/ld36/app/router.js",
+		"/C/development/ld36/app/app.js",
+		"/C/development/ld36/ember-cli-build.js",
+		"/C/development/ld36/app/index/gallery/route.js",
+		"/C/Users/Max/AppData/Roaming/Sublime Text 3/Packages/User/Emmet.sublime-settings",
+		"/C/Users/Max/AppData/Roaming/Sublime Text 3/Packages/Stylus/Stylus.sublime-settings",
+		"/C/development/ld36/app/gallery/route.js",
+		"/C/development/ld36/app/local-storage/service.js",
+		"/C/development/ludum36.sublime-project",
+		"/C/development/ld36/.eslintrc.js",
+		"/C/Users/Max/Desktop/cryptoglyphics-newgrounds/index.html",
+		"/C/development/ld36/dist/index.html",
+		"/C/development/ld36/public/index.html",
+		"/C/development/ld36/dist/assets/ld36.js",
+		"/C/development/win-node-dash-button/app.js",
+		"/F/Downloads/No.Man's.Sky.incl.Preorder.DLC-GOG/README.txt",
+		"/C/Users/Max/AppData/Roaming/Sublime Text 3/Packages/User/test.sublime-completions",
+		"/C/development/screeps/src/structureProto.js",
+		"/C/development/screeps/src/creepProto.js",
+		"/C/development/screeps/src/roomPositionProto.js",
+		"/C/development/screeps/src/roomProto.js",
+		"/C/development/screeps/package.json",
+		"/C/development/screeps/src/ticker.js",
+		"/C/development/screeps/src/main.js",
+		"/C/development/screeps/src/bodies.js",
+		"/C/development/screeps/src/spawnProto.js",
+		"/C/development/screeps/src/log.js",
+		"/C/development/screeps/dist/roomPositionProto.js",
+		"/C/development/screeps/dist/bodies.js",
+		"/C/development/screeps/src/getCreepsOfRole.js",
+		"/C/development/screeps/.eslintrc",
+		"/C/development/screeps/src/jQuereep.js",
+		"/H/SteamLibrary/steamapps/common/XCOM 2/XComGame/Tutorial/Tutorial",
+		"/C/development/screeps/dist/roomProto.js",
+		"/C/development/screeps/src/bodyParts.js",
+		"/C/development/screeps/test.sublime-completions",
+		"/C/development/screeps/testy",
+		"/C/development/screeps/src/createCreep.js",
+		"/C/development/screeps/eslint.json",
+		"/C/development/screeps/.eslintrc.js",
+		"/C/development/screeps/blah.js",
+		"/C/development/screeps/screeps.sublime-project",
+		"/C/development/screeps/src/blah.js",
+		"/C/development/screeps/dist/sync.js",
+		"/C/development/screeps/register.js",
+		"/C/development/screeps/index.js",
+		"/C/development/screeps/testA.js",
+		"/C/development/screeps/testB.js",
+		"/C/development/screeps/bodyParts.js",
+		"/C/development/screeps/bodies.js",
+		"/C/development/screeps/spawnProto.js",
+		"/C/development/screeps/roomProto.js",
+		"/C/development/screeps/main.js",
+		"/C/development/screeps/ticker.js",
+		"/C/development/screeps/getRoom.js",
+		"/C/development/screeps/creepProto.js",
+		"/C/development/screeps/createCreep.js",
+		"/C/Riot Games/League of Legends/Config/input.ini",
+		"/C/Riot Games/League of Legends/Config/PersistedSettings.json",
+		"/C/Riot Games/League of Legends/Config/game.cfg",
+		"/C/development/screeps/jQuereep.js",
+		"/C/development/screeps/getCreepsOfRole.js",
+		"/C/development/screeps/getStructures.js",
+		"/C/development/screeps/runCreepBehaviors.js",
+		"/C/development/screeps/beTransporter.js",
+		"/C/development/screeps/beGuard.js",
+		"/C/development/screeps/beBuilder.js",
+		"/C/development/screeps/beFarmer.js",
+		"/C/development/screeps/doReplenishEnergy.js",
+		"/C/development/screeps/sync.js",
+		"/C/development/screeps/test/test.js",
+		"/C/development/beat-builder/src/beet-test.js",
+		"/C/development/beat-builder/src/audio-controller.js",
+		"/C/development/beat-builder/src/main.js",
+		"/C/development/beat-builder/package.json",
+		"/C/development/ld34/index.html",
+		"/C/development/ld34/src/css/style.styl",
+		"/C/development/ld34/src/js/minigame.js",
+		"/C/development/ld34/src/js/games/two/stay-between.js",
+		"/C/development/ld34/package.json",
+		"/C/development/ld34/src/js/games/numbers/algebra.js",
+		"/C/development/ld34/src/js/games/many/shape-matching.js",
+		"/C/development/ld34/src/js/key-template.js",
+		"/C/development/Multitask minigames.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"",
+			"D:\\Games\\Strife\\game\\heroes\\carter\\ability_02",
+			"",
+			"F:\\Documents\\Webstuffs\\StrifeDrafterDeploy\\app",
+			"F:\\Documents\\Webstuffs\\StrifeDrafterDeploy",
+			"<open files>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"state",
+			"OutcomeRow",
+			"1",
+			"static",
+			"favicon",
+			"Awesomplete",
+			"PokemonPicker",
+			"SimplifiedOutcomeRow",
+			"'Weedle'",
+			"Jolteon",
+			"Leafeon",
+			"Greninja",
+			"winning",
+			"winningMove",
+			"winner",
+			"return",
+			"Outcome",
+			"outcome",
+			"OutcomeRow",
+			"Weedle",
+			"Tyrogue",
+			"OutcomeRow",
+			"center",
+			"width",
+			"height",
+			"td",
+			"th",
+			"thead",
+			"tr",
+			"div",
+			"OutcomeRowComponent",
+			"div",
+			"AppComponent",
+			"blah",
+			"default",
+			"move",
+			"i",
+			"  ",
+			"Outcomes",
+			"outcomes",
+			"getProbability",
+			"OVE_MATCHUP_OUTCOMES.TIE",
+			"MOVE_MATCHUP_OUTCOMES.MOVE_B",
+			"MOVE_MATCHUP_OUTCOMES.MOVE_A",
+			"/",
+			"win",
+			"MOVE_MATCHUP_OUTCOMES",
+			"MOVE",
+			"move",
+			"YELLOW",
+			"span",
+			".mod",
+			"mod",
+			"findRelativeAlignment",
+			"findmeshingneighbors",
+			"connections",
+			"connectons",
+			"intersectinggear",
+			"parent",
+			"chain",
+			"drawgear",
+			"addgearimage",
+			"gearimageloaded",
+			"gearImages",
+			"updateanddraw",
+			"draw",
+			"MODULE",
+			"BUTTON_INFO",
+			"gear.png",
+			"richard",
+			"0",
+			"9",
+			"8",
+			"7",
+			"6",
+			"5",
+			"4",
+			"3",
+			"2",
+			"1",
+			"percent",
+			"1",
+			"Â",
+			"glyph-guess-input",
+			"max",
+			"glyph-display",
+			"henry ford",
+			"henry",
+			"lead",
+			"henry",
+			"\", \"",
+			"unknown",
+			"anon",
+			"anonymous",
+			" - Anonymous",
+			" - Unknown",
+			"–",
+			"anon",
+			"\\n",
+			".*\\n.*\\n",
+			"what you do",
+			"aristotle",
+			"glyph.link",
+			"1",
+			"Forward",
+			"height",
+			"width",
+			"glyph-guess-input",
+			"div",
+			"main-game",
+			"glyph-puzzle",
+			"character",
+			"evt.key",
+			"EmberApp",
+			"body",
+			"http://imgur.com/",
+			"requestHint",
+			"hint",
+			"config",
+			"authorization",
+			"this.get('localStorage')",
+			"blah",
+			"import config",
+			"locationtype",
+			"HDT03cyvEOVYyuZ",
+			"zxtYd",
+			".png",
+			"http://i.imgur.com/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"h1",
+			"\",\\n\"",
+			"",
+			"-",
+			"\"",
+			"collectable",
+			"  ",
+			"y",
+			"",
+			"enemy",
+			"TailEnemy",
+			"},",
+			": function",
+			"",
+			"'",
+			"5",
+			"levelsback",
+			"currentDraft.name",
+			"",
+			"invis",
+			".menu",
+			"<div class=\"caption-container\"><span class=\"caption\">{{hero}}</span></div>",
+			"draft",
+			"'",
+			"spanNode",
+			"highlightNodeClone",
+			"remainingTextNode",
+			"textNodeToHighlight",
+			"nodeToHighlight",
+			"1px",
+			"3",
+			"2",
+			"'",
+			"div",
+			"div class=\"icon   ",
+			"h1",
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/components/Main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1972,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								423,
+								428
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 114.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/components/OutcomeTables.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								549,
+								549
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/styles/App.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								173,
+								120
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/development/AwesomeProject/index.android.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/components/OutcomeRow.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								214,
+								214
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/components/SimplifiedOutcomeRow.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								723
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 68.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/calculator/fight.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3812,
+								3812
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2756.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/data/pokemon-data.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 798.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/classes/pokemon.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								99
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/constants/move-types.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								20
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								368,
+								368
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "webpack.config.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 824,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								345,
+								345
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 383,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										101,
+										107
+									],
+									[
+										162,
+										168
+									],
+									[
+										205,
+										211
+									],
+									[
+										281,
+										287
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\development\\pokeduelcalc",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 593,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								321,
+								321
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Need to account for:",
+							"default_dir": "C:\\development\\pokeduelcalc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 14,
+					"file": "src/components/PokemonPicker.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								767,
+								775
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "pokeduelcalc.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"puzzles",
+				"app\\puzzle\\service.js"
+			],
+			[
+				"glyphmapserv",
+				"app\\glyph-map\\service.js"
+			],
+			[
+				"good",
+				"good-glyphs.txt"
+			],
+			[
+				"art",
+				"art-glyphs.txt"
+			],
+			[
+				"glyphpuzzle",
+				"app\\components\\glyph-puzzle\\component.js"
+			],
+			[
+				"glyphguesstemplate",
+				"app\\components\\glyph-guess\\template.hbs"
+			],
+			[
+				"ideas",
+				"tutorial-ideas.txt"
+			],
+			[
+				"artgly",
+				"art-glyphs.txt"
+			],
+			[
+				"glyphdisplaytemplate",
+				"app\\components\\glyph-display\\template.hbs"
+			],
+			[
+				"glyphguess",
+				"app\\components\\glyph-guess\\template.hbs"
+			],
+			[
+				"goodgly",
+				"good-glyphs.txt"
+			],
+			[
+				"app.styl",
+				"app\\styles\\app.styl"
+			],
+			[
+				"puzzleser",
+				"app\\puzzle\\service.js"
+			],
+			[
+				"glyphcreationseri",
+				"app\\glyph-creation\\service.js"
+			],
+			[
+				"glyphpuzzlecomponent",
+				"app\\components\\glyph-puzzle\\component.js"
+			],
+			[
+				"service.js",
+				"app\\glyph-map\\service.js"
+			],
+			[
+				"route.js",
+				"app\\index\\route.js"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"controls",
+				"ld34\\src\\js\\controls.js"
+			],
+			[
+				"index.html",
+				"ld34\\index.html"
+			],
+			[
+				"herolist",
+				"scripts\\npc\\herolist.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
