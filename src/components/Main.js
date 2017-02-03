@@ -6,8 +6,8 @@ import POKEMON_DATA from '../data/pokemon-data';
 import {generateBattleOutcomes} from '../calculator/fight';
 import Pokemon from '../classes/pokemon';
 
-import PokemonPicker from './PokemonPicker';
 import OutcomeTables from './OutcomeTables';
+import Configuration from './Configuration';
 
 class AppComponent extends React.Component {
   constructor() {
@@ -19,12 +19,16 @@ class AppComponent extends React.Component {
     this.setState({
       pickText1: pickText
     });
+
+    this.comparePokemon();
   }
 
   pickPokemon2(pickText) {
     this.setState({
       pickText2: pickText
     });
+
+    this.comparePokemon();
   }
 
   comparePokemon() {
@@ -57,23 +61,21 @@ class AppComponent extends React.Component {
     });
   }
 
+  handleUseTeams(event) {
+    this.setState({
+      useTeams: event.target.checked
+    });
+  }
+
   render() {
     return (
       <div className="index">
         <h1>Pokemon Duel Battle Calculator</h1>
 
-        <div className="configuration">
-          <div className="team-1"></div>
-          <div className="pokemon-picker">
-            <span>Pokemon 1</span>
-            <PokemonPicker onChange={this.pickPokemon1.bind(this)} />
-          </div>
-
-          <div className="pokemon-picker">
-            <span>Pokemon 2</span>
-            <PokemonPicker onChange={this.pickPokemon2.bind(this)} />
-          </div>
-        </div>
+        <Configuration useTeams={this.state.useTeams} pickPokemon1={this.pickPokemon1.bind(this)} pickPokemon2={this.pickPokemon2.bind(this)} />
+        <label htmlFor="">
+          <input type="checkbox" onChange={this.handleUseTeams.bind(this)} /> Use teams?
+        </label>
 
         <button className="compare-button" onClick={this.comparePokemon.bind(this)}>Compare!</button>
 

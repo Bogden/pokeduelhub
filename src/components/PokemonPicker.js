@@ -23,7 +23,7 @@ class PokemonPicker extends React.Component {
   }
 
   componentDidMount() {
-    new Awesomplete(this.textInput, {
+    this.awesomplete = new Awesomplete(this.textInput, {
       list: dataArray,
       autoFirst: true
     });
@@ -31,6 +31,11 @@ class PokemonPicker extends React.Component {
     this.textInput.addEventListener('awesomplete-selectcomplete', () => {
       this.props.onChange(this.textInput.value);
     });
+  }
+
+  componentWillUnmount() {
+    this.awesomplete.container.parentNode.appendChild(this.textInput);
+    this.awesomplete.container.remove();
   }
 }
 
