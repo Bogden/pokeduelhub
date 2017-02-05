@@ -2,88 +2,76 @@ import React from 'react';
 import PokemonPicker from './PokemonPicker';
 
 class SimplifiedOutcomeRow extends React.Component {
+  constructor() {
+    super();
+    this.selectPicker = this.selectPicker.bind(this);
+    this.state = {
+      selectedPicker1: 0,
+      selectedPicker2: 0
+    }
+  }
+
+  selectPicker(teamNumber, pickerNumber) {
+    const stateUpdate = {};
+    stateUpdate['selectedPicker' + teamNumber] = pickerNumber;
+    this.setState(stateUpdate);
+  }
+
   render() {
     if (this.props.useTeams) {
       return (
-        <div className="configuration team-configuration">
+        <div className="configuration">
           <div className="team-picker">
             <h3>Team 1</h3>
-            <div className="pokemon-picker">
-              <span>Pokemon 1</span>
-              <PokemonPicker onChange={this.props.pickPokemon1} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 2</span>
-              <PokemonPicker onChange={this.props.pickPokemon1} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 3</span>
-              <PokemonPicker onChange={this.props.pickPokemon1} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 4</span>
-              <PokemonPicker onChange={this.props.pickPokemon1} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 5</span>
-              <PokemonPicker onChange={this.props.pickPokemon1} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 6</span>
-              <PokemonPicker onChange={this.props.pickPokemon1} />
-            </div>
+            {this.props.team1.map((pokemon, index) => {
+              return (
+                <PokemonPicker
+                  pokemon={pokemon}
+                  selected={this.state.selectedPicker1 === index}
+                  selectPicker={this.selectPicker.bind(this, 1, index)}
+                  pickPokemon={this.props.pickPokemon.bind(this, 1, index)}
+                  index={index}
+                  key={index}
+                />
+              );
+            })}
           </div>
+
+          <div className="versus-sign">VS</div>
 
           <div className="team-picker">
             <h3>Team 2</h3>
-            <div className="pokemon-picker">
-              <span>Pokemon 1</span>
-              <PokemonPicker onChange={this.props.pickPokemon2} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 2</span>
-              <PokemonPicker onChange={this.props.pickPokemon2} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 3</span>
-              <PokemonPicker onChange={this.props.pickPokemon2} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 4</span>
-              <PokemonPicker onChange={this.props.pickPokemon2} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 5</span>
-              <PokemonPicker onChange={this.props.pickPokemon2} />
-            </div>
-
-            <div className="pokemon-picker">
-              <span>Pokemon 6</span>
-              <PokemonPicker onChange={this.props.pickPokemon2} />
-            </div>
+            {this.props.team2.map((pokemon, index) => {
+              return (
+                <PokemonPicker
+                  pokemon={pokemon}
+                  selected={this.state.selectedPicker2 === index}
+                  selectPicker={this.selectPicker.bind(this, 2, index)}
+                  pickPokemon={this.props.pickPokemon.bind(this, 2, index)}
+                  index={index}
+                  key={index}
+                />
+              );
+            })}
           </div>
         </div>
       );
     } else {
       return (
         <div className="configuration">
-          <div className="pokemon-picker">
-            <span>Pokemon 1</span>
-            <PokemonPicker onChange={this.props.pickPokemon1} />
-          </div>
-          <div className="pokemon-picker">
-            <span>Pokemon 2</span>
-            <PokemonPicker onChange={this.props.pickPokemon2} />
-          </div>
+          <PokemonPicker
+            pokemon={this.props.team1[0]}
+            selected="true"
+            pickPokemon={this.props.pickPokemon.bind(this, 1, 0)}
+            index="0" />
+
+          <div className="versus-sign">VS</div>
+
+          <PokemonPicker
+            pokemon={this.props.team2[0]}
+            selected="true"
+            pickPokemon={this.props.pickPokemon.bind(this, 2, 0)}
+            index="1" />
         </div>
       );
     }

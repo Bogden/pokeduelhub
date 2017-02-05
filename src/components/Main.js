@@ -1,5 +1,5 @@
 require('normalize.css/normalize.css');
-require('styles/App.css');
+require('styles/App.styl');
 
 import React from 'react';
 import POKEMON_DATA from '../data/pokemon-data';
@@ -9,52 +9,77 @@ import Pokemon from '../classes/pokemon';
 import OutcomeTables from './OutcomeTables';
 import Configuration from './Configuration';
 
+// const blah = {
+//   team1: [{
+//     pokemon: 'a pokemon object here'
+//   }, {
+//     pokemon: 'another pokemon object here'
+//   }],
+//   team2: [{
+//     pokemon: 'a pokemon object here'
+//   }, {
+//     pokemon: 'another pokemon object here'
+//   }]
+// }
+
 class AppComponent extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.pickPokemon = this.pickPokemon.bind(this);
+    this.state = {
+      // Empty object represents no pokemon
+      team1: [{}, {}, {}, {}, {}, {}],
+      team2: [{}, {}, {}, {}, {}, {}]
+    };
   }
 
-  pickPokemon1(pickText) {
-    this.setState({
-      pickText1: pickText
-    });
+  getPokemonFromPickText(pickText) {
+    if (!pickText) {
+      return;
+    }
 
-    this.comparePokemon();
+    const id = parseInt(pickText.substring(0, pickText.indexOf('-') - 1));
+
+    if (!id) {
+      return;
+    }
+
+    const pokemonData = POKEMON_DATA.get(id);
+
+    if (!pokemonData) {
+      return;
+    }
+
+    return new Pokemon(pokemonData);
   }
 
-  pickPokemon2(pickText) {
-    this.setState({
-      pickText2: pickText
-    });
+  pickPokemon(teamNumber, index, pickText) {
+    let pokemon = this.getPokemonFromPickText(pickText);
+    if (!pokemon) {
+      return;
+    }
 
-    this.comparePokemon();
+    const teamPropertyName = `team${teamNumber}`;
+    const oldPokemon = this.state[teamPropertyName][index];
+
+    if (oldPokemon.name === pokemon.name) {
+      pokemon = oldPokemon;
+    }
+
+    const newState = {}
+    newState[teamPropertyName] = this.state[teamPropertyName];
+    newState[teamPropertyName][index] = pokemon;
+    newState[`pokemon${teamNumber}`] = pokemon;
+    this.setState(newState, this.comparePokemon);
   }
 
   comparePokemon() {
-    const pickText1 = this.state.pickText1;
-    const pickText2 = this.state.pickText2;
+    const pokemon1 = this.state.pokemon1;
+    const pokemon2 = this.state.pokemon2;
 
-    if (!pickText1 || !pickText2) {
+    if (!pokemon1 || !pokemon2) {
       return;
     }
-
-    const id1 = parseInt(pickText1.substring(0, pickText1.indexOf('-') - 1));
-    const id2 = parseInt(pickText2.substring(0, pickText2.indexOf('-') - 1));
-
-    if (!id1 || !id2) {
-      return;
-    }
-
-    const pokemonData1 = POKEMON_DATA.get(id1);
-    const pokemonData2 = POKEMON_DATA.get(id2);
-
-    if (!pokemonData1 || !pokemonData2) {
-      return;
-    }
-
-    const pokemon1 = new Pokemon(pokemonData1);
-    const pokemon2 = new Pokemon(pokemonData2);
 
     this.setState({
       outcomes: generateBattleOutcomes(pokemon1, pokemon2)
@@ -72,12 +97,14 @@ class AppComponent extends React.Component {
       <div className="index">
         <h1>Pokemon Duel Battle Calculator</h1>
 
-        <Configuration useTeams={this.state.useTeams} pickPokemon1={this.pickPokemon1.bind(this)} pickPokemon2={this.pickPokemon2.bind(this)} />
-        <label htmlFor="">
-          <input type="checkbox" onChange={this.handleUseTeams.bind(this)} /> Use teams?
-        </label>
-
-        <button className="compare-button" onClick={this.comparePokemon.bind(this)}>Compare!</button>
+        <Configuration
+          useTeams={this.state.useTeams}
+          team1={this.state.team1}
+          team2={this.state.team2}
+          pickPokemon={this.pickPokemon}
+        />
+        <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
+        <label htmlFor="use-teams">Use teams</label>
 
         <OutcomeTables className="outcome-tables" outcomes={this.state.outcomes} />
       </div>

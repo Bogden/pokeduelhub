@@ -4,6 +4,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 class Pokemon {
   constructor(data = {}) {
+    this.id = data.id;
     this.name = data.name;
     this.wheelSize = data.moves.reduce((totalSize, move) => {
       return totalSize + move.wheelSize;

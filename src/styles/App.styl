@@ -1,0 +1,416 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+html {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)),
+    linear-gradient(108deg, #26D0CE, #1A2980 90%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.index .notice {
+  margin: 20px auto;
+  padding: 15px 0;
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0;
+  background: #666;
+}
+
+/*** Table Styles **/
+
+.table-fill {
+  border-radius:3px;
+  border-collapse: collapse;
+  margin: auto;
+  max-width: 800px;
+  padding:5px;
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  animation: float 5s infinite;
+  margin-bottom: 60px;
+
+  th {
+    color:#FFFFFF;;
+    background:#396;
+    border-bottom:2px solid #9ea7af;
+    border-right: 1px solid #9ea7af;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding: 8px 15px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align:middle;
+  }
+
+  th:first-child {
+    border-top-left-radius:0.25em;
+  }
+   
+  th:last-child {
+    border-top-right-radius:0.25em;
+    border-right:none;
+  }
+    
+  tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    color:#666B85;
+    font-size:16px;
+    font-weight:normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+  }
+   
+  tr:hover td {
+    background:#4E5066;
+    color:#FFFFFF;
+    border-top: 1px solid #22262e;
+    border-bottom: 1px solid #22262e;
+  }
+   
+  tr:first-child {
+    border-top:none;
+  }
+
+  tr:last-child {
+    border-bottom:none;
+  }
+   
+  tr:nth-child(odd) td {
+    background:#EBEBEB;
+  }
+   
+  tr:nth-child(odd):hover td {
+    background:#4E5066;
+  }
+
+  tr:last-child td:first-child {
+    border-bottom-left-radius:3px;
+  }
+   
+  tr:last-child td:last-child {
+    border-bottom-right-radius:3px;
+  }
+   
+  td {
+    background:#FFFFFF;
+    padding:10px;
+    text-align:left;
+    vertical-align:middle;
+    font-weight:300;
+    font-size:18px;
+    border-right: 1px solid #C1C3D1;
+  }
+
+  td:last-child {
+    border-right: 0px;
+  }
+
+  th.text-left {
+    text-align: left;
+  }
+
+  th.text-center {
+    text-align: center;
+  }
+
+  th.text-right {
+    text-align: right;
+  }
+
+  td.text-left {
+    text-align: left;
+  }
+
+  td.text-center {
+    text-align: center;
+  }
+
+  td.text-right {
+    text-align: right;
+  }
+}
+
+/* Checkbox */
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    border-radius: 0.25em;
+    background: white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  }
+
+  & + label:after {
+    content: '';
+    display: none;
+    position: absolute;
+    left: 6px;
+    top: 9px;
+    background: #396;
+    width: 2px;
+    height: 2px;
+    transform: rotate(45deg);
+    box-shadow: 
+      2px 0 0 #396,
+      4px 0 0 #396,
+      4px -2px 0 #396,
+      4px -4px 0 #396,
+      4px -6px 0 #396;
+  }
+
+  &:hover + label:before {
+    background: #999;
+  }
+
+  &:not(:hover):checked + label:before {
+    background: white;
+  }
+  
+  // Disabled state
+  &.disabled + label,
+  &[disabled] + label {
+    color: #b8b8b8;
+  }
+  &.disabled + label:before,
+  &[disabled] + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+
+  // Checkmark. Could be replaced with an image
+  &:checked + label:after {
+    display: block;
+  }
+}
+
+/* Other */
+
+.index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 5px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: #fff;
+  text-shadow: 3px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.configuration {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 50px 30px;
+}
+
+.team-picker {
+  margin: 0 25px;
+}
+
+.pokemon-picker {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.selected .pokeball-options-button {
+  background-color: #396;
+}
+
+.versus-sign {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.pokemon-picker-main {
+  display: flex;
+}
+
+.pokemon-picker-sub-menu {
+  width: 100%;
+  background-color: #396;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  box-sizing: border-box;
+
+  .sub-menu-label {
+    text-align: left;
+  }
+
+  .incrementer input {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.sub-menu-input {
+  width: 30px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.pokeball-options-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #808080;
+  width: 34px;
+  height: 34px;
+  display: inline-block;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+  position: relative;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.pokeball-options-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../images/pokeball.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pokemon-picker-input {
+  padding: 0.5em 0.25em;
+  border: none;
+  outline: none;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+  text-align: center;
+}
+
+.incrementer {
+  display: flex;
+}
+
+$incrementer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: bold;
+  background: #fff;
+  color: #636363;
+}
+
+.incrementer-minus {
+  @extend $incrementer;
+  color: #bcbcbc; //Disabled
+  padding-left: 3px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.incrementer-plus {
+  @extend $incrementer;
+  padding-right: 3px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.sub-menu-headers {
+  font-weight: 300;
+}
+
+.sub-menu-move-name {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  padding: 0 5px;
+  text-shadow: 1px 1px 1.5px black;
+  border-radius: 2px;
+
+  &.type-white {
+    background-color: #d0d0d0;
+  }
+
+  &.type-gold {
+    background-color: #f3cf46;
+  }
+
+  &.type-purple {
+    background-color: #bd85ef;
+  }
+}
+
+.compare-button {
+  background: #396;
+  color: white;
+  text-align: center;
+  width: 150px;
+  padding: 0.5em 0.25em;
+  border: none;
+  border-radius: 0.2em;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  outline: none;
+  transition: transform 0.05s ease-out;
+}
+
+.compare-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.compare-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.outcome-tables {
+  margin: 40px;
+}
+
+.outcome-tie {
+  color: #ccc;
+}

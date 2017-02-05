@@ -56,13 +56,15 @@
     "react-hot-loader": "^1.2.9",
     "rimraf": "^2.4.3",
     "style-loader": "^0.13.0",
+    "stylus": "^0.54.5",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.0",
-    "webpack-dev-server": "^1.12.0"
+    "webpack-dev-server": "^1.12.0",
+    "stylus-loader": "^2.4.0",
+    "lodash": "^4.17.4"
   },
   "dependencies": {
     "core-js": "^2.0.0",
-    "lodash": "^4.17.4",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
