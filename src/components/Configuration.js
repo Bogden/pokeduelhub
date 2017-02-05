@@ -26,6 +26,7 @@ class SimplifiedOutcomeRow extends React.Component {
             {this.props.team1.map((pokemon, index) => {
               return (
                 <PokemonPicker
+                  notifyPokemonUpdate={this.props.notifyPokemonUpdate.bind(this.props.notifyPokemonUpdate, 1, index, pokemon)}
                   pokemon={pokemon}
                   selected={this.state.selectedPicker1 === index}
                   selectPicker={this.selectPicker.bind(this, 1, index)}
@@ -44,6 +45,7 @@ class SimplifiedOutcomeRow extends React.Component {
             {this.props.team2.map((pokemon, index) => {
               return (
                 <PokemonPicker
+                  notifyPokemonUpdate={this.props.notifyPokemonUpdate.bind(this.props.notifyPokemonUpdate, 2, index, pokemon)}
                   pokemon={pokemon}
                   selected={this.state.selectedPicker2 === index}
                   selectPicker={this.selectPicker.bind(this, 2, index)}
@@ -60,6 +62,7 @@ class SimplifiedOutcomeRow extends React.Component {
       return (
         <div className="configuration">
           <PokemonPicker
+            notifyPokemonUpdate={this.props.notifyPokemonUpdate.bind(this.props.notifyPokemonUpdate, 1, 0, this.props.team1[0])}
             pokemon={this.props.team1[0]}
             selected="true"
             pickPokemon={this.props.pickPokemon.bind(this, 1, 0)}
@@ -68,6 +71,7 @@ class SimplifiedOutcomeRow extends React.Component {
           <div className="versus-sign">VS</div>
 
           <PokemonPicker
+            notifyPokemonUpdate={this.props.notifyPokemonUpdate.bind(this.props.notifyPokemonUpdate, 2, 0, this.props.team2[0])}
             pokemon={this.props.team2[0]}
             selected="true"
             pickPokemon={this.props.pickPokemon.bind(this, 2, 0)}

@@ -276,11 +276,6 @@ h2 {
   .sub-menu-label {
     text-align: left;
   }
-
-  .incrementer input {
-    font-size: 12px;
-    line-height: 16px;
-  }
 }
 
 .sub-menu-input {
@@ -330,9 +325,24 @@ h2 {
 
 .incrementer {
   display: flex;
+
+  &.disabled {
+    opacity: 0.6;
+
+    .incrementer-plus, .incrementer-minus, .sub-menu-input {
+      background-color: #ebebe4;
+      cursor: default;
+    }
+  }
+
+  input {
+    font-size: 12px;
+    line-height: 16px;
+    width: 20px;
+  }
 }
 
-$incrementer {
+$incrementer-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,18 +351,25 @@ $incrementer {
   font-weight: bold;
   background: #fff;
   color: #636363;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: default;
+    color: #bcbcbc;
+  }
 }
 
 .incrementer-minus {
-  @extend $incrementer;
-  color: #bcbcbc; //Disabled
+  @extend $incrementer-button;
   padding-left: 3px;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
 }
 
 .incrementer-plus {
-  @extend $incrementer;
+  @extend $incrementer-button;
   padding-right: 3px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -370,16 +387,24 @@ $incrementer {
   text-shadow: 1px 1px 1.5px black;
   border-radius: 2px;
 
+  &.type-blue {
+    background-color: #62b2f3;
+  }
+
   &.type-white {
     background-color: #d0d0d0;
   }
 
   &.type-gold {
-    background-color: #f3cf46;
+    background-color: #c8aa32;
   }
 
   &.type-purple {
     background-color: #bd85ef;
+  }
+
+  &.type-miss {
+    background-color: #c13529;
   }
 }
 

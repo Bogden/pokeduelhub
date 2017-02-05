@@ -52,26 +52,25 @@ class PokemonPicker extends React.Component {
         </div>
         <div className="pokemon-picker-sub-menu">
           <table>
-            <tr className="sub-menu-headers">
-              <td>Size</td>
-              <td>Dmg</td>
-              <td>Move</td>
-            </tr>
-            <tr>
-              <td><Incrementer /></td>
-              <td><Incrementer /></td>
-              <td className="sub-menu-move-name type-white">Tackle</td>
-            </tr>
-            <tr>
-              <td><Incrementer /></td>
-              <td><Incrementer /></td>
-              <td className="sub-menu-move-name type-gold">Quick Attack</td>
-            </tr>
-            <tr>
-              <td><Incrementer /></td>
-              <td><Incrementer /></td>
-              <td className="sub-menu-move-name type-purple">Thunder Wave</td>
-            </tr>
+            <thead>
+              <tr className="sub-menu-headers">
+                <td>Size</td>
+                <td>Dmg</td>
+                <td>Move</td>
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.pokemon.moves && this.props.pokemon.moves.map((move, index) => {
+                const className = `sub-menu-move-name type-${move.type}`
+                return (
+                  <tr key={index} >
+                    <td><Incrementer type="size" move={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.wheelSize} /></td>
+                    <td><Incrementer type="power" move={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.power || ''} /></td>
+                    <td className={className}>{move.name}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </div>
@@ -81,7 +80,6 @@ class PokemonPicker extends React.Component {
           // <input id="asdf" className="styled-checkbox" type="checkbox" />
           // <label htmlFor="asdf">Option</label>
   componentDidMount() {
-    console.log('DID MOUNT', this.props.pokemon);
     if (this.props.pokemon.id) {
       this.textInput.value = `${this.props.pokemon.id} - ${this.props.pokemon.name}`
     }
@@ -97,7 +95,6 @@ class PokemonPicker extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('WILL UNMOUNT');
     this.awesomplete.container.parentNode.appendChild(this.textInput);
     this.awesomplete.container.remove();
   }

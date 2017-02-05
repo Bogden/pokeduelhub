@@ -26,6 +26,7 @@ class AppComponent extends React.Component {
   constructor() {
     super();
     this.pickPokemon = this.pickPokemon.bind(this);
+    this.handleNotifyPokemonUpdate = this.handleNotifyPokemonUpdate.bind(this);
     this.state = {
       // Empty object represents no pokemon
       team1: [{}, {}, {}, {}, {}, {}],
@@ -92,6 +93,15 @@ class AppComponent extends React.Component {
     });
   }
 
+  handleNotifyPokemonUpdate(teamNumber, index, pokemon) {
+    const teamPropertyName = `team${teamNumber}`;
+
+    const newState = {}
+    newState[teamPropertyName] = this.state[teamPropertyName];
+    newState[teamPropertyName][index] = pokemon;
+    this.setState(newState, this.comparePokemon);
+  }
+
   render() {
     return (
       <div className="index">
@@ -102,6 +112,7 @@ class AppComponent extends React.Component {
           team1={this.state.team1}
           team2={this.state.team2}
           pickPokemon={this.pickPokemon}
+          notifyPokemonUpdate={this.handleNotifyPokemonUpdate}
         />
         <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
         <label htmlFor="use-teams">Use teams</label>

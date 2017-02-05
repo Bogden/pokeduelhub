@@ -6,9 +6,6 @@ class Pokemon {
   constructor(data = {}) {
     this.id = data.id;
     this.name = data.name;
-    this.wheelSize = data.moves.reduce((totalSize, move) => {
-      return totalSize + move.wheelSize;
-    }, 0);
 
     const moves = [];
     data.moves.forEach(moveData => {
@@ -50,6 +47,29 @@ class Pokemon {
     });
 
     this.moves = moves;
+  }
+
+  get wheelSize() {
+    return this.moves.reduce((totalSize, move) => {
+      return totalSize + move.wheelSize;
+    }, 0);
+  }
+
+  fitSizes() {
+    // Loop through moves, get total extraSize outside misses
+    const extraSize = this.moves.reduce((totalSize, move) => {
+      if (move.type !== MOVE_TYPES.MISS) {
+        return totalSize + move.extraSize;
+      } else {
+        return totalSize;
+      }
+    }, 0);
+
+    // Subtract that from the first Miss move
+    const firstMiss = this.moves.find(move => move.type === MOVE_TYPES.MISS);
+    firstMiss.extraSize = Math.max(-extraSize, -firstMiss.baseWheelSize);
+
+    console.log('fitSizes', extraSize, firstMiss);
   }
 
   getMoveProbability(move) {

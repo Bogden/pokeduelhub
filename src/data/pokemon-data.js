@@ -221,7 +221,8 @@ POKEMON_DATA.set(170, {
   }, {
     name: 'Water Shuriken',
     type: 'gold',
-    power: '20x',
+    power: 20,
+    powerSuffix: 'x',
     wheelSize: 40,
     action: 'knocks out'
     // Need indicator for 20x
