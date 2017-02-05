@@ -57,10 +57,6 @@ class Move {
     }
   }
 
-  setExtraPower(extraPower) {
-    this.extraPower = extraPower;
-  }
-
   addExtraPower(amount = 1) {
     this.extraPower += amount;
   }

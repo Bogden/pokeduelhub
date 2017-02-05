@@ -6,6 +6,7 @@ class Pokemon {
   constructor(data = {}) {
     this.id = data.id;
     this.name = data.name;
+    this.extraPower = 0;
 
     const moves = [];
     data.moves.forEach(moveData => {
@@ -53,6 +54,22 @@ class Pokemon {
     return this.moves.reduce((totalSize, move) => {
       return totalSize + move.wheelSize;
     }, 0);
+  }
+
+  set power(newPower) {
+    newPower = parseInt(newPower) || 0;
+
+    this.extraPower = newPower;
+  }
+
+  addExtraPower(amount = 10) {
+    this.extraPower += amount;
+  }
+
+  subtractExtraPower(amount = 10) {
+    if (this.extraPower > 0) {
+      this.extraPower -= amount;
+    }
   }
 
   fitSizes() {

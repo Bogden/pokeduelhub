@@ -15,24 +15,23 @@ class OutcomeRow extends React.Component {
   }
 
   shouldShowPower() {
-    const move = this.props.move;
-    return move.type === MOVE_TYPES.WHITE || move.type === MOVE_TYPES.GOLD || move.type === MOVE_TYPES.PURPLE
+    const move = this.props.target;
+    // Always show if pokenon
+    return !move.type || move.type === MOVE_TYPES.WHITE || move.type === MOVE_TYPES.GOLD || move.type === MOVE_TYPES.PURPLE
   }
 
   shouldShowSize() {
-    return this.props.move.type !== MOVE_TYPES.MISS;
+    return this.props.target.type !== MOVE_TYPES.MISS;
     // return move.extraSize > 0 || (move.type === MOVE_TYPES.MISS && move.wheelSize > 0)
   }
 
   wrapMoveMethod(changeType) {
-    if (this.props.move) {
+    if (this.props.target) {
       const typeWord = this.props.type.charAt(0).toUpperCase() + this.props.type.slice(1);
+      // addExtraPower
+      // subtractExtraSize
       return () => {
-        this.props.move[`${changeType}Extra${typeWord}`]();
-
-        // // The "react"-y way to do this would be to pass all of these methods up to the root
-        // // and then setState with the new move data on the pokemon
-        // this.updateValue();
+        this.props.target[`${changeType}Extra${typeWord}`]();
         this.props.notifyPokemonUpdate();
       }
     }
@@ -41,15 +40,23 @@ class OutcomeRow extends React.Component {
   // Get diff between basePower and current value, set extraPower
   handleChange(event) {
     const newValue = event.target.value;
-    const move = this.props.move;
+    const move = this.props.target;
 
     if (this.props.type === 'size') {
       move.wheelSize = newValue;
-    } else {
+    } else if (this.props.type === 'power') {
       move.power = newValue;
     }
 
     this.props.notifyPokemonUpdate();
+  }
+
+  shouldDisableMinus() {
+    if (this.props.type === 'size') {
+      return this.props.target.wheelSize <= 0 || this.props.target.extraSize <= 0 || this.props.target.type === MOVE_TYPES.MISS;
+    } else if (this.props.type === 'power') {
+      return this.props.target.extraPower <= 0;
+    }
   }
 
   componentWillMount() {
@@ -63,7 +70,7 @@ class OutcomeRow extends React.Component {
 
     return (
       <div className={className}>
-        <button className="incrementer-minus" onClick={this.wrapMoveMethod('subtract')} disabled={this.state.disabled} >-</button>
+        <button className="incrementer-minus" onClick={this.wrapMoveMethod('subtract')} disabled={this.shouldDisableMinus()} >-</button>
         <input className="sub-menu-input" onChange={this.handleChange} type="text" value={this.props.value} disabled={this.state.disabled} />
         <button className="incrementer-plus" onClick={this.wrapMoveMethod('add')} disabled={this.state.disabled} >+</button>
       </div>

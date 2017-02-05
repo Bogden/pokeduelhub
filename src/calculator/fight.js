@@ -117,10 +117,19 @@ function getMoveOutcomeVsMiss(moveA, moveB) {
 }
 
 function getMoveOutcomeWithPower(moveA, moveB) {
-  if (moveA.power === moveB.power) {
+  let moveAPower = moveA.power;
+  let moveBPower = moveB.power;
+
+  if (moveA.type === MOVE_TYPES.WHITE || moveA.type === MOVE_TYPES.GOLD) {
+    // Factor in extra damage
+    moveAPower += moveA.pokemon.extraPower;
+    moveBPower += moveB.pokemon.extraPower;
+  }
+
+  if (moveAPower === moveBPower) {
     return MOVE_RESULTS.TIE;
   } else {
-    return moveA.power > moveB.power ? MOVE_RESULTS.MOVE_A : MOVE_RESULTS.MOVE_B
+    return moveAPower > moveBPower ? MOVE_RESULTS.MOVE_A : MOVE_RESULTS.MOVE_B;
   }
 }
 

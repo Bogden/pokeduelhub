@@ -13,12 +13,9 @@ for (let data of POKEMON_DATA.values()) {
 class PokemonPicker extends React.Component {
   constructor() {
     super();
+    this.pickPokemon = this.pickPokemon.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.pickPokemon = this.pickPokemon.bind(this);
-    this.state = {
-      selected: false
-    }
   }
 
   pickPokemon() {
@@ -39,18 +36,13 @@ class PokemonPicker extends React.Component {
   }
 
   render() {
-    return (
-      <div className={`pokemon-picker ${this.props.selected ? 'selected' : ''}`} onClick={this.handleClick}>
-        <div className="pokemon-picker-main">
-          <button className="pokeball-options-button"></button>
-          <input className="pokemon-picker-input"
-            type="text"
-            onChange={this.handleInputChange}
-            ref={input => this.textInput = input}
-            placeholder={`Pokemon ${parseInt(this.props.index) + 1}`}
-          />
-        </div>
-        <div className="pokemon-picker-sub-menu">
+    const subMenuWrapperClass = `pokemon-picker-sub-menu-wrapper ${this.props.subMenuOpen ? '' : 'hidden'}`
+
+    let subMenuContents;
+
+    if (this.props.pokemon.name) {
+      subMenuContents = (
+        <div className="pokemon-picker-sub-menu-contents">
           <table>
             <thead>
               <tr className="sub-menu-headers">
@@ -64,14 +56,43 @@ class PokemonPicker extends React.Component {
                 const className = `sub-menu-move-name type-${move.type}`
                 return (
                   <tr key={index} >
-                    <td><Incrementer type="size" move={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.wheelSize} /></td>
-                    <td><Incrementer type="power" move={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.power || ''} /></td>
+                    <td><Incrementer type="size" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.wheelSize} /></td>
+                    <td><Incrementer type="power" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.power || ''} /></td>
                     <td className={className}>{move.name}</td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
+          <div className="extra-damage">
+            <Incrementer type="size" type="power" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.extraPower || '00'} />
+            <span className="extra-damage-text">Bonus Damage</span>
+          </div>
+        </div>
+      );
+    } else {
+      subMenuContents = (
+        <div className="pokemon-picker-sub-menu-contents">
+          Pick a pokemon!
+        </div>
+      );
+    }
+
+    return (
+      <div className={`pokemon-picker ${this.props.selected ? 'selected' : ''}`} onClick={this.handleClick}>
+        <div className={subMenuWrapperClass}>
+          <div className="pokemon-picker-sub-menu">
+            {subMenuContents}
+          </div>
+        </div>
+        <div className="pokemon-picker-main">
+          <button className="pokeball-options-button" onClick={this.props.toggleSubMenu}></button>
+          <input className="pokemon-picker-input"
+            type="text"
+            onChange={this.handleInputChange}
+            ref={input => this.textInput = input}
+            placeholder={`Pokemon ${parseInt(this.props.index) + 1}`}
+          />
         </div>
       </div>
     );

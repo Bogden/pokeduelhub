@@ -19,6 +19,7 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .index .notice {
@@ -142,6 +143,10 @@ body {
   td.text-right {
     text-align: right;
   }
+
+  .outcome-tie {
+    color: #ccc;
+  }
 }
 
 /* Checkbox */
@@ -246,6 +251,7 @@ h2 {
 
 .pokemon-picker {
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -265,17 +271,63 @@ h2 {
   display: flex;
 }
 
+.pokemon-picker-sub-menu-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -200px;
+
+  &.hidden {
+    .pokemon-picker-sub-menu {
+      max-width: 34px;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .pokemon-picker-sub-menu-contents {
+      opacity: 0;
+    }
+  }
+}
+
 .pokemon-picker-sub-menu {
-  width: 100%;
+  position: absolute;
+  top: 100%;
   background-color: #396;
   display: flex;
-  padding: 10px;
   align-items: center;
   box-sizing: border-box;
+  z-index: 1;
+  border-bottom-left-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+  border-top-right-radius: 0.2em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  max-width: 270px;
+  max-height: 200px;
+  transition: max-width 0.25s ease-out, max-height 0.25s ease-out;
+  overflow: hidden;
 
   .sub-menu-label {
     text-align: left;
   }
+}
+
+.pokemon-picker-sub-menu-contents {
+  opacity: 1;
+  padding: 10px;
+}
+
+.extra-damage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.extra-damage-text {
+  margin-left: 20px;
+  font-weight: 300;
 }
 
 .sub-menu-input {
@@ -355,7 +407,7 @@ $incrementer-button {
   border: none;
   cursor: pointer;
 
-  &.disabled {
+  &[disabled] {
     cursor: default;
     color: #bcbcbc;
   }
@@ -436,6 +488,3 @@ $incrementer-button {
   margin: 40px;
 }
 
-.outcome-tie {
-  color: #ccc;
-}
