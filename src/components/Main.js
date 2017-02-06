@@ -108,21 +108,23 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <div className="body">
-          <DonateButton />
+          <div className="main-display">
+            <DonateButton />
 
-          <h1><span>Pokemon Duel</span> <span>Battle Calculator</span></h1>
+            <h1><span>Pokemon Duel</span> <span>Battle Calculator</span></h1>
 
-          <Configuration
-            useTeams={this.state.useTeams}
-            team1={this.state.team1}
-            team2={this.state.team2}
-            pickPokemon={this.pickPokemon}
-            notifyPokemonUpdate={this.handleNotifyPokemonUpdate}
-          />
-          <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
-          <label htmlFor="use-teams">Use teams</label>
+            <Configuration
+              useTeams={this.state.useTeams}
+              team1={this.state.team1}
+              team2={this.state.team2}
+              pickPokemon={this.pickPokemon}
+              notifyPokemonUpdate={this.handleNotifyPokemonUpdate}
+            />
+            <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
+            <label htmlFor="use-teams">Use teams</label>
 
-          <OutcomeTables className="outcome-tables" outcomes={this.state.outcomes} />
+            <OutcomeTables className="outcome-tables" outcomes={this.state.outcomes} />
+          </div>
           
           <Tip />
         </div>

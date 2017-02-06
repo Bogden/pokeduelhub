@@ -102,7 +102,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 25,Luxray,3,Crunch,White,24,50,knocks out,
 25,Luxray,4,Miss,Red,20,0,misses,
 26,Poliwag,1,Bubble,White,24,20,knocks out,
-26,Poliwag,2,Hypnosis,White,28,2,sleeps,
+26,Poliwag,2,Hypnosis,Purple,28,2,inflicts sleep on,
 26,Poliwag,3,Bubble,White,24,20,knocks out,
 26,Poliwag,4,Dodge,Blue,16,0,dodges,
 26,Poliwag,5,Miss,Red,4,0,misses,
@@ -131,7 +131,16 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 33,Emolga,1,Miss,Red,16,0,misses,
 33,Emolga,2,Thunder Shock,White,32,40,knocks out,
 33,Emolga,3,Miss,Red,12,0,misses,
-33,Emolga,4,Volt Switch,Purple,36,1,switches out,This pokemon switches with a pokemon on your bench.
+33,Emolga,4,Volt Switch,Purple,36,1,switches out against,This pokemon switches with a pokemon on your bench.
+34,Doduo,1,Peck,White,16,20,knocks out,
+34,Doduo,2,Fury Attack,White,48,20x,knocks out,"Spin again until Fury Attack does not land, damage is multiplied by the number of Fury Attack spins."
+34,Doduo,3,Peck,White,16,10,knocks out,
+34,Doduo,4,Dodge,Blue,12,0,dodges,
+34,Doduo,5,Miss,Red,4,0,misses,
+35,Treecko,1,Pound,White,16,20,knocks out,
+35,Treecko,2,Slam,White,56,30,knocks out,
+35,Treecko,3,Dodge,Blue,20,0,dodges,
+35,Treecko,4,Miss,Red,4,0,misses,
 40,Meowth,1,Fake Out,Purple,32,3,swaps with,This Pokemon switches places with its battle opponent
 40,Meowth,2,Scratch,White,36,40,knocks out,
 40,Meowth,3,Dodge,Blue,20,0,dodges,
@@ -144,6 +153,10 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 42,Ho-Oh,2,Fire Blast,White,28,100,knocks out,
 42,Ho-Oh,3,Rainbow Wing,Purple,24,3,flies away from,This pokemon moves 2 steps away.
 42,Ho-Oh,4,Miss,Red,12,0,misses,
+50,Charizard,1,Miss,Red,8,0,misses,
+50,Charizard,2,Fire Spin,White,56,50x,knocks out,"Spin again until Fire Spin does not land, damage is multiplies by the number of Fire Spin spins."
+50,Charizard,3,Miss,Red,4,0,misses,
+50,Charizard,4,Iron Tail,White,28,80,knocks out,
 101,Blastoise,1,Miss,Red,8,0,misses,
 101,Blastoise,2,Hydro Pump,White,40,100,knocks out,
 101,Blastoise,3,Miss,Red,8,0,misses,
@@ -188,10 +201,28 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 211,Gardevoir,2,Moonblast,White,36,70,knocks out,
 211,Gardevoir,3,Super Psy,White,20,40,knocks out,
 211,Gardevoir,4,Miss,Red,12,0,misses,
+215,Kirlia,1,Moonblast,White,24,60,knocks out,
+215,Kirlia,2,Super Psy,White,36,40,knocks out,"If this pokemon is knocked out, the battle opponent becomes confused."
+215,Kirlia,3,Psycho Switch,Purple,24,2,benches;switches out,"Benches the battle opponent. This pokemon switches with another of your pokemon from the field, bench, or P.C."
+215,Kirlia,4,Miss,Red,12,0,misses,
+223,Glaceon,1,Dodge,Blue,20,0,dodges,
+223,Glaceon,2,Tackle,White,44,40,knocks out,
+223,Glaceon,3,Diamond Dust,Purple,24,1,freezes,The battle opponent becomes frozen.
+223,Glaceon,4,Miss,Red,8,0,misses,
+225,Weavile,1,Taunt,Purple,28,2,respins,"If this pokemon or the opponent spin Purple, they must respin for the turn."
+225,Weavile,2,Miss,Red,4,0,misses,
+225,Weavile,3,Ice Punch,White,32,50,knocks out,
+225,Weavile,4,Ice Shard,Gold,32,20,knocks out,
 226,Manaphy,1,Dodge,Blue,4,0,dodges,
 226,Manaphy,2,Manaphy's Song,Purple,36,2,sings to,One other Water-type Pokémon on the field (that is not asleep or frozen) may be moved within their MP range. That Pokémon gains wait
 226,Manaphy,3,Miss,Red,4,0,misses,
 226,Manaphy,4,Bubble,White,52,20,knocks out,
+233,Raikou,1,Miss,Red,8,0,misses,
+233,Raikou,2,Bite,White,20,50,knocks out,
+233,Raikou,3,Thunderous Blow,Gold,24,80,knocks out,
+233,Raikou,4,Bite,White,20,50,knocks out,
+233,Raikou,5,Miss,Red,8,0,misses,
+233,Raikou,6,Dodge,Blue,16,0,dodges,
 234,Latios,1,Dodge,Blue,12,0,dodges,
 234,Latios,2,Luster Purge,White,20,120,knocks out,
 234,Latios,3,Dragon Breath,White,32,70,knocks out,

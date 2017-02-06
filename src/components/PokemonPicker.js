@@ -25,6 +25,8 @@ class PokemonPicker extends React.Component {
   }
 
   handleClick() {
+    this.textInput.setSelectionRange(0, this.textInput.value.length);
+
     if (this.props.selectPicker) {
       this.props.selectPicker();
       this.pickPokemon();
