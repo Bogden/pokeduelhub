@@ -9,12 +9,14 @@ class Pokemon {
     this.extraPower = 0;
 
     const moves = [];
+
     data.moves.forEach(moveData => {
-      if (moveData.power && moveData.power.toString().indexOf('+') === 0) {
+      if (moveData.power && moveData.power.toString().indexOf('x') === 0) {
         // Respin boost move
         data.moves.forEach(innerMoveData => {
           if (innerMoveData !== moveData) {
             const moveClone = cloneDeep(innerMoveData);
+            moveClone.hidden = true;
             const sameMoveNameCount = moves.filter(existingMove => existingMove.name === moveClone.name).length;
 
             if (sameMoveNameCount) {
@@ -22,13 +24,16 @@ class Pokemon {
             }
 
             moveClone.name += ` (${moveData.name})`;
-            moveClone.wheelSize = moveClone.wheelSize * moveData.wheelSize / (this.wheelSize - moveData.wheelSize);
+            const totalSize = data.moves.reduce((totalSize, move) => {
+              return totalSize + move.wheelSize;
+            }, 0);
+            moveClone.wheelSize = moveClone.wheelSize * moveData.wheelSize / (totalSize - moveData.wheelSize);
             // Clone wheel size =
             // percent of wheel minus respin move
             // times size of respin move
 
             if (moveClone.type === MOVE_TYPES.WHITE || moveClone.type === MOVE_TYPES.GOLD) {
-              moveClone.power += 20;
+              moveClone.power *= parseInt(moveData.power);
             }
 
             moves.push(new Move(moveClone, this));

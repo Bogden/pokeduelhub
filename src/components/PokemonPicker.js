@@ -29,6 +29,11 @@ class PokemonPicker extends React.Component {
       this.props.selectPicker();
       this.pickPokemon();
     }
+
+    if (!this.props.pokemon.name && this.awesomplete) {
+      this.awesomplete.evaluate();
+      this.awesomplete.open();
+    }
   }
 
   handleInputChange(event) {
@@ -54,6 +59,9 @@ class PokemonPicker extends React.Component {
             <tbody>
               {this.props.pokemon.moves && this.props.pokemon.moves.map((move, index) => {
                 const className = `sub-menu-move-name type-${move.type}`
+                if (move.hidden) {
+                  return '';
+                }
                 return (
                   <tr key={index} >
                     <td><Incrementer type="size" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.wheelSize} /></td>
@@ -98,8 +106,6 @@ class PokemonPicker extends React.Component {
     );
   }
 
-          // <input id="asdf" className="styled-checkbox" type="checkbox" />
-          // <label htmlFor="asdf">Option</label>
   componentDidMount() {
     if (this.props.pokemon.id) {
       this.textInput.value = `${this.props.pokemon.id} - ${this.props.pokemon.name}`
@@ -107,7 +113,9 @@ class PokemonPicker extends React.Component {
 
     this.awesomplete = new Awesomplete(this.textInput, {
       list: dataArray,
-      autoFirst: true
+      autoFirst: true,
+      minChars: 0,
+      maxItems: 999
     });
 
     this.textInput.addEventListener('awesomplete-selectcomplete', () => {
