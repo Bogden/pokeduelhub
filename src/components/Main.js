@@ -8,6 +8,7 @@ import Pokemon from '../classes/pokemon';
 
 import OutcomeTables from './OutcomeTables';
 import Configuration from './Configuration';
+import DonateButton from './DonateButton';
 
 // const blah = {
 //   team1: [{
@@ -105,7 +106,9 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <h1>Pokemon Duel Battle Calculator</h1>
+        <DonateButton />
+
+        <h1><span>Pokemon Duel</span> <span>Battle Calculator</span></h1>
 
         <Configuration
           useTeams={this.state.useTeams}
