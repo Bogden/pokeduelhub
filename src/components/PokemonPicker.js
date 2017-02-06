@@ -115,7 +115,8 @@ class PokemonPicker extends React.Component {
       list: dataArray,
       autoFirst: true,
       minChars: 0,
-      maxItems: 999
+      maxItems: 999,
+      sort: (a, b) => parseInt(a.value) - parseInt(b.value)
     });
 
     this.textInput.addEventListener('awesomplete-selectcomplete', () => {

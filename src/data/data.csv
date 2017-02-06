@@ -1,0 +1,184 @@
+ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additional Rules
+1,Dialga,1,Miss,Red,12,0,misses,
+1,Dialga,2,Roar of Time,White,36,110,knocks out,"If the battle opponent is knocked out, the next turn will always be the other player's"
+1,Dialga,3,Miss,Red,8,0,misses,
+1,Dialga,4,Dragon Claw,White,40,60,knocks out,
+2,Tauros,1,Tackle,White,8,30,knocks out,
+2,Tauros,2,Miss,Red,16,0,misses,
+2,Tauros,3,Take Down,White,24,80,knocks out,
+2,Tauros,4,Miss,Red,12,0,misses,
+2,Tauros,5,Tackle,White,8,30,knocks out,
+2,Tauros,6,Kick Away,Purple,28,1,kicks away,The battle opponent is knocked 2 steps back (the opponent chooses the point) and gains Wait
+3,Armaldo,1,Miss,Red,24,0,misses,
+3,Armaldo,2,Protect,Blue,12,0,protects against,
+3,Armaldo,3,Pierce Through,White,20,120,knocks out,
+3,Armaldo,4,Iron Tail,White,40,40,knocks out,
+4,Charmander,1,Smokescreen,Purple,28,1,gives wait,The battle opponent now has wait
+4,Charmander,2,Flame Tail,White,24,40,knocks out,
+4,Charmander,3,Scratch,White,32,40,knocks out,
+4,Charmander,4,Miss,Red,12,0,misses,
+5,Mightyena,1,Taunt,Purple,24,2,forces respin,"If this Pokemon or the opponent Pokemon spins purple, they must respin for that turn."
+5,Mightyena,2,Crunch,White,28,50,knocks out,
+5,Mightyena,3,Bite,White,32,40,knocks out,
+5,Mightyena,4,Miss,Red,12,0,misses,
+6,Ekans,1,Spit poison,Purple,28,2,poisons,The battle opponent becomes poisoned.
+6,Ekans,2,Wrap,White,24,20,knocks out,
+6,Ekans,3,Wrap,White,24,20,knocks out,
+6,Ekans,4,Miss,Red,20,0,misses,
+7,Bayleef,1,Poison Powder,Purple,20,1,poisons,The battle opponent becomes poisoned.
+7,Bayleef,2,Body Slam,White,56,40,knocks out,
+7,Bayleef,3,Miss,Red,20,0,knocks out,
+8,Snubbull,1,Roar,Purple,28,2,kicks away,The battle opponent is knocked 1 step back (the opponent chooses the point) and gains wait.
+8,Snubbull,2,Bite,White,32,51,knocks out,
+8,Snubbull,3,Paw,White,32,10,knocks out ,
+8,Snubbull,4,Miss,Red,4,0,knocks out,
+9,Plusle,1,Tackle,White,28,30,knocks out,
+9,Plusle,2,Spark,White,48,20,knocks out,
+9,Plusle,3,Miss,Red,20,0,misses,
+10,Seedot,1,Explosion,Purple,28,2,explodes,This Pokemon and all neighbor Pokemon faint
+10,Seedot,2,Bullet Seed,White,40,20x,knocks out,
+10,Seedot,3,Tackle,White,24,10,knocks out,
+10,Seedot,4,Miss,Red,4,0,misses,
+11,Metagross,1,Hyper Beam*,White,24,150,knocks out,"The battle opponent is knocked out, the next turn will always be the other player's."
+11,Metagross,2,Metal Claw,White,16,80,knocks out,
+11,Metagross,3,Metal Claw,White,16,80,knocks out,
+11,Metagross,4,Bullet Punch,Gold,20,30,knocks out,
+11,Metagross,5,Dodge,Blue,4,0,dodges,
+11,Metagross,6,Dodge,Blue,4,0,dodges,
+11,Metagross,7,Dodge,Blue,4,0,dodges,
+11,Metagross,8,Dodge,Blue,4,0,dodges,
+11,Metagross,9,Miss,Red,4,0,misses,
+12,Sentret,1,Step Away,Blue,28,0,steps away,This Pokemon mvoes 1-3 steps back.
+12,Sentret,2,Tail Smack,White,24,40,knocks out ,
+12,Sentret,3,Scratch,White,12,20,knocks out ,
+12,Sentret,4,Scratch,White,12,20,knocks out ,
+12,Sentret,5,Miss,Red,12,0,misses,
+12,Sentret,6,Miss,Red,8,0,misses,
+13,Golem,1,Rock Blast,White,60x,60,knocks out,
+13,Golem,2,Rock Throw,White,24,40,knocks out,
+13,Golem,3,Rock Wall*,White,24,30,knocks out,"If the battle opponent's attack is below 120 damage, this pokemon cannot be knocked out."
+13,Golem,4,Miss,Red,12,0,misses,
+14,Spinarak,1,Constrict,Purple,36,2,gives wait,The battle opponent now has wait.
+14,Spinarak,2,Poison Sting,Purple,16,1,poisons,The battle opponent becomes poisoned.
+14,Spinarak,3,Scratch,White,20,20,knocks out,
+14,Spinarak,4,Scratch,White,20,20,knocks out,
+14,Spinarak,5,Miss,Red,4,0,misses,
+15,Aipom,1,Miss,Red,20,0,misses,
+15,Aipom,2,Scratch,White,56,20,knocks out,
+15,Aipom,3,Tail Smack,White,20,30,knocks out,
+17,Murkrow,1,Peck,White,24,10,knocks out,
+17,Murkrow,2,Whirlwind,Purple,32,1,benches,The battle opponent is moved to the bench and gains wait.
+17,Murkrow,3,Astonish,White,28,30,knocks out,
+17,Murkrow,4,Miss,Red,12,0,misses,
+18,Caterpie,1,Miss,Red,8,0,misses,
+18,Caterpie,2,String Wrap,Purple,52,1,slows,Attaches a -1MP marker to the battle opponent.
+18,Caterpie,3,Miss,Red,4,0,misses,
+18,Caterpie,4,Tackle,White,32,10,knocks out,
+19,Mudkip,1,Water Gun,White,48,30,knocks out,
+19,Mudkip,2,Take Down,White,12,50,knocks out,
+19,Mudkip,3,Tackle,White,24,10,knocks out,
+19,Mudkip,4,Miss,Red,12,0,misses,
+20,Bidoof,1,Cut,White,44,50,knocks out,
+20,Bidoof,2,Rock Smash,White,48,20,knocks out,
+20,Bidoof,3,Miss,Red,4,0,misses,
+21,Steelix,1,Iron Tail,White,16,90,knocks out,
+21,Steelix,2,Screech,Purple,20,1,waits,All neighboring pokemon have wait.
+21,Steelix,3,Crunch,White,32,70,knocks out,
+21,Steelix,4,Explosion,Purple,24,2,explodes,This pokemon and all neighboring pokemon faint.
+21,Steelix,5,Miss,Red,4,0,misses,
+22,Marill,1,Tackle,White,20,30,knocks out,
+22,Marill,2,Water Gun,White,28,40,knocks out,
+22,Marill,3,Rollout,White,28,30x,knocks out,Spin again until Rollout does not land - damage is multiplied by the number of Rollout spins.
+22,Marill,4,Miss,Red,20,0,misses,
+23,Raticate,1,Hyper Fang,White,28,70,knocks out,
+23,Raticate,2,Tackle,White,64,10,knocks out,
+23,Raticate,3,Miss,Red,4,0,misses,
+24,Machop,1,Miss,Red,4,0,misses,
+24,Machop,2,Focus Punch,White,56,40,knocks out,
+24,Machop,3,Miss,Red,4,0,misses,
+24,Machop,4,Dodge,Blue,28,0,dodges,
+25,Luxray,1,Bite,White,24,20,knocks out,
+25,Luxray,2,Roar,Purple,28,2,moves;waits,The battle opponent is knocked back one space and gains Wait 1.
+25,Luxray,3,Crunch,White,24,50,knocks out,
+25,Luxray,4,Miss,Red,20,0,misses,
+26,Poliwag,1,Bubble,White,24,20,knocks out,
+26,Poliwag,2,Hypnosis,White,28,2,sleeps,
+26,Poliwag,3,Bubble,White,24,20,knocks out,
+26,Poliwag,4,Dodge,Blue,16,0,dodges,
+26,Poliwag,5,Miss,Red,4,0,misses,
+27,Teddiursa,1,Scratch,White,48,30,knocks out,
+27,Teddiursa,2,Feint Attack,White,12,60,knocks out,
+27,Teddiursa,3,Fake Tears,White,24,0,forces respin,Spin again until an attack that isn't fake Tears is rolled. Damage attacks rolled this way deal +20 damage.
+27,Teddiursa,4,Miss,Red,12,0,misses,
+28,Tyrogue,1,High Jump Kick,White,20,50,knocks out,
+28,Tyrogue,2,Tackle,White,72,30,knocks out,
+28,Tyrogue,3,Miss,Red,4,0,misses,
+29,Chespin,1,Vine Whip,White,24,30,knocks out,
+29,Chespin,2,Tackle,White,24,20,knocks out,
+29,Chespin,3,Vine Whip,White,24,50,knocks out,
+29,Chespin,4,Protect,Blue,20,0,protects against,This pokemon gains Wait 1.
+29,Chespin,5,Miss,Red,4,0,misses,
+30,Lugia,1,Miss,Red,8,0,misses,
+30,Lugia,2,Aeroblast,White,24,70,knocks out,
+30,Lugia,3,Hurricane,Purple,24,3,benches;waits,The battle opponent is moved to the bench and gains Wait 1.
+30,Lugia,4,Aeroblast,White,24,70,knocks out,
+30,Lugia,5,Miss,Red,8,0,misses,
+30,Lugia,6,Dodge,Blue,8,0,dodges,
+40,Meowth,1,Fake Out,Purple,32,3,swaps with,This Pokemon switches places with its battle opponent
+40,Meowth,2,Scratch,White,36,40,knocks out,
+40,Meowth,3,Dodge,Blue,20,0,dodges,
+40,Meowth,4,Miss,Red,8,0,misses,
+41,Zubat,1,Leech Life,White,32,20,knocks out,
+41,Zubat,2,Air Cutter,White,12,40,knocks out,
+41,Zubat,3,Supersonic,Purple,32,2,confuses,The battle opponent becomes confused
+41,Zubat,4,Miss,Red,20,0,misses,
+42,Ho-Oh,1,Gust,White,32,50,knocks out,
+42,Ho-Oh,2,Fire Blast,White,28,100,knocks out,
+42,Ho-Oh,3,Rainbow Wing,Purple,24,3,This pokemon moves 2 steps away.,
+42,Ho-Oh,4,Miss,Red,12,0,misses,
+170,Greninja,1,Miss,Red,4,0,misses,
+170,Greninja,2,Dodge,Blue,28,0,dodges,
+170,Greninja,3,Hydro Pump,White,20,60,knocks out,
+170,Greninja,4,Miss,Red,4,0,misses,
+170,Greninja,5,Water Shuriken*,Gold,40,20x,knocks out,"Spin again until Water Shuriken Attack does not land - damage is multiplied by the number of Water Shuriken Attack spins. An opponent Pokemon next to the target spins, and if it spins a Purple Attack then it is knocked out"
+234,Latios,1,Dodge,Blue,12,0,dodges,
+234,Latios,2,Luster Purge,White,20,120,knocks out,
+234,Latios,3,Dragon Breath,White,32,70,knocks out,
+234,Latios,4,Dodge,Blue,12,0,dodges,
+234,Latios,5,Miss,Red,4,0,misses,
+234,Latios,6,Psychic,White,16,60,knocks out,
+250,Magmar,1,Fire Punch,White,52,50,knocks out;burns,"If this pokemon is knocked out, the battle opponent becomes burned."
+250,Magmar,2,Miss,Red,16,0,misses,
+250,Magmar,3,Confuse Ray,Purple,28,3,confuses,
+251,Shuppet,1,Miss,Red,12,0,misses,
+251,Shuppet,2,Will-o-Wisp,Purple,28,1,burns,The battle opponent becomes burned
+251,Shuppet,3,Night Shade,White,56,10,knocks out,
+262,Magmortar,1,MIss,Red,16,0,misses,
+262,Magmortar,2,Flame Gun,Purple,28,2,knocks out,Also knocks out one adjacent pokemon
+262,Magmortar,3,Fire Punch,White,52,60,knocks out;burns,"If this pokemon is knocked out, the battle opponent becomes burned."
+237,Latias,1,Fly away,Purple,12,3,jumps over,This pokemon jumps over the battle opponent and lands on a surrounding point
+237,Latias,2,Fly Away,Purple,12,3,jumps over,This pokemon jumps over the battle opponent and lands on a surrounding point
+237,Latias,3,Mist Ball,White,20,110,knocks out,
+237,Latias,4,Dragon Breathe,White,32,70,knocks out,
+237,Latias,5,Psychic,White,16,60,knocks out,
+237,Latias,6,Miss,Red,4,0,misses,
+269,Zapdos,1,Steel Wing,White,16,50,knocks out,
+269,Zapdos,2,Thunder Crash,Gold,32,100,knocks out,
+269,Zapdos,3,Miss,Red,12,0,misses,
+269,Zapdos,4,Roost,Blue,16,0,full heals;waits,"Recovers from all staus effects, then the pokemon waits 3"
+269,Zapdos,5,Thunder Charge,Purple,20,2,adds charge,"Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are paralyzed, and the turn ends."
+271,Moltres,1,Steel Wing,White,16,60,knocks out,
+271,Moltres,2,Crushing Flames,White,32,110,knocks out,
+271,Moltres,3,Miss,Red,12,0,misses,
+271,Moltres,4,Roost,Blue,16,0,full heals;waits,"Recovers from all staus effects, then the pokemon waits 3"
+271,Moltres,5,Flame Charge,Purple,20,2,adds charge,"Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are burned, and the turn ends."
+273,Floatzel,1,Miss,Red,8,0,misses,
+273,Floatzel,2,Dodge,Blue,12,0,dodges,
+273,Floatzel,3,Aqua Jet,Gold,28,20,knocks out,
+273,Floatzel,4,Dodge,Blue,12,0,dodges,
+273,Floatzel,5,Surf,White,36,50,knocks out,
+274,Articuno,1,Steel Wing,White,16,70,knocks out,
+274,Articuno,2,Cold Crush,White,32,90,knocks out,
+274,Articuno,3,Miss,Red,12,0,misses,
+274,Articuno,4,Roost,Blue,16,0,full heals;waits,"Recovers from all staus effects, then the pokemon waits 3"
+274,Articuno,5,Ice Charge,Purple,20,2,adds charge,"Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are frozen, and the turn ends."

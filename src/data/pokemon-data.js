@@ -1,4 +1,12 @@
+import data from './data.json';
 const POKEMON_DATA = new Map();
+
+const map = new Map();
+data.forEach(pokemonData => {
+  map.set(pokemonData.id, pokemonData);
+});
+
+export default map;
 
 function generateMove(moveType, options = {}) {
   switch (moveType) {
@@ -317,4 +325,4 @@ POKEMON_DATA.set(104, {
   }]
 });
 
-export default POKEMON_DATA;
+// export default POKEMON_DATA;

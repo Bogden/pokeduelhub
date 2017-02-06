@@ -3,7 +3,7 @@ const MOVE_TYPES = {
   GOLD: 'gold',
   PURPLE: 'purple',
   BLUE: 'blue',
-  MISS: 'miss'
+  MISS: 'red'
 }
 
 export default MOVE_TYPES;
