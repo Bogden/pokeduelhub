@@ -58,11 +58,17 @@ class AppComponent extends React.Component {
 
   pickPokemon(teamNumber, index, pickText) {
     let pokemon = this.getPokemonFromPickText(pickText);
+    const teamPropertyName = `team${teamNumber}`;
+
     if (!pokemon) {
+      const newState = {}
+      newState[teamPropertyName] = this.state[teamPropertyName];
+      newState[teamPropertyName][index] = {};
+      newState[`pokemon${teamNumber}`] = {};
+      this.setState(newState);
       return;
     }
 
-    const teamPropertyName = `team${teamNumber}`;
     const oldPokemon = this.state[teamPropertyName][index];
 
     if (oldPokemon.name === pokemon.name) {

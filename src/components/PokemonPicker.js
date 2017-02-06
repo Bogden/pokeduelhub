@@ -39,7 +39,7 @@ class PokemonPicker extends React.Component {
   }
 
   handleInputChange(event) {
-    this.setState({inputValue: event.target.value});
+    this.setState({inputValue: event.target.value}, this.props.pickPokemon);
   }
 
   render() {
