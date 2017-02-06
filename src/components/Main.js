@@ -9,6 +9,7 @@ import Pokemon from '../classes/pokemon';
 import OutcomeTables from './OutcomeTables';
 import Configuration from './Configuration';
 import DonateButton from './DonateButton';
+import Tip from './Tip';
 
 // const blah = {
 //   team1: [{
@@ -106,21 +107,26 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <DonateButton />
+        <div className="body">
+          <DonateButton />
 
-        <h1><span>Pokemon Duel</span> <span>Battle Calculator</span></h1>
+          <h1><span>Pokemon Duel</span> <span>Battle Calculator</span></h1>
 
-        <Configuration
-          useTeams={this.state.useTeams}
-          team1={this.state.team1}
-          team2={this.state.team2}
-          pickPokemon={this.pickPokemon}
-          notifyPokemonUpdate={this.handleNotifyPokemonUpdate}
-        />
-        <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
-        <label htmlFor="use-teams">Use teams</label>
+          <Configuration
+            useTeams={this.state.useTeams}
+            team1={this.state.team1}
+            team2={this.state.team2}
+            pickPokemon={this.pickPokemon}
+            notifyPokemonUpdate={this.handleNotifyPokemonUpdate}
+          />
+          <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
+          <label htmlFor="use-teams">Use teams</label>
 
-        <OutcomeTables className="outcome-tables" outcomes={this.state.outcomes} />
+          <OutcomeTables className="outcome-tables" outcomes={this.state.outcomes} />
+          
+          <Tip />
+        </div>
+        <div className="footer">Copyright © 2017 <a href="mailto:pokeduelhub@gmail.com">Bogden</a> - All Rights Reserved.</div>
       </div>
     );
   }

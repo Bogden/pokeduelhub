@@ -290,13 +290,33 @@ body {
 }
 
 /* Other */
+#app {
+  height: 100%;
+}
 
 .index {
-  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 40px;
+  box-sizing: border-box;
   text-align: center;
   // display: flex;
   // flex-direction: column;
   // align-items: center;
+}
+
+.footer {
+  position: relative;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+
+a {
+  color: white;
 }
 
 h1 {
@@ -308,6 +328,17 @@ h1 {
 h2 {
   color: #fff;
   text-shadow: 3px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.tip {
+  margin: 150px 0 40px;
+}
+
+.next-tip {
+  display: inline-block;
+  cursor: pointer;
+  color: #c5c5c5;
+  user-select: none;
 }
 
 .configuration {
@@ -581,7 +612,8 @@ $incrementer-button {
 @media (max-width: 570px) {
   body {
     overflow: visible;
-  }  
+    font-size: 12px;
+  }
 
   h1 {
     display: flex;
