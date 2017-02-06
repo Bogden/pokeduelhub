@@ -289,6 +289,10 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
     });
   });
 
+  if (pokemonA.name === pokemonB.name) {
+    pokemonB.name += ' #2';
+  }
+
   // TODO: Add initial simplification that combines identical outcomes
 
   return outcomes.sort((a, b) => b.probability - a.probability);

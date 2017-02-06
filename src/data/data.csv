@@ -108,7 +108,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 26,Poliwag,5,Miss,Red,4,0,misses,
 27,Teddiursa,1,Scratch,White,48,30,knocks out,
 27,Teddiursa,2,Feint Attack,White,12,60,knocks out,
-27,Teddiursa,3,Fake Tears,White,24,0,forces respin,Spin again until an attack that isn't fake Tears is rolled. Damage attacks rolled this way deal +20 damage.
+27,Teddiursa,3,Fake Tears,White,24,+20,forces respin,Spin again until an attack that isn't fake Tears is rolled. Damage attacks rolled this way deal +20 damage.
 27,Teddiursa,4,Miss,Red,12,0,misses,
 28,Tyrogue,1,High Jump Kick,White,20,50,knocks out,
 28,Tyrogue,2,Tackle,White,72,30,knocks out,
@@ -136,17 +136,72 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 42,Ho-Oh,2,Fire Blast,White,28,100,knocks out,
 42,Ho-Oh,3,Rainbow Wing,Purple,24,3,This pokemon moves 2 steps away.,
 42,Ho-Oh,4,Miss,Red,12,0,misses,
+101,Blastoise,1,Miss,Red,8,0,misses,
+101,Blastoise,2,Hydro Pump,White,40,100,knocks out,
+101,Blastoise,3,Miss,Red,8,0,misses,
+101,Blastoise,4,Mirror Coat,Purple,40,2,reflects,The battle opponent is knocked out if they spin purple.
+112,Rayquaza,1,Miss,Red,16,0,misses,
+112,Rayquaza,2,Fly,Purple,28,3,flies over,This Pokémon jumps over the battle opponent and lands 1-2 steps away.
+112,Rayquaza,3,Extreme Speed,Gold,24,120,knocks out,
+112,Rayquaza,4,Twister,White,28,50,knocks out,
+138,Xerneas,1,Miss,Red,8,0,misses,
+138,Xerneas,2,Moonblast,White,20,70,knocks out,
+138,Xerneas,3,Dodge,Blue,4,0,dodges,
+138,Xerneas,4,Geomancy,White,12,+50,knocks out,Spin again until an Attack other than Geomancy is spun. Damage attacks do +50 damage
+138,Xerneas,5,Dodge,Blue,4,0,dodges,
+138,Xerneas,6,Moonblast,White,24,70,knocks out,
+138,Xerneas,7,Miss,Red,4,0,misses,
+138,Xerneas,8,Fairy Mist,Purple,20,2,boosts against,"When this Pokémon is on the field, your Fairy-type Pokémon receive a +10 boost to attack damage"
+139,Yveltal,1,Draining Wind,Purple,20,3,drains from,One Pokémon within 3 steps' range is drawn 1-2 steps closer to this Pokémon and gains Wait.
+139,Yveltal,2,Miss,Red,4,0,misses,
+139,Yveltal,3,Oblivion Wing,White,44,100,knocks out,
+139,Yveltal,4,Miss,Red,4,0,misses,
+139,Yveltal,5,Dark Mist,Purple,20,2,boosts against,"When this Pokémon is on the field, your Dark-type Pokémon receive a +10 boost to attack damage"
+139,Yveltal,6,Miss,Red,4,0,misses,
+142,Chesnaught,1,Miss,Red,8,0,misses,
+142,Chesnaught,2,Spiky Shield,Purple,40,2,knocks back,The battle opponent is knocked 2 steps back and gains Wait 3
+142,Chesnaught,3,Miss,Red,8,0,misses,
+142,Chesnaught,4,Hammer Arm,White,40,50,knocks out,This Pokémon gains Wait
+149,Quilladin,1,Miss,Red,4,0,misses,
+149,Quilladin,2,Needle Arm,White,20,50,knocks out,The battle opponent gains Wait
+149,Quilladin,3,Mud Shot,White,32,40,knocks out,Attach MP-1 marker to the battle opponent.
+149,Quilladin,4,Needle Arm,White,20,50,knocks out,The battle opponent gains Wait
+149,Quilladin,5,Protect,Blue,20,0,protects against,This Pokémon gains Wait
 170,Greninja,1,Miss,Red,4,0,misses,
 170,Greninja,2,Dodge,Blue,28,0,dodges,
 170,Greninja,3,Hydro Pump,White,20,60,knocks out,
 170,Greninja,4,Miss,Red,4,0,misses,
 170,Greninja,5,Water Shuriken*,Gold,40,20x,knocks out,"Spin again until Water Shuriken Attack does not land - damage is multiplied by the number of Water Shuriken Attack spins. An opponent Pokemon next to the target spins, and if it spins a Purple Attack then it is knocked out"
+203,Lucario,1,Dodge,Blue,24,0,dodges,
+203,Lucario,2,Aura Sphere,Purple,28,1,aura sphere's,Either the battle opponent or a Pokémon behind it in a straight line from this Pokémon is knocked out.
+203,Lucario,3,Miss,Red,8,0,misses,
+203,Lucario,4,Metal Claw,White,36,70,knocks out,
+211,Gardevoir,1,Wave Hole,Purple,28,2,switches out,
+211,Gardevoir,2,Moonblast,White,36,70,knocks out,
+211,Gardevoir,3,Super Psy,White,20,40,knocks out,
+211,Gardevoir,4,Miss,Red,12,0,misses,
+226,Manaphy,1,Dodge,Blue,4,0,dodges,
+226,Manaphy,2,Manaphy's Song,Purple,36,2,sings to,One other Water-type Pokémon on the field (that is not asleep or frozen) may be moved within their MP range. That Pokémon gains wait
+226,Manaphy,3,Miss,Red,4,0,misses,
+226,Manaphy,4,Bubble,White,52,20,knocks out,
 234,Latios,1,Dodge,Blue,12,0,dodges,
 234,Latios,2,Luster Purge,White,20,120,knocks out,
 234,Latios,3,Dragon Breath,White,32,70,knocks out,
 234,Latios,4,Dodge,Blue,12,0,dodges,
 234,Latios,5,Miss,Red,4,0,misses,
 234,Latios,6,Psychic,White,16,60,knocks out,
+235,Genesect,1,Dodge,Blue,8,0,dodges,
+235,Genesect,2,Miss,Red,8,0,misses,
+235,Genesect,3,Techno Blast,White,40,50,knocks out,
+235,Genesect,4,Miss,Red,8,0,misses,
+235,Genesect,5,Dodge,Blue,8,0,dodges,
+235,Genesect,6,Techno Charge,Purple,24,3,builds power against,"This Pokémon must Wait. In exchange, it receives a damage boost of +50 until the end of its next battle"
+237,Latias,1,Fly away,Purple,12,3,jumps over,This pokemon jumps over the battle opponent and lands on a surrounding point
+237,Latias,2,Fly Away,Purple,12,3,jumps over,This pokemon jumps over the battle opponent and lands on a surrounding point
+237,Latias,3,Mist Ball,White,20,110,knocks out,
+237,Latias,4,Dragon Breathe,White,32,70,knocks out,
+237,Latias,5,Psychic,White,16,60,knocks out,
+237,Latias,6,Miss,Red,4,0,misses,
 250,Magmar,1,Fire Punch,White,52,50,knocks out;burns,"If this pokemon is knocked out, the battle opponent becomes burned."
 250,Magmar,2,Miss,Red,16,0,misses,
 250,Magmar,3,Confuse Ray,Purple,28,3,confuses,
@@ -156,12 +211,6 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 262,Magmortar,1,MIss,Red,16,0,misses,
 262,Magmortar,2,Flame Gun,Purple,28,2,knocks out,Also knocks out one adjacent pokemon
 262,Magmortar,3,Fire Punch,White,52,60,knocks out;burns,"If this pokemon is knocked out, the battle opponent becomes burned."
-237,Latias,1,Fly away,Purple,12,3,jumps over,This pokemon jumps over the battle opponent and lands on a surrounding point
-237,Latias,2,Fly Away,Purple,12,3,jumps over,This pokemon jumps over the battle opponent and lands on a surrounding point
-237,Latias,3,Mist Ball,White,20,110,knocks out,
-237,Latias,4,Dragon Breathe,White,32,70,knocks out,
-237,Latias,5,Psychic,White,16,60,knocks out,
-237,Latias,6,Miss,Red,4,0,misses,
 269,Zapdos,1,Steel Wing,White,16,50,knocks out,
 269,Zapdos,2,Thunder Crash,Gold,32,100,knocks out,
 269,Zapdos,3,Miss,Red,12,0,misses,
