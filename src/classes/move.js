@@ -11,6 +11,7 @@ class Move {
     this.action = options.action;
     this.notes = options.notes;
     this.powerType = options.powerType;
+    this._displayName = options.displayName;
     this.pokemon = owningPokemon;
     this.extraPower = 0;
     this.extraSize = 0;
@@ -19,6 +20,10 @@ class Move {
     this.subtractExtraPower = this.subtractExtraPower.bind(this);
     this.addExtraSize = this.addExtraSize.bind(this);
     this.subtractExtraSize = this.subtractExtraSize.bind(this);
+  }
+
+  get displayName() {
+    return this._displayName || this.name;
   }
 
   get wheelSize() {

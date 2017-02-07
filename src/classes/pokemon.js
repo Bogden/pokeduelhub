@@ -20,7 +20,7 @@ class Pokemon {
             const sameMoveNameCount = moves.filter(existingMove => existingMove.name === moveClone.name).length;
 
             if (sameMoveNameCount) {
-              moveClone.name += ` #${sameMoveNameCount + 1}`;
+              moveClone.displayName = `${moveClone.name} #${sameMoveNameCount + 1}`;
             }
 
             moveClone.name += ` (${moveData.name})`;
@@ -44,7 +44,7 @@ class Pokemon {
 
         if (sameMoveNameCount) {
           const moveClone = cloneDeep(moveData);
-          moveClone.name += ` #${sameMoveNameCount + 1}`;
+          moveClone.displayName = `${moveClone.name} #${sameMoveNameCount + 1}`;
           moves.push(new Move(moveClone, this));
         } else {
           moves.push(new Move(moveData, this));

@@ -6,9 +6,9 @@ class OutcomeRow extends React.Component {
     const percentage = (this.props.outcome.probability * 100).toFixed(2);
     const winnerName = get(this.props, 'outcome.winningMove.pokemon.name') || get(this.props, 'outcome.moveA.pokemon.name');
     const loserName = get(this.props, 'outcome.losingMove.pokemon.name') || get(this.props, 'outcome.moveB.pokemon.name');
-    const winningMoveName = get(this.props, 'outcome.winningMove.name') || get(this.props, 'outcome.moveA.name');
-    const losingMoveName = get(this.props, 'outcome.losingMove.name') || get(this.props, 'outcome.moveB.name');
-    const tieClass = !!get(this.props, 'outcome.winningMove.name') ? '' : 'outcome-tie';
+    const winningMoveName = get(this.props, 'outcome.winningMove.displayName') || get(this.props, 'outcome.moveA.displayName');
+    const losingMoveName = get(this.props, 'outcome.losingMove.displayName') || get(this.props, 'outcome.moveB.displayName');
+    const tieClass = !!get(this.props, 'outcome.winningMove.displayName') ? '' : 'outcome-tie';
     return (
       <tr className={tieClass}>
         <td className="chance-data text-center" data-percentage={percentage}>{percentage}%</td>
