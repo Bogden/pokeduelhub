@@ -90,8 +90,6 @@ class Pokemon {
     // Subtract that from the first Miss move
     const firstMiss = this.moves.find(move => move.type === MOVE_TYPES.MISS);
     firstMiss.extraSize = Math.max(-extraSize, -firstMiss.baseWheelSize);
-
-    console.log('fitSizes', extraSize, firstMiss);
   }
 
   getMoveProbability(move) {

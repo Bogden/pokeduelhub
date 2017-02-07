@@ -67,7 +67,7 @@ class PokemonPicker extends React.Component {
                 return (
                   <tr key={index} >
                     <td><Incrementer type="size" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.wheelSize} /></td>
-                    <td><Incrementer type="power" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.power || ''} /></td>
+                    <td><Incrementer type="power" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.powerString || ''} /></td>
                     <td className={className}>{move.name}</td>
                   </tr>
                 );

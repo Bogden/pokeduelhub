@@ -196,16 +196,12 @@ function createTieOutcome(moveA, moveB, probability) {
 }
 
 function isMultiplierMove(move = {}) {
-  return move.power && move.power.toString().indexOf('x') > -1;
+  return move.power && move.powerType && move.powerType === 'multiplier';
 }
 
 function shouldCompareDamage(moveA, moveB) {
   return (moveA.type === MOVE_TYPES.WHITE || moveA.type === MOVE_TYPES.GOLD) &&
     (moveB.type === MOVE_TYPES.WHITE || moveB.type === MOVE_TYPES.GOLD);
-}
-
-function getBasePower(multiplierMove = {}) {
-  return multiplierMove.power.substring(0,  multiplierMove.power.indexOf('x'));
 }
 
 function getMultiplierOutcomes(moveA, moveB) {
@@ -228,16 +224,15 @@ function getMultiplierOutcomes(moveA, moveB) {
       staticMove = moveA;
     }
 
-    const multiplierMovePower = getBasePower(multiplierMove);
-    if (multiplierMovePower > staticMove.power) {
+    if (multiplierMove.power > staticMove.power) {
       multiplierOutcomes.push(createMoveBWinningOutcome(staticMove, multiplierMove));
     } else {
       // Including the initial spin
-      const requiredSpinsToWin = Math.floor(staticMove.power / multiplierMovePower);
+      const requiredSpinsToWin = Math.floor(staticMove.power / multiplierMove.power);
       
       const baseProbability = staticMove.getProbability() * multiplierMove.getProbability();
 
-      let canTie = ((staticMove.power / multiplierMovePower) === requiredSpinsToWin);
+      let canTie = ((staticMove.power / multiplierMove.power) === requiredSpinsToWin);
       let multiplierWinProbability = Math.pow(multiplierMove.getProbability(), requiredSpinsToWin);
       let multiplierLoseProbability = 1 - multiplierWinProbability;
 

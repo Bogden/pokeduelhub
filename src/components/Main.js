@@ -9,6 +9,7 @@ import Pokemon from '../classes/pokemon';
 import OutcomeTables from './OutcomeTables';
 import Configuration from './Configuration';
 import DonateButton from './DonateButton';
+import PatchNotes from './PatchNotes';
 import Tip from './Tip';
 
 // const blah = {
@@ -113,6 +114,7 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
+        <PatchNotes />
         <div className="body">
           <div className="main-display">
             <DonateButton />

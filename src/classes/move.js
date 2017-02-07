@@ -10,6 +10,7 @@ class Move {
     this.powerSuffix = options.powerSuffix;
     this.action = options.action;
     this.notes = options.notes;
+    this.powerType = options.powerType;
     this.pokemon = owningPokemon;
     this.extraPower = 0;
     this.extraSize = 0;
@@ -31,12 +32,16 @@ class Move {
     this.pokemon.fitSizes();
   }
 
+  get powerString() {
+    if (this.powerType === 'multiplier') {
+      return this.power + 'x';
+    } else {
+      return this.power;
+    }
+  }
+
   get power() {
     let power = this.basePower + this.extraPower;
-
-    if (this.powerSuffix) {
-      power += this.powerSuffix;
-    }
 
     return power;
   }

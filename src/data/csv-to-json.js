@@ -62,7 +62,11 @@ csv()
       renameProperty(move, 'moveName', 'name');
       move.id = parseInt(move.id);
       move.wheelSize = parseInt(move.wheelSize);
+
       if (move.power) {
+        if (move.power.indexOf('x') > -1) {
+          move.powerType = 'multiplier';
+        }
         move.power = parseInt(move.power);
       }
     });

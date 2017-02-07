@@ -308,6 +308,47 @@ body {
   text-align: center;
 }
 
+.patch-notes {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  height: 16px;
+  width: 60px;
+  overflow: hidden;
+  text-align: left;
+  opacity: 0.3;
+  cursor: pointer;
+
+  .patch-note {
+    display: none;
+  }
+
+  &.expanded {
+    width: 300px;
+    overflow: visible;
+    z-index: 2;
+    opacity: 1;
+    border-radius: 0.2em;
+    background: #383838;
+    height: auto;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+    .patch-note {
+      display: block;
+      margin-bottom: 5px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .version-number {
+      display: none;
+    }
+  }
+}
+
 .main-display {
   display: flex;
   flex-direction: column;
