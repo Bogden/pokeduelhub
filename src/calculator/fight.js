@@ -262,6 +262,24 @@ function getMultiplierOutcomes(moveA, moveB) {
 }
 
 function generateBattleOutcomes(pokemonA, pokemonB) {
+  if (!pokemonA || !pokemonB) {
+    return;
+
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Error',
+      eventAction: 'compare',
+      eventLabel: 'Missing pokemon for compare call'
+    });
+  }
+
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Pokemon',
+    eventAction: 'compare',
+    eventLabel: `${pokemonA.name}/${pokemonB.name}`
+  });
+
   let outcomes = [];
 
   pokemonA.moves.forEach(moveA => {

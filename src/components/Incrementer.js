@@ -31,6 +31,13 @@ class OutcomeRow extends React.Component {
       // addExtraPower
       // subtractExtraSize
       return () => {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Incrementer',
+          eventAction: this.props.target.name,
+          eventLabel: changeType
+        });
+
         this.props.target[`${changeType}Extra${typeWord}`]();
         this.props.notifyPokemonUpdate();
       }

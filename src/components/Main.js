@@ -4,6 +4,7 @@ require('styles/App.styl');
 import React from 'react';
 import POKEMON_DATA from '../data/pokemon-data';
 import {generateBattleOutcomes} from '../calculator/fight';
+import {getUserId} from '../calculator/user';
 import Pokemon from '../classes/pokemon';
 
 import OutcomeTables from './OutcomeTables';
@@ -35,6 +36,7 @@ class AppComponent extends React.Component {
       team1: [{}, {}, {}, {}, {}, {}],
       team2: [{}, {}, {}, {}, {}, {}]
     };
+    this.userId = getUserId();
   }
 
   getPokemonFromPickText(pickText) {
@@ -97,6 +99,13 @@ class AppComponent extends React.Component {
   }
 
   handleUseTeams(event) {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Options',
+      eventAction: 'useTeams',
+      eventLabel: !!event.target.checked
+    });
+
     this.setState({
       useTeams: event.target.checked
     });
