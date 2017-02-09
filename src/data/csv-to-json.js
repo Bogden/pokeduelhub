@@ -66,6 +66,8 @@ csv()
       if (move.power) {
         if (move.power.indexOf('x') === 0) {
           move.powerType = 'multiplier';
+        } else if (move.power.indexOf('+') === 0) {
+          move.powerType = 'addition';
         } else if (move.power.indexOf('x') > 0) {
           move.powerType = 'stacking';
         }

@@ -266,8 +266,16 @@ function isMultiplierMove(move = {}) {
   return move.power && move.powerType && move.powerType === 'multiplier';
 }
 
-function generateMultiplierSubMoves(move) {
-  if (!isMultiplierMove(move)) {
+function isAdditionMove(move = {}) {
+  return move.power && move.powerType && move.powerType === 'addition';
+}
+
+function shouldGenerateSubMoves(move = {}) {
+  return isMultiplierMove(move) || isAdditionMove(move);
+}
+
+function generateSubMoves(move) {
+  if (!shouldGenerateSubMoves(move)) {
     return [];
   }
 
@@ -279,7 +287,7 @@ function generateMultiplierSubMoves(move) {
       const moveClone = cloneDeep(innerMove.data);
       moveClone.hidden = true;
 
-      moveClone.displayName = moveClone.name;
+      moveClone.displayName = innerMove.displayName;
       moveClone.displayName += ` (${move.name})`;
       moveClone.wheelSize = innerMove.wheelSize * move.wheelSize / (move.pokemon.wheelSize - move.wheelSize);
       // Clone wheel size =
@@ -287,7 +295,11 @@ function generateMultiplierSubMoves(move) {
       // times size of respin move
 
       if (moveClone.type === MOVE_TYPES.WHITE || moveClone.type === MOVE_TYPES.GOLD) {
-        moveClone.power *= parseInt(move.power);
+        if (isMultiplierMove(move)) {
+          moveClone.power *= parseInt(move.power);
+        } else if (isAdditionMove(move)) {
+          moveClone.power += parseInt(move.power);
+        }
       }
 
       subMoves.push(new Move(moveClone, move.pokemon));
@@ -322,15 +334,15 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
   let pokemonAMoves = [];
   let pokemonBMoves = [];
   pokemonA.moves.forEach(move => {
-    if (isMultiplierMove(move)) {
-      generateMultiplierSubMoves(move).forEach(subMove => pokemonAMoves.push(subMove));
+    if (shouldGenerateSubMoves(move)) {
+      generateSubMoves(move).forEach(subMove => pokemonAMoves.push(subMove));
     } else {
       pokemonAMoves.push(move);
     }
   });
   pokemonB.moves.forEach(move => {
-    if (isMultiplierMove(move)) {
-      generateMultiplierSubMoves(move).forEach(subMove => pokemonBMoves.push(subMove));
+    if (shouldGenerateSubMoves(move)) {
+      generateSubMoves(move).forEach(subMove => pokemonBMoves.push(subMove));
     } else {
       pokemonBMoves.push(move);
     }
