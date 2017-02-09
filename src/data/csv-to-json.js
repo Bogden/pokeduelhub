@@ -64,10 +64,12 @@ csv()
       move.wheelSize = parseInt(move.wheelSize);
 
       if (move.power) {
-        if (move.power.indexOf('x') > -1) {
+        if (move.power.indexOf('x') === 0) {
           move.powerType = 'multiplier';
+        } else if (move.power.indexOf('x') > 0) {
+          move.powerType = 'stacking';
         }
-        move.power = parseInt(move.power);
+        move.power = parseInt(move.power.replace(/\D/g,''));
       }
     });
   });

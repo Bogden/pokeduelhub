@@ -8,9 +8,10 @@ module.exports = function(config) {
     basePath: '',
     browsers: [ 'PhantomJS' ],
     files: [
+      'test/mockGoogle.js',
       'test/loadtests.js'
     ],
-    port: 8000,
+    port: 8001,
     captureTimeout: 60000,
     frameworks: [ 'mocha', 'chai' ],
     client: {

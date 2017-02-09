@@ -22,6 +22,10 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.(png|jpg|gif|woff|woff2|css|sass|scss|less|styl)$/,
         loader: 'null-loader'
       },
@@ -44,6 +48,9 @@ module.exports = {
       actions: srcPath + 'actions/',
       helpers: path.join(__dirname, '/../test/helpers'),
       components: srcPath + 'components/',
+      calculator: srcPath + 'calculator/',
+      data: srcPath + 'data/',
+      classes: srcPath + 'classes/',
       sources: srcPath + 'sources/',
       stores: srcPath + 'stores/',
       styles: srcPath + 'styles/',

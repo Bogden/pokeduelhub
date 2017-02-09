@@ -3,6 +3,7 @@ import {getMoveOutcome} from '../calculator/fight';
 
 class Move {
   constructor(options = {}, owningPokemon) {
+    this.data = options;
     this.name = options.name;
     this.type = options.type;
     this.basePower = options.power;
@@ -26,20 +27,26 @@ class Move {
     return this._displayName || this.name;
   }
 
+  set displayName(displayName) {
+    return this._displayName = displayName;
+  }
+
   get wheelSize() {
     return this.baseWheelSize + this.extraSize;
   }
 
   set wheelSize(newSize) {
-    newSize = parseInt(newSize) || 0;
+    newSize = parseFloat(newSize) || 0;
 
     this.extraSize = newSize - this.baseWheelSize;
     this.pokemon.fitSizes();
   }
 
   get powerString() {
-    if (this.powerType === 'multiplier') {
+    if (this.powerType === 'stacking') {
       return this.power + 'x';
+    } else if (this.powerType === 'multiplier') {
+      return 'x' + this.power;
     } else {
       return this.power;
     }
@@ -52,7 +59,7 @@ class Move {
   }
 
   set power(newPower) {
-    newPower = parseInt(newPower) || 0;
+    newPower = parseFloat(newPower) || 0;
 
     this.extraPower = newPower - this.basePower;
   }
@@ -62,9 +69,7 @@ class Move {
   }
 
   getProbability() {
-    if (this.pokemon) {
-      return this.pokemon.getMoveProbability(this);
-    }
+    return this.wheelSize / 96;
   }
 
   addExtraPower(amount = 1) {

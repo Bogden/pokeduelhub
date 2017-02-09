@@ -1,4 +1,5 @@
 import MOVE_TYPES from '../constants/move-types';
+import Move from '../classes/move';
 import cloneDeep from 'lodash/cloneDeep';
 
 // Greninja beats Pikachu in Physical Combat. Pickachu is Knocked Out.
@@ -14,7 +15,7 @@ const MOVE_RESULTS = {
 function getMoveOutcomeVsBlue(moveA, moveB) {
   if (moveB.type === MOVE_TYPES.BLUE) {
     return MOVE_RESULTS.TIE;
-  } else if (moveB.notes) {
+  } else if (moveA.notes) {
     return MOVE_RESULTS.MOVE_A;
   } else {
     // Treat blue as a tie unless it has notes
@@ -195,8 +196,8 @@ function createTieOutcome(moveA, moveB, probability) {
   }
 }
 
-function isMultiplierMove(move = {}) {
-  return move.power && move.powerType && move.powerType === 'multiplier';
+function isStackingMove(move = {}) {
+  return move.power && move.powerType && move.powerType === 'stacking';
 }
 
 function shouldCompareDamage(moveA, moveB) {
@@ -204,19 +205,19 @@ function shouldCompareDamage(moveA, moveB) {
     (moveB.type === MOVE_TYPES.WHITE || moveB.type === MOVE_TYPES.GOLD);
 }
 
-function getMultiplierOutcomes(moveA, moveB) {
-  const isMoveAMultiplier = isMultiplierMove(moveA);
-  const isMoveBMultiplier = isMultiplierMove(moveB);
+function getStackingOutcomes(moveA, moveB) {
+  const isMoveAStacking = isStackingMove(moveA);
+  const isMoveBStacking = isStackingMove(moveB);
 
   const multiplierOutcomes = [];
   
-  if (isMoveAMultiplier && isMoveBMultiplier) {
+  if (isMoveAStacking && isMoveBStacking) {
     // TODO: Account for double multipliers
   } else {
     let multiplierMove;
     let staticMove;
 
-    if (isMoveAMultiplier) {
+    if (isMoveAStacking) {
       multiplierMove = moveA;
       staticMove = moveB;
     } else {
@@ -243,7 +244,7 @@ function getMultiplierOutcomes(moveA, moveB) {
         multiplierOutcomes.push(createTieOutcome(moveA, moveB, baseProbability * tieProbability));
       }
 
-      if (isMoveAMultiplier) {
+      if (isMoveAStacking) {
         multiplierOutcomes.push(createMoveAWinningOutcome(moveA, moveB, baseProbability * multiplierWinProbability));
         
         if (multiplierLoseProbability > 0) {
@@ -259,6 +260,41 @@ function getMultiplierOutcomes(moveA, moveB) {
   }
 
   return multiplierOutcomes;
+}
+
+function isMultiplierMove(move = {}) {
+  return move.power && move.powerType && move.powerType === 'multiplier';
+}
+
+function generateMultiplierSubMoves(move) {
+  if (!isMultiplierMove(move)) {
+    return [];
+  }
+
+  const subMoves = [];
+  const pokemonMoves = move.pokemon.moves;
+
+  pokemonMoves.forEach(innerMove => {
+    if (innerMove !== move) {
+      const moveClone = cloneDeep(innerMove.data);
+      moveClone.hidden = true;
+
+      moveClone.displayName = moveClone.name;
+      moveClone.displayName += ` (${move.name})`;
+      moveClone.wheelSize = innerMove.wheelSize * move.wheelSize / (move.pokemon.wheelSize - move.wheelSize);
+      // Clone wheel size =
+      // percent of wheel minus respin move
+      // times size of respin move
+
+      if (moveClone.type === MOVE_TYPES.WHITE || moveClone.type === MOVE_TYPES.GOLD) {
+        moveClone.power *= parseInt(move.power);
+      }
+
+      subMoves.push(new Move(moveClone, move.pokemon));
+    }
+  });
+
+  return subMoves;
 }
 
 function generateBattleOutcomes(pokemonA, pokemonB) {
@@ -282,16 +318,35 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
 
   let outcomes = [];
 
-  pokemonA.moves.forEach(moveA => {
-    pokemonB.moves.forEach(moveB => {
-      if (shouldCompareDamage(moveA, moveB)) {
-        const isMoveBMultiplier = isMultiplierMove(moveB);
-        const isMoveAMultiplier = isMultiplierMove(moveA);
-        
-        if (isMoveAMultiplier || isMoveBMultiplier) {
-          const multiplierOutcomes = getMultiplierOutcomes(moveA, moveB);
+  // Split out multiplier moves
+  let pokemonAMoves = [];
+  let pokemonBMoves = [];
+  pokemonA.moves.forEach(move => {
+    if (isMultiplierMove(move)) {
+      generateMultiplierSubMoves(move).forEach(subMove => pokemonAMoves.push(subMove));
+    } else {
+      pokemonAMoves.push(move);
+    }
+  });
+  pokemonB.moves.forEach(move => {
+    if (isMultiplierMove(move)) {
+      generateMultiplierSubMoves(move).forEach(subMove => pokemonBMoves.push(subMove));
+    } else {
+      pokemonBMoves.push(move);
+    }
+  });
 
-          outcomes = outcomes.concat(multiplierOutcomes);
+  // Calculate regular outcomes
+  pokemonAMoves.forEach(moveA => {
+    pokemonBMoves.forEach(moveB => {
+      if (shouldCompareDamage(moveA, moveB)) {
+        const isMoveBStacking = isStackingMove(moveB);
+        const isMoveAStacking = isStackingMove(moveA);
+        
+        if (isMoveAStacking || isMoveBStacking) {
+          const stackingOutcomes = getStackingOutcomes(moveA, moveB);
+
+          outcomes = outcomes.concat(stackingOutcomes);
           return;
         }
       }
