@@ -1,8 +1,11 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.1.2',
+  notes: 'Added 71 Pokémon for a total of 132. Added calculation for moves like Swords Dance. Fixed bugs.'
+}, {
   version: '0.1.1',
-  notes: 'Added more pokemon and fixed multiplier respin moves like Pin Missile'
+  notes: 'Added more Pokémon and fixed multiplier respin moves like Pin Missile'
 }, {
   version: '0.1.0',
   notes: 'First public release!'

@@ -128,7 +128,7 @@ class AppComponent extends React.Component {
           <div className="main-display">
             <DonateButton />
 
-            <h1><span>Pokemon Duel</span> <span>Battle Calculator</span></h1>
+            <h1><span>Pokémon Duel</span> <span>Battle Calculator</span></h1>
 
             <Configuration
               useTeams={this.state.useTeams}
