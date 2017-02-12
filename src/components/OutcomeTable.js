@@ -30,6 +30,15 @@ class OutcomeTable extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.outcomes !== nextProps.outcomes) {
+      this.setState({
+        selectedOutcomeRows: [],
+        total: 0
+      });
+    }
+  }
+
   render() {
     let combinedTotalClassName = this.state.total ? 'combined-total-chance expanded' : 'combined-total-chance';
 
