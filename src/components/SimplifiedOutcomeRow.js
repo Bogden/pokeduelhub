@@ -7,8 +7,9 @@ class SimplifiedOutcomeRow extends React.Component {
     const winnerName = get(this.props, 'outcome.winningMove.pokemon.name') || get(this.props, 'outcome.moveA.pokemon.name');
     const loserName = get(this.props, 'outcome.losingMove.pokemon.name') || get(this.props, 'outcome.moveB.pokemon.name');
     const action = get(this.props, 'outcome.winningMove.action') || 'ties';
+    const className = this.props.selected ? ' outcome-selected' : '';
     return (
-      <tr>
+      <tr className={className} onClick={this.props.toggleOutcomeRow} >
         <td className="chance-data text-center" data-percentage={percentage}>{percentage}%</td>
         <td className="text-left">{winnerName} {action} {loserName}</td>
       </tr>

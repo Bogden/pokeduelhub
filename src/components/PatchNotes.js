@@ -1,8 +1,11 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.1.4',
+  notes: 'Added ability to select rows and total them'
+}, {
   version: '0.1.3',
-  notes: 'Add support for moves like Geomancy'
+  notes: 'Added support for moves like Geomancy'
 }, {
   version: '0.1.2',
   notes: 'Added 71 Pokémon for a total of 132. Added calculation for moves like Swords Dance. Fixed bugs.'
