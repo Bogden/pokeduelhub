@@ -43,22 +43,30 @@ class Move {
   }
 
   get powerString() {
+    const displayPower = this.basePower + this.extraPower;
+
     if (this.powerType === 'stacking') {
-      return this.power + 'x';
+      return displayPower + 'x';
     } else if (this.powerType === 'multiplier') {
-      return 'x' + this.power;
+      return 'x' + displayPower;
     } else {
-      return this.power;
+      return displayPower;
     }
   }
 
   get power() {
     let power = this.basePower + this.extraPower;
 
+    if (this.type === MOVE_TYPES.WHITE || this.type === MOVE_TYPES.GOLD) {
+      power += this.pokemon.extraPower;
+    }
+
     return power;
   }
 
   set power(newPower) {
+    // TODO: Clarify difference between power with pokemon bonus and without
+    // This currently assumes the newPower does not include pokemon bonus
     newPower = parseFloat(newPower) || 0;
 
     this.extraPower = newPower - this.basePower;

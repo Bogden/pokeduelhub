@@ -142,13 +142,13 @@ class SubMenuComponent extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.pokemon.moves && this.props.pokemon.moves.map((move, index) => {
+              {this.props.pokemon.moves && this.props.pokemon.moves.map(move => {
                 const className = `sub-menu-move-name type-${move.type}`
                 if (move.hidden) {
                   return '';
                 }
                 return (
-                  <tr key={index} >
+                  <tr key={move.displayName} >
                     <td><Incrementer type="size" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.wheelSize} /></td>
                     <td><Incrementer type="power" target={move} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={move.powerString || ''} /></td>
                     <td className={className}>{move.displayName}</td>

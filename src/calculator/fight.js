@@ -122,12 +122,6 @@ function getMoveOutcomeWithPower(moveA, moveB) {
   let moveAPower = moveA.power;
   let moveBPower = moveB.power;
 
-  if (moveA.type === MOVE_TYPES.WHITE || moveA.type === MOVE_TYPES.GOLD) {
-    // Factor in extra damage
-    moveAPower += moveA.pokemon.extraPower;
-    moveBPower += moveB.pokemon.extraPower;
-  }
-
   if (moveAPower === moveBPower) {
     return MOVE_RESULTS.TIE;
   } else {
