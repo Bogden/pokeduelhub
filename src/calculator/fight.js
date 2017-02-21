@@ -1,6 +1,7 @@
 import MOVE_TYPES from '../constants/move-types';
 import Move from '../classes/move';
 import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 
 // Greninja beats Pikachu in Physical Combat. Pickachu is Knocked Out.
 // Weedle beats Snorlax in Special Combat. Snorlax is Poisoned.
@@ -309,6 +310,56 @@ function generateSubMoves(move) {
   return subMoves;
 }
 
+function getMultiChanceOutcomeProbability(options = {}) {
+  let {multiChancePokemon, enemyPokemon, desiredOutcomes, shouldCombine} = options;
+  
+  const multiChancePokemonMoves = multiChancePokemon.moves;
+  const enemyPokemonMoves = enemyPokemon.moves;
+
+  let outcomeIsDesired;
+  if (shouldCombine) {
+    outcomeIsDesired = areOutcomesCombinable;
+  } else {
+    outcomeIsDesired = (a, b) => a === b;
+  }
+
+  return enemyPokemonMoves.reduce((total, enemyMove) => {
+    let outcomes = [];
+    multiChancePokemonMoves.forEach(multiChanceMove => {
+      if (shouldCompareDamage(enemyMove, multiChanceMove)) {
+        const isMultiChanceMoveStacking = isStackingMove(multiChanceMove);
+        const isEnemyMoveStacking = isStackingMove(enemyMove);
+        
+        if (isEnemyMoveStacking || isMultiChanceMoveStacking) {
+          const stackingOutcomes = getStackingOutcomes(enemyMove, multiChanceMove);
+
+          outcomes = outcomes.concat(stackingOutcomes);
+          return;
+        }
+      }
+
+      let outcome = getMoveOutcome(enemyMove, multiChanceMove);
+
+      outcomes.push(outcome);
+    });
+
+    const baseDesiredProbability = outcomes.reduce((total, outcome) => {
+      if (desiredOutcomes.some(desiredOutcome => outcomeIsDesired(desiredOutcome, outcome))) {
+        return total + outcome.probability;
+      } else {
+        return total;
+      }
+    }, 0) / enemyMove.getProbability();
+
+    console.log('outcomes', outcomes, 'base desired', baseDesiredProbability, desiredOutcomes);
+
+    const baseUndesiredProbability = 1 - baseDesiredProbability;
+    const totalDesiredProbability = 1 - Math.pow(baseUndesiredProbability, multiChancePokemon.chances);
+
+    return total + totalDesiredProbability * enemyMove.getProbability();
+  }, 0);
+}
+
 function generateBattleOutcomes(pokemonA, pokemonB) {
   if (!pokemonA || !pokemonB) {
     return;
@@ -378,18 +429,33 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
   return outcomes.sort((a, b) => b.probability - a.probability);
 }
 
+function areOutcomesCombinable(outcomeA, outcomeB) {
+  // If neither has a winner, they are the same
+  if (!outcomeA.winningMove && !outcomeB.winningMove) {
+    return true;
+  }
+
+  // the winning pokemon match AND
+  // the losing pokemon match AND
+  // the winning moves' actions match
+  return outcomeA.winningMove && outcomeB.winningMove &&
+         outcomeA.winningMove.pokemon === outcomeB.winningMove.pokemon &&
+         outcomeA.losingMove.pokemon === outcomeB.losingMove.pokemon &&
+         outcomeA.winningMove.action === outcomeB.winningMove.action
+}
+
 function simplifyOutcomes(outcomesSource) {
-  const outcomes = cloneDeep(outcomesSource);
+  const outcomes = [];
+
+  outcomesSource.forEach(sourceOutcome => {
+    outcomes.push(clone(sourceOutcome));
+  });
+
   for (let i = 0; i < outcomes.length; ++i) {
     const baseOutcome = outcomes[i];
     for (let j = i+1; j < outcomes.length; ++j) {
       const compareOutcome = outcomes[j];
-      if ((!baseOutcome.winningMove && !compareOutcome.winningMove) ||
-        baseOutcome.winningMove &&
-        compareOutcome.winningMove &&
-        baseOutcome.winningMove.pokemon === compareOutcome.winningMove.pokemon &&
-        baseOutcome.losingMove.pokemon === compareOutcome.losingMove.pokemon &&
-        baseOutcome.winningMove.action === compareOutcome.winningMove.action) {
+      if (areOutcomesCombinable(baseOutcome, compareOutcome)) {
         baseOutcome.probability += compareOutcome.probability;
         outcomes.splice(j--, 1);
       }
@@ -400,7 +466,8 @@ function simplifyOutcomes(outcomesSource) {
 }
 
 export {generateBattleOutcomes as generateBattleOutcomes,
-  simplifyOutcomes as simplifyOutcomes};
+  simplifyOutcomes as simplifyOutcomes,
+  getMultiChanceOutcomeProbability as getMultiChanceOutcomeProbability};
 
 // testOutcomes = [{
 //   winner: 'a',

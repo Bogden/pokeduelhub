@@ -39,7 +39,9 @@ class OutcomeRow extends React.Component {
         });
 
         this.props.target[`${changeType}Extra${typeWord}`]();
-        this.props.notifyPokemonUpdate();
+        if (this.props.notifyPokemonUpdate) {
+          this.props.notifyPokemonUpdate();
+        }
       }
     }
   }
@@ -47,15 +49,19 @@ class OutcomeRow extends React.Component {
   // Get diff between basePower and current value, set extraPower
   handleChange(event) {
     const newValue = event.target.value;
-    const move = this.props.target;
+    const target = this.props.target;
 
     if (this.props.type === 'size') {
-      move.wheelSize = newValue;
+      target.wheelSize = newValue;
     } else if (this.props.type === 'power') {
-      move.power = newValue;
+      target.power = newValue;
+    } else if (this.props.type === 'chances') {
+      target.chances = newValue;
     }
 
-    this.props.notifyPokemonUpdate();
+    if (this.props.notifyPokemonUpdate) {
+      this.props.notifyPokemonUpdate();
+    }
   }
 
   shouldDisableMinus() {
@@ -63,6 +69,8 @@ class OutcomeRow extends React.Component {
       return this.props.target.wheelSize <= 0 || this.props.target.extraSize <= 0 || this.props.target.type === MOVE_TYPES.MISS;
     } else if (this.props.type === 'power') {
       return this.props.target.extraPower <= 0;
+    } else if (this.props.type === 'chances') {
+      return this.props.target.chances <= 1;
     }
   }
 

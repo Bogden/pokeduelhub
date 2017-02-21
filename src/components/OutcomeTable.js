@@ -1,6 +1,7 @@
 import React from 'react';
 import OutcomeRow from './OutcomeRow';
 import SimplifiedOutcomeRow from './SimplifiedOutcomeRow';
+import {getMultiChanceOutcomeProbability} from '../calculator/fight';
 
 // OutcomeRowSum
 
@@ -9,38 +10,72 @@ import SimplifiedOutcomeRow from './SimplifiedOutcomeRow';
 class OutcomeTable extends React.Component {
   constructor() {
     super();
+    this.printTotalValue = this.printTotalValue.bind(this);
     this.state = {
-      selectedOutcomeRows: [],
-      total: 0
+      selectedOutcomes: []
     }
   }
 
   toggleOutcomeRow(outcome) {
-    const data = this.state.selectedOutcomeRows;
-    let selectedOutcomeRows;
+    const data = this.state.selectedOutcomes;
+    let selectedOutcomes;
     if (!data.includes(outcome)) {
-      selectedOutcomeRows = data.slice();
-      selectedOutcomeRows.push(outcome);
+      selectedOutcomes = data.slice();
+      selectedOutcomes.push(outcome);
     } else {
-      selectedOutcomeRows = data.filter(value => value !== outcome);
+      selectedOutcomes = data.filter(value => value !== outcome);
     }
     this.setState({
-      selectedOutcomeRows,
-      total: selectedOutcomeRows.reduce((total, outcome) => total + outcome.probability, 0)
+      selectedOutcomes
     });
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.outcomes !== nextProps.outcomes) {
       this.setState({
-        selectedOutcomeRows: [],
-        total: 0
+        selectedOutcomes: []
       });
     }
   }
 
+  printCombinedTotalHeader() {
+    const chances = Math.max(this.props.pokemon1.chances, this.props.pokemon2.chances);
+    return chances > 1 ? `Selected (x${chances})` : 'Selected';
+  }
+
+  printTotalValue() {
+    let probability;
+    const selectedOutcomes = this.state.selectedOutcomes;
+
+    if (!selectedOutcomes.length) {
+      return;
+    }
+
+    if (this.props.pokemon1.chances > 1) {
+      probability = getMultiChanceOutcomeProbability({
+        multiChancePokemon: this.props.pokemon1,
+        enemyPokemon: this.props.pokemon2,
+        desiredOutcomes: this.state.selectedOutcomes,
+        shouldCombine: this.props.type === 'summary'
+      });
+    } else if (this.props.pokemon2.chances > 1) {
+      probability = getMultiChanceOutcomeProbability({
+        multiChancePokemon: this.props.pokemon2,
+        enemyPokemon: this.props.pokemon1,
+        desiredOutcomes: this.state.selectedOutcomes,
+        shouldCombine: this.props.type === 'summary'
+      });
+    } else {
+      probability = selectedOutcomes.reduce((total, outcome) => total + outcome.probability, 0);
+    }
+
+    return (probability * 100).toFixed(2) + '%';
+  }
+
   render() {
-    let combinedTotalClassName = this.state.total ? 'combined-total-chance expanded' : 'combined-total-chance';
+    const combinedTotalClassName = this.state.selectedOutcomes.length ? 'combined-total-chance expanded' : 'combined-total-chance';
+    const combinedTotalChance = this.printTotalValue();
+    const combinedTotalHeader = this.printCombinedTotalHeader();
 
     if (this.props.type === 'detailed') {
       return (
@@ -48,8 +83,8 @@ class OutcomeTable extends React.Component {
           <h2>Detailed</h2>
           <table className="outcome-table table-fill">
             <div className={combinedTotalClassName}>
-              <div className="combined-total-chance-header">Selected</div>
-              <div className="combined-total-chance-body">{(this.state.total * 100).toFixed(2)}%</div>
+              <div className="combined-total-chance-header">{combinedTotalHeader}</div>
+              <div className="combined-total-chance-body">{combinedTotalChance}</div>
             </div>
             <thead>
               <tr>
@@ -65,7 +100,7 @@ class OutcomeTable extends React.Component {
                 return <OutcomeRow
                   outcome={outcome}
                   key={index}
-                  selected={this.state.selectedOutcomeRows.includes(outcome)}
+                  selected={this.state.selectedOutcomes.includes(outcome)}
                   toggleOutcomeRow={this.toggleOutcomeRow.bind(this, outcome)}
                 />
               })}
@@ -79,8 +114,8 @@ class OutcomeTable extends React.Component {
           <h2>Summary</h2>
           <table className="outcome-table table-fill">
             <div className={combinedTotalClassName}>
-              <div className="combined-total-chance-header">Selected</div>
-              <div className="combined-total-chance-body">{(this.state.total * 100).toFixed(2)}%</div>
+              <div className="combined-total-chance-header">{combinedTotalHeader}</div>
+              <div className="combined-total-chance-body">{combinedTotalChance}</div>
             </div>
             <thead>
               <tr>
@@ -93,7 +128,7 @@ class OutcomeTable extends React.Component {
                 return <SimplifiedOutcomeRow
                   outcome={outcome}
                   key={index}
-                  selected={this.state.selectedOutcomeRows.includes(outcome)}
+                  selected={this.state.selectedOutcomes.includes(outcome)}
                   toggleOutcomeRow={this.toggleOutcomeRow.bind(this, outcome)}
                 />
               })}

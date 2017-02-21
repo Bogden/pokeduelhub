@@ -9,8 +9,18 @@ class OutcomeTables extends React.Component {
     }
     return (
       <div className="outcome-tables">
-        <OutcomeTable type="summary" outcomes={simplifyOutcomes(this.props.outcomes)} />
-        <OutcomeTable type="detailed" outcomes={this.props.outcomes} />
+        <OutcomeTable
+          type="summary"
+          outcomes={simplifyOutcomes(this.props.outcomes)}
+          pokemon1={this.props.pokemon1}
+          pokemon2={this.props.pokemon2}
+        />
+        <OutcomeTable
+          type="detailed"
+          outcomes={this.props.outcomes}
+          pokemon1={this.props.pokemon1}
+          pokemon2={this.props.pokemon2}
+        />
       </div>
     );
   }

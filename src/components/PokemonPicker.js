@@ -10,6 +10,17 @@ for (let data of POKEMON_DATA.values()) {
   dataArray.push(`${data.id} - ${data.name}`);
 }
 
+// Status Effects:
+// Burned
+// Paralyzed
+// Poisoned
+// Noxious
+// Asleep
+// Confused
+// Frozen
+// Cursed
+// Wait
+
 class PokemonPicker extends React.Component {
   constructor() {
     super();
@@ -75,8 +86,22 @@ class PokemonPicker extends React.Component {
             </tbody>
           </table>
           <div className="extra-damage">
-            <Incrementer type="size" type="power" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.extraPower || '00'} />
+            <Incrementer type="power" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.extraPower || '00'} />
             <span className="extra-damage-text">Bonus Damage</span>
+          </div>
+          <div className="extra-damage">
+            <Incrementer type="chances" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.chances - 1} />
+            <span className="extra-damage-text">Extra Spins</span>
+          </div>
+          <div className="extra-damage">
+            <select name="" id="">
+              <option value="thing">Burned</option>
+              <option value="thing">Paralyzed</option>
+              <option value="thing">Poisoned</option>
+              <option value="thing">Noxious</option>
+              <option value="thing">Frozen</option>
+            </select>
+            <span className="extra-damage-text">Status Effect</span>
           </div>
         </div>
       );

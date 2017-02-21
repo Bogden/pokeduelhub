@@ -7,6 +7,7 @@ class Pokemon {
     this.id = data.id;
     this.name = data.name;
     this.extraPower = 0;
+    this._chances = 1;
 
     this.isClone = data.isClone;
 
@@ -45,6 +46,29 @@ class Pokemon {
     if (this.extraPower > 0) {
       this.extraPower -= amount;
     }
+  }
+
+  get chances() {
+    return this._chances;
+  }
+
+  set chances(newChances) {
+    newChances = parseInt(newChances) || 1;
+
+    if (newChances < 1) {
+      newChances = 1;
+    }
+
+    this._chances = newChances;
+  }
+
+  addExtraChances(amount = 1) {
+    console.log(amount);
+    this.chances += amount;
+  }
+
+  subtractExtraChances(amount = 1) {
+    this.chances -= amount;
   }
 
   fitSizes() {

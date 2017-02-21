@@ -140,7 +140,12 @@ class AppComponent extends React.Component {
             <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
             <label htmlFor="use-teams">Use teams</label>
 
-            <OutcomeTables className="outcome-tables" outcomes={this.state.outcomes} />
+            <OutcomeTables
+              className="outcome-tables"
+              outcomes={this.state.outcomes}
+              pokemon1={this.state.pokemon1}
+              pokemon2={this.state.pokemon2}
+            />
           </div>
           
           <Tip />
