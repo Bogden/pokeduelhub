@@ -507,7 +507,7 @@ h2 {
   border-top-right-radius: 0.2em;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   max-width: 270px;
-  max-height: 264px;
+  max-height: 320px;
   transition: max-width 0.25s ease-out, max-height 0.25s ease-out;
   overflow: hidden;
 
@@ -519,25 +519,6 @@ h2 {
 .pokemon-picker-sub-menu-contents {
   opacity: 1;
   padding: 10px;
-}
-
-.extra-damage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 8px;
-}
-
-.extra-damage-text {
-  margin-left: 20px;
-  font-weight: 300;
-}
-
-.sub-menu-input {
-  width: 30px;
-  text-align: center;
-  border: none;
-  outline: none;
 }
 
 .pokeball-options-button {
@@ -567,6 +548,67 @@ h2 {
   background-image: url(../images/pokeball.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.pokemon-picker-sub-menu-rule {
+  margin: 6px 0;
+  border: 1px solid #61ab86;
+}
+
+.pokemon-picker-extra-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra-option {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  min-width: 170px;
+}
+
+.extra-option-label {
+  font-weight: 300;
+}
+
+.extra-option-dropdown {
+  font-size: 12px;
+  min-width: 105px;
+}
+
+.extra-option-dropdown-option {
+  font-size: 12px;
+}
+
+.pokemon-picker-show-advanced {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 7px;
+  
+  &::before {
+    transform: scale(0.8);
+  }
+}
+
+.extra-damage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.extra-damage-text {
+  margin-left: 20px;
+  font-weight: 300;
+}
+
+.sub-menu-input {
+  width: 30px;
+  text-align: center;
+  border: none;
+  outline: none;
 }
 
 .pokemon-picker-input {

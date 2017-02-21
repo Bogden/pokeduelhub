@@ -124,7 +124,7 @@ class AppComponent extends React.Component {
     newState[teamPropertyName][index] = pokemon;
 
     // For now, only allow one pokemon to have extra chances specified
-    if (this.state.pokemon1.chances > 1 && this.state.pokemon2.chances > 1) {
+    if (this.state.pokemon1 && this.state.pokemon2 && this.state.pokemon1.chances > 1 && this.state.pokemon2.chances > 1) {
       const oppositeTeamNumber = 3 - teamNumber;
       newState[`pokemon${oppositeTeamNumber}`] = this.state[`pokemon${oppositeTeamNumber}`];
       newState[`pokemon${oppositeTeamNumber}`].chances = 1;

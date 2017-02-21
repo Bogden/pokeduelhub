@@ -1,5 +1,5 @@
 import React from 'react';
-import PokemonPicker from './PokemonPicker';
+import PokemonPicker from './pokemonPicker/PokemonPicker';
 
 class SimplifiedOutcomeRow extends React.Component {
   constructor() {
