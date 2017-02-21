@@ -149,11 +149,11 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 35,Treecko,2,Slam,White,56,30,knocks out,
 35,Treecko,3,Dodge,Blue,20,0,dodges,
 35,Treecko,4,Miss,Red,4,0,misses,
-36,Heracross,1,Miss,Red,12,0,misses,
-36,Heracross,2,Horn Attack,White,32,40,knocks out,
+36,Heracross,1,Miss,Red,8,0,misses,
+36,Heracross,2,Horn Attack,White,32,60,knocks out,
 36,Heracross,3,Dodge,Blue,20,0,dodges,
 36,Heracross,4,Miss,Red,8,0,misses,
-36,Heracross,5,Overhead Toss,Purple,24,1,tosses,The opponent is moved 1 step behind this Pokémon.
+36,Heracross,5,Overhead Toss,Purple,28,1,tosses,The opponent is moved 1 step behind this Pokémon.
 37,Deino,1,Miss,Red,16,0,misses,
 37,Deino,2,Bite,White,48,40,knocks out,
 37,Deino,3,Miss,Red,12,0,misses,
@@ -186,11 +186,11 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 44,Audino,2,Healing Wish,Purple,32,2,switches with,
 44,Audino,3,Miss,Red,8,0,misses,
 44,Audino,4,Pound,White,48,70,knocks out,
-45,Machamp,1,Miss,Red,12,0,misses,
-45,Machamp,2,Karate Chop,White,24,50,knocks out,
-45,Machamp,3,Submission,White,16,80,knocks out,
-45,Machamp,4,Karate Chop,White,24,50,knocks out,
-45,Machamp,5,Miss,Red,8,0,dodges,
+45,Machamp,1,Miss,Red,4,0,misses,
+45,Machamp,2,Karate Chop,White,24,60,knocks out,
+45,Machamp,3,Submission,White,28,80,knocks out,
+45,Machamp,4,Karate Chop,White,24,60,knocks out,
+45,Machamp,5,Miss,Red,4,0,dodges,
 45,Machamp,6,Dodge,Blue,12,0,misses,
 47,Psyduck,1,Scratch,White,24,30,knocks out,
 47,Psyduck,2,Super Psy*,White,32,40,knocks out,"* If this Pokémon is knocked out, the battle opponent becomes confused."
@@ -442,16 +442,18 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 109,Turtwig,4,Miss,Red,4,0,misses,
 110,Mew,1,Psychic,White,24,50,knocks out,
 110,Mew,2,Hyper Sonic,Gold,48,30,knocks out,
-110,Mew,3,Vanish,Blue,20,0,vanishes,This Pokémon moves to the bench.
-110,Mew,4,miss,Red,4,0,misses,
+110,Mew,3,Shuttle Flip,Blue,20,0,steps back from,This Pokémon can take 1-2 steps back
+110,Mew,4,Miss,Red,4,0,misses,
 111,Taillow,1,Wing Attack,White,36,20,knocks out,
 111,Taillow,2,Quick Attack,Gold,16,40,knocks out,
 111,Taillow,3,Wing Attack,White,36,20,knocks out,
 111,Taillow,4,Miss,Red,8,0,misses,
-112,Rayquaza,1,Miss,Red,16,0,misses,
+112,Rayquaza,1,Miss,Red,4,0,misses,
 112,Rayquaza,2,Fly,Purple,28,3,flies over,This Pokémon jumps over the battle opponent and lands 1-2 steps away.
-112,Rayquaza,3,Extreme Speed,Gold,24,120,knocks out,
-112,Rayquaza,4,Twister,White,28,50,knocks out,"If this Pokémon is knocked out when it uses this attack, the battle opponent becomes paralyzed."
+112,Rayquaza,3,Miss,Red,4,0,misses,
+112,Rayquaza,4,Extreme Speed,Gold,28,120,knocks out,
+112,Rayquaza,3,Miss,Red,4,0,misses,
+112,Rayquaza,6,Break Energy,White,28,60,knocks out,Your opponent's Energy Plate-based effects are lost
 114,Tropius,1,Miss,Red,8,0,misses,
 114,Tropius,2,Razor Leaf,White,24,40,knocks out,
 114,Tropius,3,Solar Beam,White,16,120,knocks out,
@@ -756,6 +758,8 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 274,Articuno,3,Miss,Red,12,0,misses,
 274,Articuno,4,Roost,Blue,16,0,roosts against,"Recovers from all staus effects, then the pokemon waits 3"
 274,Articuno,5,Ice Charge,Purple,20,2,charges up against,"Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are frozen, and the turn ends."
-300,AAAA,1,Hit,White,96,999,knocks out,
-301,BBBB,1,Miss,Red,48,0,misses,
-301,BBBB,2,Dodge,Blue,48,0,dodges,
+308,Reuniclus,1,Miss,Red,12,0,misses,
+308,Reuniclus,2,Brain Link,White,32,50,knocks out,Deals x2 damage if one of your own Reuniclus is within 2 steps of this Pokémon
+308,Reuniclus,3,Hyper Beam,White,20,120,knocks out,"If the battle opponent is knocked out, the next turn will always be the other player's"
+308,Reuniclus,4,Miss,Red,8,0,misses,
+308,Reuniclus,5,Confuse Ray,Purple,24,3,confuses,The battle opponent becomes confused

@@ -58,6 +58,15 @@ class PokemonPicker extends React.Component {
 
     let subMenuContents;
 
+    // Basic:
+    // Status Effect:
+    // Plate Effect:
+
+    // Advanced:
+    // Bonus Damage
+    // Extra Spins
+    // Disabled Move
+
     if (this.props.pokemon.name) {
       subMenuContents = (
         <div className="pokemon-picker-sub-menu-contents">
@@ -91,7 +100,7 @@ class PokemonPicker extends React.Component {
           </div>
           <div className="extra-damage">
             <Incrementer type="chances" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.chances - 1} />
-            <span className="extra-damage-text">Extra Spins</span>
+            <span className="extra-damage-text has-tooltip" data-tooltip="Select rows to calculate total chances">Extra Spins (?)</span>
           </div>
           <div className="extra-damage">
             <select name="" id="">

@@ -310,11 +310,25 @@ function generateSubMoves(move) {
   return subMoves;
 }
 
+// Return pokemon's moves including any submoves from swords dance or focus energy
+function getPokemonOutcomeMoves(pokemon) {
+  const moves = [];
+  pokemon.moves.forEach(move => {
+    if (shouldGenerateSubMoves(move)) {
+      generateSubMoves(move).forEach(subMove => moves.push(subMove));
+    } else {
+      moves.push(move);
+    }
+  });
+
+  return moves;
+}
+
 function getMultiChanceOutcomeProbability(options = {}) {
   let {multiChancePokemon, enemyPokemon, desiredOutcomes, shouldCombine} = options;
   
-  const multiChancePokemonMoves = multiChancePokemon.moves;
-  const enemyPokemonMoves = enemyPokemon.moves;
+  const multiChancePokemonMoves = getPokemonOutcomeMoves(multiChancePokemon);
+  const enemyPokemonMoves = getPokemonOutcomeMoves(enemyPokemon);
 
   let outcomeIsDesired;
   if (shouldCombine) {
@@ -351,7 +365,9 @@ function getMultiChanceOutcomeProbability(options = {}) {
       }
     }, 0) / enemyMove.getProbability();
 
-    console.log('outcomes', outcomes, 'base desired', baseDesiredProbability, desiredOutcomes);
+    if (Number.isNaN(baseDesiredProbability)) {
+      debugger;
+    }
 
     const baseUndesiredProbability = 1 - baseDesiredProbability;
     const totalDesiredProbability = 1 - Math.pow(baseUndesiredProbability, multiChancePokemon.chances);
@@ -382,22 +398,8 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
   let outcomes = [];
 
   // Split out multiplier moves
-  let pokemonAMoves = [];
-  let pokemonBMoves = [];
-  pokemonA.moves.forEach(move => {
-    if (shouldGenerateSubMoves(move)) {
-      generateSubMoves(move).forEach(subMove => pokemonAMoves.push(subMove));
-    } else {
-      pokemonAMoves.push(move);
-    }
-  });
-  pokemonB.moves.forEach(move => {
-    if (shouldGenerateSubMoves(move)) {
-      generateSubMoves(move).forEach(subMove => pokemonBMoves.push(subMove));
-    } else {
-      pokemonBMoves.push(move);
-    }
-  });
+  const pokemonAMoves = getPokemonOutcomeMoves(pokemonA);
+  const pokemonBMoves = getPokemonOutcomeMoves(pokemonB);
 
   // Calculate regular outcomes
   pokemonAMoves.forEach(moveA => {

@@ -696,7 +696,25 @@ $incrementer-button {
   overflow: auto;
 }
 
-
+.has-tooltip {
+  position: relative;
+  cursor: help;
+}
+.has-tooltip[data-tooltip]:before {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  bottom: 20px;
+  background-color: #246846;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  content: attr(data-tooltip);
+  display: none;
+}
+.has-tooltip[data-tooltip]:hover:before {
+display: block;
+}
 
 /* Media */
 @media (max-width: 570px) {

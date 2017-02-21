@@ -25,7 +25,11 @@ class Pokemon {
       }
     });
 
-    this.moves = moves;
+    this._moves = moves;
+  }
+
+  get moves() {
+    return this._moves.filter(move => move.wheelSize > 0);
   }
 
   get wheelSize() {
@@ -82,7 +86,7 @@ class Pokemon {
     }, 0);
 
     // Subtract that from the first Miss move
-    const firstMiss = this.moves.find(move => move.type === MOVE_TYPES.MISS);
+    const firstMiss = this._moves.find(move => move.type === MOVE_TYPES.MISS);
     firstMiss.extraSize = Math.max(-extraSize, -firstMiss.baseWheelSize);
   }
 

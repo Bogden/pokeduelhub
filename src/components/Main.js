@@ -93,6 +93,11 @@ class AppComponent extends React.Component {
       return;
     }
 
+    // For now, only allow one pokemon to have extra chances specified
+    if (this.state.pokemon1.chances > 1 && this.state.pokemon2.chances > 1) {
+      this.state.pokemon2.chances = 1;
+    }
+
     this.setState({
       outcomes: generateBattleOutcomes(pokemon1, pokemon2)
     });
@@ -117,6 +122,14 @@ class AppComponent extends React.Component {
     const newState = {}
     newState[teamPropertyName] = this.state[teamPropertyName];
     newState[teamPropertyName][index] = pokemon;
+
+    // For now, only allow one pokemon to have extra chances specified
+    if (this.state.pokemon1.chances > 1 && this.state.pokemon2.chances > 1) {
+      const oppositeTeamNumber = 3 - teamNumber;
+      newState[`pokemon${oppositeTeamNumber}`] = this.state[`pokemon${oppositeTeamNumber}`];
+      newState[`pokemon${oppositeTeamNumber}`].chances = 1;
+    }
+
     this.setState(newState, this.comparePokemon);
   }
 
