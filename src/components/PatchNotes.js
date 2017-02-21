@@ -1,6 +1,9 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.2.1',
+  notes: 'Bug fixes!'
+}, {
   version: '0.2.0',
   notes: 'Added basic plates and status effects. Added multi chance calculations. Added 46 more Pokémon and updated to most recent patch data.'
 }, {
