@@ -67,7 +67,8 @@ class OutcomeRow extends React.Component {
   shouldDisableMinus() {
     if (this.props.type === 'size') {
       return this.props.target.wheelSize <= 0 || this.props.target.extraSize <= 0 || this.props.target.type === MOVE_TYPES.MISS;
-    } else if (this.props.type === 'power') {
+    } else if (this.props.type === 'power' && this.props.target.type) {
+      // Do not disable for pokemon bonus damage
       return this.props.target.extraPower <= 0;
     } else if (this.props.type === 'chances') {
       return this.props.target.chances <= 1;

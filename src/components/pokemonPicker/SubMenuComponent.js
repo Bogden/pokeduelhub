@@ -6,20 +6,85 @@ require('styles/pokemonPicker/SubMenu.css');
 class SubMenuComponent extends React.Component {
   constructor() {
     super();
-    this.handleShowAdvanced = this.handleShowAdvanced.bind(this);3
+    this.handleShowAdvanced = this.handleShowAdvanced.bind(this);
+    this.handleStatusChange = this.handleStatusChange.bind(this);
+    this.handlePlateChange = this.handlePlateChange.bind(this);
+    this.updateModifiers = this.updateModifiers.bind(this);
     this.state = {
-      showAdvancedOptions: false
+      showAdvancedOptions: false,
+      statusValue: 'none',
+      plateValue: 'none'
+    }
+  }
+
+  updateModifiers() {
+    let damageModifier = 0;
+    let chances = 1;
+    if (this.state.statusValue === 'poisoned') {
+      damageModifier -= 20;
+    } else if (this.state.statusValue === 'noxious') {
+      damageModifier -= 40;
+    }
+
+    if (this.state.plateValue === 'x-attack') {
+      damageModifier += 30;
+    } else if (this.state.plateValue === 'double-chance') {
+      // Set own spin modifier
+      chances += 1;
+    }
+
+    // Set own damage modifier
+    this.props.pokemon.extraPower = damageModifier;
+    this.props.pokemon.chances = chances;
+
+    this.props.notifyPokemonUpdate();
+  }
+
+  handleStatusChange(event) {
+    const value = event.target.value;
+
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Options',
+      eventAction: 'handleStatusChange',
+      eventLabel: !!value
+    });
+
+    if (value === 'custom') {
+      this.setState({
+        plateValue: value,
+        statusValue: value
+      }, this.updateModifiers);
+    } else if (this.state.plateValue === 'custom') {
+      this.setState({statusValue: value, plateValue: 'none'}, this.updateModifiers);
+    } else {
+      this.setState({statusValue: value}, this.updateModifiers);
+    }
+  }
+
+  handlePlateChange(event) {
+    const value = event.target.value;
+
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Options',
+      eventAction: 'handlePlateChange',
+      eventLabel: !!value
+    });
+
+    if (value === 'custom') {
+      this.setState({
+        plateValue: value,
+        statusValue: value
+      }, this.updateModifiers);
+    } else if (this.state.statusValue === 'custom') {
+      this.setState({plateValue: value, statusValue: 'none'}, this.updateModifiers);
+    } else {
+      this.setState({plateValue: value}, this.updateModifiers);
     }
   }
 
   handleShowAdvanced(event) {
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Options',
-      eventAction: 'showAdvancedPicker',
-      eventLabel: !!event.target.checked
-    });
-
     this.setState({
       showAdvancedOptions: event.target.checked
     })
@@ -49,7 +114,8 @@ class SubMenuComponent extends React.Component {
       // Bonus Damage
       // Extra Spins
       // Disabled Move
-      if (this.state.showAdvancedOptions) {
+
+      if (this.state.statusValue === 'custom' || this.state.plateValue === 'custom') {
         extraOptions = (
           <div className="pokemon-picker-extra-options">
             <div className="extra-option">
@@ -61,31 +127,6 @@ class SubMenuComponent extends React.Component {
               <Incrementer type="chances" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.chances - 1} />
             </div>
 
-          </div>
-        );
-      } else {
-        extraOptions = (
-          <div className="pokemon-picker-extra-options">
-            <div className="extra-option">
-              <span className="extra-option-label">Status</span>
-              <select className="extra-option-dropdown" name="" id="">
-                <option className="extra-option-dropdown-option" value="thing">None</option>
-                <option className="extra-option-dropdown-option" value="thing">Poisoned</option>
-                <option className="extra-option-dropdown-option" value="thing">Noxious</option>
-                {/* <option className="extra-option-dropdown-option" value="thing">Burned</option>
-                <option className="extra-option-dropdown-option" value="thing">Paralyzed</option>
-                <option className="extra-option-dropdown-option" value="thing">Frozen</option> */}
-              </select>
-            </div>
-            <div className="extra-option">
-              <span className="extra-option-label">Plate</span>
-              <select className="extra-option-dropdown" name="" id="">
-                <option className="extra-option-dropdown-option" value="thing">None</option>
-                <option className="extra-option-dropdown-option" value="thing">X Attack</option>
-                <option className="extra-option-dropdown-option" value="thing">Double Chance</option>
-                <option className="extra-option-dropdown-option" value="thing">Bright Powder</option>
-              </select>
-            </div>
           </div>
         );
       }
@@ -117,10 +158,30 @@ class SubMenuComponent extends React.Component {
             </tbody>
           </table>
           <hr className="pokemon-picker-sub-menu-rule" />
+          <div className="pokemon-picker-extra-options">
+            <div className="extra-option">
+              <span className="extra-option-label">Status</span>
+              <select className="extra-option-dropdown" value={this.state.statusValue} onChange={this.handleStatusChange}>
+                <option className="extra-option-dropdown-option" value="none">None</option>
+                <option className="extra-option-dropdown-option" value="poisoned">Poisoned</option>
+                <option className="extra-option-dropdown-option" value="noxious">Noxious</option>
+                <option className="extra-option-dropdown-option" value="custom">Custom</option>
+                {/* <option className="extra-option-dropdown-option" value="thing">Burned</option>
+                <option className="extra-option-dropdown-option" value="thing">Paralyzed</option>
+                <option className="extra-option-dropdown-option" value="thing">Frozen</option> */}
+              </select>
+            </div>
+            <div className="extra-option">
+              <span className="extra-option-label">Plate</span>
+              <select className="extra-option-dropdown" value={this.state.plateValue} onChange={this.handlePlateChange}>
+                <option className="extra-option-dropdown-option" value="none">None</option>
+                <option className="extra-option-dropdown-option" value="x-attack">X Attack</option>
+                <option className="extra-option-dropdown-option" value="double-chance">Double Chance</option>
+                <option className="extra-option-dropdown-option" value="custom">Custom</option>
+              </select>
+            </div>
+          </div>
           {extraOptions}
-          {/* TODO: Better ID to handle same pokemon case */}
-          <input id={`pokemon-picker-advanced-${this.props.pokemon.name}`} className="styled-checkbox" type="checkbox"  onChange={this.handleShowAdvanced} />
-          <label htmlFor={`pokemon-picker-advanced-${this.props.pokemon.name}`} className="pokemon-picker-show-advanced" >Show Advanced</label>
         </div>
       );
     } else {

@@ -149,6 +149,8 @@ class AppComponent extends React.Component {
               team2={this.state.team2}
               pickPokemon={this.pickPokemon}
               notifyPokemonUpdate={this.handleNotifyPokemonUpdate}
+              pokemon1={this.state.pokemon1}
+              pokemon2={this.state.pokemon2}
             />
             <input id="use-teams" className="styled-checkbox" type="checkbox" onChange={this.handleUseTeams.bind(this)} />
             <label htmlFor="use-teams">Use teams</label>

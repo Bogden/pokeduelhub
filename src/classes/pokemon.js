@@ -47,9 +47,7 @@ class Pokemon {
   }
 
   subtractExtraPower(amount = 10) {
-    if (this.extraPower > 0) {
-      this.extraPower -= amount;
-    }
+    this.extraPower -= amount;
   }
 
   get chances() {
@@ -67,7 +65,6 @@ class Pokemon {
   }
 
   addExtraChances(amount = 1) {
-    console.log(amount);
     this.chances += amount;
   }
 
