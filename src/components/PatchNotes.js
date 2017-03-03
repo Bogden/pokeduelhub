@@ -1,6 +1,9 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.2.2',
+  notes: 'Updated pokemon and added Zekrom/Reshiram'
+}, {
   version: '0.2.1',
   notes: 'Bug fixes!'
 }, {

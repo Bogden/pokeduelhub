@@ -40,11 +40,11 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 10,Seedot,3,Bullet Seed,White,40,20x,knocks out,Spin again until Bullet Seed does not and - damage is multiplied by the number of Bullet Seed spins.
 10,Seedot,4,Miss,Red,4,0,misses,
 11,Metagross,1,Dodge,Blue,4,0,dodges,
-11,Metagross,2,Metal Claw,White,16,80,knocks out,
+11,Metagross,2,Metal Claw,White,16,90,knocks out,
 11,Metagross,3,Dodge,Blue,4,0,dodges,
 11,Metagross,4,Hyper Beam*,White,24,150,knocks out,"* If the battle opponent is knocked out, the next turn will always be the other player's."
 11,Metagross,5,Dodge,Blue,4,0,dodges,
-11,Metagross,6,Metal Claw,White,16,80,knocks out,
+11,Metagross,6,Metal Claw,White,16,90,knocks out,
 11,Metagross,7,Dodge,Blue,4,0,dodges,
 11,Metagross,8,Bullet Punch,Gold,20,30,knocks out,
 11,Metagross,9,Miss,Red,4,0,misses,
@@ -207,7 +207,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 50,Charizard,1,Miss,Red,8,0,misses,
 50,Charizard,2,Fire Spin,White,56,50x,knocks out,Spin again until Fire Spin does not land - damage is multiplied by the number of Fire Spin spins.
 50,Charizard,3,Miss,Red,4,0,misses,
-50,Charizard,4,Iron Tail,White,28,80,knocks out,
+50,Charizard,4,Dragon Tail,White,28,60,knocks out,Benches your battle opponent (except when opponent has fainted). Your battle opponent must then Wait.
 51,Wobbuffet,1,Counter*,White,60,0,counters,"* If the battle opponent's Attack is above 20, the opponent is knocked out instead of this Pokémon."
 51,Wobbuffet,2,Miss,Red,28,0,misses,
 51,Wobbuffet,3,Protect,Blue,8,0,protects against,This Pokémon gains Wait.
@@ -466,10 +466,16 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 117,Electabuzz,1,Thunder Punch,White,60,50,knocks out,
 117,Electabuzz,2,Quick Attack,Gold,24,30,knocks out,
 117,Electabuzz,3,Miss,Red,12,0,misses,
-118,Tyranitar,1,Bite,White,16,40,knocks out,
-118,Tyranitar,2,Miss,Red,16,0,misses,
-118,Tyranitar,3,Earthquake*,White,28,110,knocks out,"All pokemon on the field spin, except this one - if they spin a miss, they are knocked out"
-118,Tyranitar,4,Crunch,White,36,60,knocks out,
+118,Tyranitar,1,Bite,White,16,50,knocks out,
+118,Tyranitar,2,Miss,Red,12,0,misses,
+118,Tyranitar,3,Crunch,White,36,60,knocks out,
+118,Tyranitar,4,Earthquake*,White,32,110,knocks out,"All pokemon on the field spin, except this one - if they spin a miss, they are knocked out"
+119,Zygarde,1,Land's Wrath,White,24,70,knocks out,
+119,Zygarde,2,Miss,Red,4,0,misses,
+119,Zygarde,3,Dragon Breath,White,36,100,knocks out,
+119,Zygarde,4,Miss,Red,4,0,misses,
+119,Zygarde,5,Extreme Speed,Gold,24,50,knocks out,
+119,Zygarde,6,Miss,Red,4,0,misses,
 120,Tentacruel,1,Miss,Red,8,0,misses,
 120,Tentacruel,2,Tentacle Sting,White,56,80,knocks out,"If this pokemon is knocked out, the battle opponent becomes poisoned or paralyzed."
 120,Tentacruel,3,Miss,Red,8,0,misses,
@@ -663,6 +669,12 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 229,Deoxys-D,2,Psycho Barrier,Purple,60,2,protects against,
 229,Deoxys-D,3,Miss,Red,8,0,misses,
 229,Deoxys-D,4,Counter,White,20,0,knocks out,"If the battle opponent's Attack is above 20, the battle opponent is knocked out instead."
+232,Zekrom,1,Miss,Red,8,0,misses,
+232,Zekrom,2,Fly,Purple,12,3,flies over,This Pokémon jumps over the battle opponent and lands 1-2 steps away.
+232,Zekrom,3,Bolt Strike,White,36,90,knocks out,The battle opponent becomes paralyzed
+232,Zekrom,4,Fly,Purple,12,3,flies over,This Pokémon jumps over the battle opponent and lands 1-2 steps away.
+232,Zekrom,5,Dodge,Blue,4,0,dodges,
+232,Zekrom,6,Fusion Bolt,White,24,70,knocks out,"If you have Reshiram on the field, and this Pokémon is not affected by a special condition, exclude the Pokémon knocked out by this Attack from the duel."
 233,Raikou,1,Miss,Red,8,0,misses,
 233,Raikou,2,Bite,White,20,50,knocks out,
 233,Raikou,3,Thunderous Blow,Gold,24,80,knocks out,
@@ -735,6 +747,12 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 258,Typhlosion,4,Ember,White,12,50,knocks out,
 258,Typhlosion,5,Miss,Red,8,0,misses,
 258,Typhlosion,6,Fire Blast,White,28,90,knocks out,
+261,Reshiram,1,Miss,Red,8,0,misses,
+261,Reshiram,2,Fly,Purple,12,3,flies over,This Pokémon jumps over the battle opponent and lands 1-2 steps away.
+261,Reshiram,3,Blue Flare,White,36,100,knocks out,The battle opponent becomes burned
+261,Reshiram,4,Fly,Purple,12,3,flies over,This Pokémon jumps over the battle opponent and lands 1-2 steps away.
+261,Reshiram,5,Dodge,Blue,4,0,dodges,
+261,Reshiram,6,Fusion Flare,White,24,70,knocks out,"If you have Zekrom on the field, and this Pokémon is not affected by a special condition, exclude the Pokémon knocked out by this Attack from the duel."
 262,Magmortar,1,MIss,Red,16,0,misses,
 262,Magmortar,2,Flame Gun,Purple,28,2,knocks out,Also knocks out one adjacent pokemon
 262,Magmortar,3,Fire Punch*,White,52,60,knocks out,"If this pokemon is knocked out, the battle opponent becomes burned."
@@ -758,6 +776,10 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 274,Articuno,3,Miss,Red,12,0,misses,
 274,Articuno,4,Roost,Blue,16,0,roosts against,"Recovers from all staus effects, then the pokemon waits 3"
 274,Articuno,5,Ice Charge,Purple,20,2,charges up against,"Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are frozen, and the turn ends."
+280,Dragonair,1,Miss,Red,4,0,misses,
+280,Dragonair,2,Magnetic Storm,Purple,32,2,creates a storm around,This Pokémon and all neigbour Pokémon become Paralyzed
+280,Dragonair,3,Miss,Red,12,0,misses,
+280,Dragonair,4,Dragon Tail,White,48,60,knocks out,Benches your battle opponent (except when opponent has fainted). Your battle opponent must then Wait.
 308,Reuniclus,1,Miss,Red,12,0,misses,
 308,Reuniclus,2,Brain Link,White,32,50,knocks out,Deals x2 damage if one of your own Reuniclus is within 2 steps of this Pokémon
 308,Reuniclus,3,Hyper Beam,White,20,120,knocks out,"If the battle opponent is knocked out, the next turn will always be the other player's"
