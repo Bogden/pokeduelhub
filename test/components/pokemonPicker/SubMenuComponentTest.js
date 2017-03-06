@@ -17,6 +17,6 @@ describe('SubMenuComponent', () => {
   });
 
   it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('submenu-component');
+    expect(component.props.className).to.equal('pokemon-picker-sub-menu');
   });
 });

@@ -93,7 +93,7 @@ class SubMenuComponent extends React.Component {
   render() {
     let subMenuContents;
 
-    if (this.props.pokemon.name) {
+    if (this.props.pokemon && this.props.pokemon.name) {
       let extraOptions;
 
       // Basic:

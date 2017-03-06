@@ -1,6 +1,6 @@
 ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additional Rules
 1,Dialga,1,Miss,Red,8,0,misses,
-1,Dialga,2,Roar of Time*,White,40,110,knocks out,"* If the battle opponent is knocked out, the next turn will always be the other player's."
+1,Dialga,2,Roar of Time,White,40,110,knocks out,"If the battle opponent is knocked out, the next turn will always be the other player's."
 1,Dialga,3,Miss,Red,8,0,misses,
 1,Dialga,4,Dragon Claw,White,40,60,knocks out,
 2,Tauros,1,Tackle,White,8,30,knocks out,
@@ -42,7 +42,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 11,Metagross,1,Dodge,Blue,4,0,dodges,
 11,Metagross,2,Metal Claw,White,16,90,knocks out,
 11,Metagross,3,Dodge,Blue,4,0,dodges,
-11,Metagross,4,Hyper Beam*,White,24,150,knocks out,"* If the battle opponent is knocked out, the next turn will always be the other player's."
+11,Metagross,4,Hyper Beam,White,24,150,knocks out,"If the battle opponent is knocked out, the next turn will always be the other player's."
 11,Metagross,5,Dodge,Blue,4,0,dodges,
 11,Metagross,6,Metal Claw,White,16,90,knocks out,
 11,Metagross,7,Dodge,Blue,4,0,dodges,
@@ -56,7 +56,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 12,Sentret,6,Tail Smack,White,24,40,knocks out ,
 13,Golem,1,Rock Throw,White,24,40,knocks out,
 13,Golem,2,Rock Blast,White,36,60x,knocks out,Spin again until Rock Blast does not land - damage is multiplied by the number of Rock Blast spins.
-13,Golem,3,Rockwall*,White,24,30,knocks out,"* If the battle opponent's Attack is below 120 damage, this Pokémon cannot be knocked out."
+13,Golem,3,Rockwall,White,24,30,knocks out,"If the battle opponent's Attack is below 120 damage, this Pokémon cannot be knocked out."
 13,Golem,4,Miss,Red,12,0,misses,
 14,Spinarak,1,Scratch,White,20,20,knocks out,
 14,Spinarak,2,Poison Sting,Purple,16,1,poisons,The battle opponent becomes poisoned.
@@ -69,7 +69,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 16,Sandshrew,1,Slash,White,24,40,knocks out,
 16,Sandshrew,2,Scratch,White,16,10,knocks out,
 16,Sandshrew,3,Slash,White,28,40,knocks out,
-16,Sandshrew,4,Defense Curl*,White,24,0,curls into a ball against,"* If the battle opponent's Attack is below 50, this Pokémon cannot be knocked out."
+16,Sandshrew,4,Defense Curl,White,24,0,curls into a ball against,"If the battle opponent's Attack is below 50, this Pokémon cannot be knocked out."
 16,Sandshrew,5,Miss,Red,4,0,misses,
 17,Murkrow,1,Peck,White,24,10,knocks out,
 17,Murkrow,2,Whirlwind,Purple,32,1,benches,The battle opponent is moved to the bench and gains Wait.
@@ -133,7 +133,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 31,Shinx,2,Miss,Red,12,0,misses,
 31,Shinx,3,Blind,Blue,20,0,moves back from,This Pokémon moves 1-2 steps back.
 32,Aron,1,Tackle,White,24,20,knocks out,
-32,Aron,2,Big Bite*,White,48,40,knocks out,"* If the battle opponent's type is Steel, this Pokémon takes no damage and the opponent is knocked out."
+32,Aron,2,Big Bite,White,48,40,knocks out,"If the battle opponent's type is Steel, this Pokémon takes no damage and the opponent is knocked out."
 32,Aron,3,Protect,Blue,20,0,protects against,This Pokémon gains Wait.
 32,Aron,4,Miss,Red,4,0,misses,
 33,Emolga,1,Miss,Red,16,0,misses,
@@ -193,7 +193,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 45,Machamp,5,Miss,Red,4,0,dodges,
 45,Machamp,6,Dodge,Blue,12,0,misses,
 47,Psyduck,1,Scratch,White,24,30,knocks out,
-47,Psyduck,2,Super Psy*,White,32,40,knocks out,"* If this Pokémon is knocked out, the battle opponent becomes confused."
+47,Psyduck,2,Super Psy,White,32,40,knocks out,"If this Pokémon is knocked out, the battle opponent becomes confused."
 47,Psyduck,3,Disable,Purple,20,2,inflicts wait on,The battle opponent now has Wait.
 47,Psyduck,4,Miss,Red,20,0,misses,
 48,Spinda,1,Feint Attack,White,16,60,knocks out,
@@ -208,7 +208,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 50,Charizard,2,Fire Spin,White,56,50x,knocks out,Spin again until Fire Spin does not land - damage is multiplied by the number of Fire Spin spins.
 50,Charizard,3,Miss,Red,4,0,misses,
 50,Charizard,4,Dragon Tail,White,28,60,knocks out,Benches your battle opponent (except when opponent has fainted). Your battle opponent must then Wait.
-51,Wobbuffet,1,Counter*,White,60,0,counters,"* If the battle opponent's Attack is above 20, the opponent is knocked out instead of this Pokémon."
+51,Wobbuffet,1,Counter,White,60,0,knocks out,"If the battle opponent's Attack is above 20, the opponent is knocked out instead of this Pokémon."
 51,Wobbuffet,2,Miss,Red,28,0,misses,
 51,Wobbuffet,3,Protect,Blue,8,0,protects against,This Pokémon gains Wait.
 52,Pikachu,1,Thunder Shock,White,24,40,knocks out,
@@ -218,7 +218,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 52,Pikachu,5,Thunder Shock,White,24,40,knocks out,
 52,Pikachu,6,Dodge,Blue,4,0,dodges,
 53,Palkia,1,Dragon Claw,White,28,60,knocks out,
-53,Palkia,2,Spacial Rend*,White,32,100,knocks out,"* If the battle is a tie, the opponent is knocked out."
+53,Palkia,2,Spacial Rend,White,32,100,knocks out,"If the battle is a tie, the opponent is knocked out."
 53,Palkia,3,Dragon Claw,White,28,60,knocks out,
 53,Palkia,4,Miss,Red,8,0,misses,
 54,Cacnea,1,Poison Sting,Purple,28,1,poisons,The battle opponent becomes poisoned.

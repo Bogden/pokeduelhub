@@ -118,14 +118,104 @@ function getMoveOutcomeVsMiss(moveA, moveB) {
   }
 }
 
-function getMoveOutcomeWithPower(moveA, moveB) {
-  let moveAPower = moveA.power;
-  let moveBPower = moveB.power;
+const SPECIAL_OUTCOMES_WITH_POWER = ['Counter', 'Hyper Sonic']
+
+function shouldGetSpecialOutcomeWithPower(move) {
+  return SPECIAL_OUTCOMES_WITH_POWER.includes(move.name);
+}
+
+function getSpecialOutcomeWithPower(options = {}) {
+  const moveA = options.moveA;
+  const moveB = options.moveB;
+  const specialMove = options.specialMove;
+
+  switch (specialMove.name) {
+    case 'Counter':
+      return getCounterOutcome(options);
+    case 'Hyper Sonic':
+      return getHyperSonicOutcome(options);
+  }
+
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Error',
+    eventAction: 'getSpecialOutcomeWithPower',
+    eventLabel: `did not find outcome for ${specialMove && specialMove.name}`
+  });
+
+  return getPlainMoveOutcomeWithPower(moveA, moveB);
+}
+
+function getCounterOutcome(options = {}) {
+  const {moveA, moveB, specialMove} = options;
+  const moveAPower = moveA.power;
+  const moveBPower = moveB.power;
+
+  if (moveAPower === moveBPower) {
+    return MOVE_RESULTS.TIE;
+  } else if (moveAPower > moveBPower) {
+    if (specialMove === moveB && moveAPower > 20) {
+      return MOVE_RESULTS.MOVE_B;
+    } else {
+      return MOVE_RESULTS.MOVE_A;
+    }
+  } else {
+    if (specialMove === moveA && moveBPower > 20) {
+      return MOVE_RESULTS.MOVE_A;
+    } else {
+      return MOVE_RESULTS.MOVE_B;
+    }
+  }
+}
+
+function getHyperSonicOutcome(options = {}) {
+  const {moveA, moveB, specialMove} = options;
+  const moveAPower = moveA.power;
+  const moveBPower = moveB.power;
+
+  if (moveAPower === moveBPower) {
+    return MOVE_RESULTS.TIE;
+  } else if (moveAPower > moveBPower) {
+    if (specialMove === moveB && moveAPower >= 100) {
+      return MOVE_RESULTS.TIE;
+    } else {
+      return MOVE_RESULTS.MOVE_A;
+    }
+  } else {
+    if (specialMove === moveA && moveBPower >= 100) {
+      return MOVE_RESULTS.TIE;
+    } else {
+      return MOVE_RESULTS.MOVE_B;
+    }
+  }
+}
+
+function getPlainMoveOutcomeWithPower(moveA, moveB) {
+  const moveAPower = moveA.power;
+  const moveBPower = moveB.power;
 
   if (moveAPower === moveBPower) {
     return MOVE_RESULTS.TIE;
   } else {
     return moveAPower > moveBPower ? MOVE_RESULTS.MOVE_A : MOVE_RESULTS.MOVE_B;
+  }
+}
+
+function getMoveOutcomeWithPower(moveA, moveB) {
+  if (shouldGetSpecialOutcomeWithPower(moveA)) {
+    return getSpecialOutcomeWithPower({
+      moveA,
+      moveB,
+      specialMove: moveA
+    });
+  } else if (shouldGetSpecialOutcomeWithPower(moveB)) {
+    return getSpecialOutcomeWithPower({
+      moveA,
+      moveB,
+      specialMove: moveB
+    });
+  } else {
+    return getPlainMoveOutcomeWithPower(moveA, moveB);
   }
 }
 
