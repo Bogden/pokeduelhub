@@ -441,7 +441,7 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 109,Turtwig,3,Withdraw,Blue,32,0,-,This pokemon gains wait.
 109,Turtwig,4,Miss,Red,4,0,misses,
 110,Mew,1,Psychic,White,24,50,knocks out,
-110,Mew,2,Hyper Sonic,Gold,48,30,knocks out,
+110,Mew,2,Hyper Sonic,Gold,48,30,knocks out,"If the battle opponent's Attack is 100 damage or more, this Pokémon cannot be knocked out."
 110,Mew,3,Shuttle Flip,Blue,20,0,steps back from,This Pokémon can take 1-2 steps back
 110,Mew,4,Miss,Red,4,0,misses,
 111,Taillow,1,Wing Attack,White,36,20,knocks out,
@@ -566,6 +566,10 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 149,Quilladin,3,Mud Shot,White,32,40,knocks out,Attach MP-1 marker to the battle opponent.
 149,Quilladin,4,Needle Arm,White,20,60,knocks out,The battle opponent gains Wait
 149,Quilladin,5,Protect,Blue,20,0,protects against,This Pokémon gains Wait
+158,Tentacool,1,Miss,Red,8,0,misses,
+158,Tentacool,2,Tentacle Barrage,White,52,40,knocks out,"This move's damage is boosted by the number of Pokémon on the field that know moves that can cause Poison or Toxic status effect, plus 10. If this Pokémon faints, the battle opponent will become Poisoned"
+158,Tentacool,3,Miss,Red,4,0,misses,
+158,Tentacool,4,Poison Sting,Purple,32,1,poisons,The battle opponent becomes poisoned.
 159,Pichu,1,Dodge,Blue,4,0,dodges,
 159,Pichu,2,Thunder Shock,White,60,40,knocks out,
 159,Pichu,3,Miss,Red,32,0,misses,
