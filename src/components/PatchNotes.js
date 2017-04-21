@@ -1,6 +1,9 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.2.4',
+  notes: 'Added 13 more Pokémon'
+}, {
   version: '0.2.3',
   notes: 'Handle Counter and Hyper Sonic'
 }, {
