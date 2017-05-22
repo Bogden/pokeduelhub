@@ -40,7 +40,11 @@ function getMoveOutcomeVsPurple(moveA, moveB) {
     case MOVE_TYPES.PURPLE:
       return getMoveOutcomeWithPower(moveA, moveB);
     case MOVE_TYPES.GOLD:
-      return MOVE_RESULTS.MOVE_B;
+      if (moveB.power === 0) {
+        return MOVE_RESULTS.TIE;
+      } else {
+        return MOVE_RESULTS.MOVE_B;
+      }
     case MOVE_TYPES.WHITE:
       return MOVE_RESULTS.MOVE_A;
     case MOVE_TYPES.MISS:
@@ -63,13 +67,21 @@ function getMoveOutcomeVsGold(moveA, moveB) {
         return MOVE_RESULTS.TIE;
       }
     case MOVE_TYPES.PURPLE:
-      return MOVE_RESULTS.MOVE_A;
+      if (moveA.power === 0) {
+        return MOVE_RESULTS.TIE;
+      } else {
+        return MOVE_RESULTS.MOVE_A;
+      }
     case MOVE_TYPES.GOLD:
       return getMoveOutcomeWithPower(moveA, moveB);
     case MOVE_TYPES.WHITE:
       return getMoveOutcomeWithPower(moveA, moveB);
     case MOVE_TYPES.MISS:
-      return MOVE_RESULTS.MOVE_A;
+      if (moveA.power === 0) {
+        return MOVE_RESULTS.TIE;
+      } else {
+        return MOVE_RESULTS.MOVE_A;
+      }
   }
 }
 
@@ -95,7 +107,11 @@ function getMoveOutcomeVsWhite(moveA, moveB) {
     case MOVE_TYPES.WHITE:
       return getMoveOutcomeWithPower(moveA, moveB);
     case MOVE_TYPES.MISS:
-      return MOVE_RESULTS.MOVE_A;
+      if (moveA.power === 0) {
+        return MOVE_RESULTS.TIE;
+      } else {
+        return MOVE_RESULTS.MOVE_A;
+      }
   }
 }
 
@@ -113,6 +129,13 @@ function getMoveOutcomeVsMiss(moveA, moveB) {
       }
     case MOVE_TYPES.MISS:
       return MOVE_RESULTS.TIE;
+    case MOVE_TYPES.GOLD:
+    case MOVE_TYPES.WHITE:
+      if (moveB.power === 0) {
+        return MOVE_RESULTS.TIE;
+      } else {
+        return MOVE_RESULTS.MOVE_B;
+      }
     default:
       return MOVE_RESULTS.MOVE_B;
   }
@@ -219,7 +242,6 @@ function getMoveOutcomeWithPower(moveA, moveB) {
   }
 }
 
-// TODO: 0 power white vs miss = tie
 function getMoveOutcome(moveA, moveB) {
   // -1 = moveA wins
   // 0 = tie

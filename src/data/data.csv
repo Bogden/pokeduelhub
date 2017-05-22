@@ -852,6 +852,10 @@ ID,Name,Move Number,Move Name,Move Type,Wheel Size,Power,Action phrase,Additiona
 308,Reuniclus,3,Hyper Beam,White,20,120,knocks out,"If the battle opponent is knocked out, the next turn will always be the other player's"
 308,Reuniclus,4,Miss,Red,8,0,misses,
 308,Reuniclus,5,Confuse Ray,Purple,24,3,confuses,The battle opponent becomes confused
+309,Joltik,1,Dodge,Blue,8,0,dodges,
+309,Joltik,2,Leech Life,White,40,30,knocks out,
+309,Joltik,3,Miss,Red,12,0,misses,
+309,Joltik,4,Electric Thread,Purple,36,2,paralyzes,The battle opponent becomes paralyzed. The battle opponent gains Wait 3
 318,Virizion,1,Grass Knot,White,24,40,knocks out,"If the battle opponent's Attack is 120 damage or higher, the opponent is knocked out instead of this Pokémon."
 318,Virizion,2,Sword of Justice,White,36,101,knocks out,
 318,Virizion,3,Typhoon Slash,Purple,28,2,may switch places with,This Pokémon may switch places with its battle opponent.

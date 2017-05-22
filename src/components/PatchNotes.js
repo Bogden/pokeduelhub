@@ -1,6 +1,9 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.3.1',
+  notes: 'Added Joltik, fixed 0 power white and gold move outcomes'
+}, {
   version: '0.3.0',
   notes: 'Going open source! Implemented confusion and the Poliwhirl ability. Added simulation for moves like Water Shuriken vs themselves'
 }, {
