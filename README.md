@@ -1,10 +1,10 @@
-#Pokémon Duel Battle Calculator
+# Pokémon Duel Battle Calculator
 
 This is the website http://www.pokeduelhub.com/
 
 Its current purpose is to calculate outcomes of matchups in the game Pokémon Duel.
 
-###Contributing
+### Contributing
 
 Start the development server by running `npm install && npm start`.
 
