@@ -31,8 +31,17 @@ class Move {
     return this._displayName = displayName;
   }
 
-  get wheelSize() {
+  // For multispin move calculations
+  get realWheelSize() {
     return this.baseWheelSize + this.extraSize;
+  }
+
+  get wheelSize() {
+    if (this.shiftedWheelSize) {
+      return this.shiftedWheelSize;
+    } else {
+      return this.realWheelSize;
+    }
   }
 
   set wheelSize(newSize) {
@@ -78,6 +87,11 @@ class Move {
 
   getProbability() {
     return this.wheelSize / 96;
+  }
+
+  // Ignores shiftedWheelSize for stacking move calculation
+  getRealProbability() {
+    return this.realWheelSize / 96;
   }
 
   addExtraPower(amount = 1) {

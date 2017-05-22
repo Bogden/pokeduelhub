@@ -20,6 +20,7 @@ class SubMenuComponent extends React.Component {
   updateModifiers() {
     let damageModifier = 0;
     let chances = 1;
+
     if (this.state.statusValue === 'poisoned') {
       damageModifier -= 20;
     } else if (this.state.statusValue === 'noxious') {
@@ -36,8 +37,35 @@ class SubMenuComponent extends React.Component {
     // Set own damage modifier
     this.props.pokemon.extraPower = damageModifier;
     this.props.pokemon.chances = chances;
+    this.props.pokemon.isConfused = (this.state.statusValue === 'confused');
 
     this.props.notifyPokemonUpdate();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.pokemon !== nextProps.pokemon) {
+      let showAdvancedOptions = false;
+
+      // Check to see if we are receiving an already modified pokemon
+      // Though right now this can't happen
+      if (this.props.pokemon.extraPower || (this.props.pokemon.chances > 1)) {
+        showAdvancedOptions = true;
+      }
+
+      if (showAdvancedOptions) {
+        this.setState({
+          showAdvancedOptions: true,
+          statusValue: 'custom',
+          plateValue: 'custom'
+        });
+      } else {
+        this.setState({
+          showAdvancedOptions: false,
+          statusValue: 'none',
+          plateValue: 'none'
+        });
+      }
+    }
   }
 
   handleStatusChange(event) {
@@ -90,6 +118,18 @@ class SubMenuComponent extends React.Component {
     })
   }
 
+  handleIsConfused(event) {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Options',
+      eventAction: 'handleIsConfused',
+      eventLabel: !!event.target.checked
+    });
+
+    this.props.pokemon.isConfused = !!event.target.checked;
+    this.props.notifyPokemonUpdate();
+  }
+
   render() {
     let subMenuContents;
 
@@ -126,7 +166,10 @@ class SubMenuComponent extends React.Component {
               <span className="extra-option-label has-tooltip" data-tooltip="Select rows to calculate total chances">Extra Spins (?)</span>
               <Incrementer type="chances" target={this.props.pokemon} notifyPokemonUpdate={this.props.notifyPokemonUpdate} value={this.props.pokemon.chances - 1} />
             </div>
-
+            <div className="extra-option">
+              <input id="is-confused" className="styled-checkbox-after" type="checkbox" onChange={this.handleIsConfused.bind(this)} value={this.props.pokemon.isConfused} />
+              <label className="extra-option-label" htmlFor="is-confused">Confused</label>
+            </div>
           </div>
         );
       }
@@ -165,6 +208,7 @@ class SubMenuComponent extends React.Component {
                 <option className="extra-option-dropdown-option" value="none">None</option>
                 <option className="extra-option-dropdown-option" value="poisoned">Poisoned</option>
                 <option className="extra-option-dropdown-option" value="noxious">Noxious</option>
+                <option className="extra-option-dropdown-option" value="confused">Confused</option>
                 <option className="extra-option-dropdown-option" value="custom">Custom</option>
                 {/* <option className="extra-option-dropdown-option" value="thing">Burned</option>
                 <option className="extra-option-dropdown-option" value="thing">Paralyzed</option>

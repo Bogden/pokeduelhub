@@ -1,6 +1,9 @@
 import React from 'react';
 
 const patchNotes = [{
+  version: '0.3.0',
+  notes: 'Going open source! Implemented confusion and the Poliwhirl ability. Added simulation for moves like Water Shuriken vs themselves'
+}, {
   version: '0.2.4',
   notes: 'Added 13 more Pokémon'
 }, {

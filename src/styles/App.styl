@@ -262,6 +262,23 @@ body {
   }
 }
 
+.styled-checkbox-after {
+  @extend .styled-checkbox;
+  & + label {
+    width: 100%;
+    justify-content: space-between;
+  }
+  & + label:before {
+    order: 1;
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  & + label:after {
+    left: auto;
+    right: 12px;
+  }
+}
+
 /* Donation */
 .donate {
   cursor: pointer;

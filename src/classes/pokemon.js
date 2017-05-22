@@ -26,6 +26,12 @@ class Pokemon {
     });
 
     this._moves = moves;
+
+  }
+
+  // Positive is clockwise, i.e. confusion = 1, vs poliwhirl = 2
+  get moveOffset() {
+    return this.isConfused ? 1 : 0;
   }
 
   get moves() {

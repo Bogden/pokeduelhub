@@ -291,13 +291,14 @@ function shouldCompareDamage(moveA, moveB) {
 }
 
 function getStackingOutcomes(moveA, moveB) {
+  // TODO: Account for maximum stacks like double slap capping at 2
   const isMoveAStacking = isStackingMove(moveA);
   const isMoveBStacking = isStackingMove(moveB);
 
   const multiplierOutcomes = [];
   
   if (isMoveAStacking && isMoveBStacking) {
-    // TODO: Account for double multipliers
+    return getDoubleStackingOutcomes(moveA, moveB);
   } else {
     let multiplierMove;
     let staticMove;
@@ -319,11 +320,11 @@ function getStackingOutcomes(moveA, moveB) {
       const baseProbability = staticMove.getProbability() * multiplierMove.getProbability();
 
       let canTie = ((staticMove.power / multiplierMove.power) === requiredSpinsToWin);
-      let multiplierWinProbability = Math.pow(multiplierMove.getProbability(), requiredSpinsToWin);
+      let multiplierWinProbability = Math.pow(multiplierMove.getRealProbability(), requiredSpinsToWin);
       let multiplierLoseProbability = 1 - multiplierWinProbability;
 
       if (canTie) {
-        const tieProbability = multiplierWinProbability / multiplierMove.getProbability() - multiplierWinProbability;
+        const tieProbability = multiplierWinProbability / multiplierMove.getRealProbability() - multiplierWinProbability;
         multiplierLoseProbability -= tieProbability;
         
         multiplierOutcomes.push(createTieOutcome(moveA, moveB, baseProbability * tieProbability));
@@ -345,6 +346,43 @@ function getStackingOutcomes(moveA, moveB) {
   }
 
   return multiplierOutcomes;
+}
+
+function getDoubleStackingOutcomes(moveA, moveB) {
+  // TODO: Really account for double stacking
+  // For now just simulate it
+  let moveAWins = 0;
+  let ties = 0;
+  let moveBWins = 0;
+  const cycles = 100000;
+
+  for (let i = 0; i < cycles; i++) {
+    let moveAValue = moveA.power;
+    while (Math.random() < moveA.getProbability()) {
+      moveAValue += moveA.power;
+    }
+
+    let moveBValue = moveB.power;
+    while (Math.random() < moveB.getProbability()) {
+      moveBValue += moveB.power;
+    }
+
+    if (moveAValue > moveBValue) {
+      moveAWins++;
+    } else if (moveAValue === moveBValue) {
+      ties++;
+    } else {
+      moveBWins++;
+    }
+  }
+
+  const baseProbability = moveA.getProbability() * moveB.getProbability();
+
+  return [
+    createMoveAWinningOutcome(moveA, moveB, moveAWins / cycles * baseProbability),
+    createTieOutcome(moveA, moveB, ties / cycles * baseProbability),
+    createMoveBWinningOutcome(moveA, moveB, moveBWins / cycles * baseProbability)
+  ]
 }
 
 function isMultiplierMove(move = {}) {
@@ -374,7 +412,7 @@ function generateSubMoves(move) {
 
       moveClone.displayName = innerMove.displayName;
       moveClone.displayName += ` (${move.name})`;
-      moveClone.wheelSize = innerMove.wheelSize * move.wheelSize / (move.pokemon.wheelSize - move.wheelSize);
+      moveClone.wheelSize = innerMove.realWheelSize * move.wheelSize / (move.pokemon.wheelSize - move.wheelSize);
       // Clone wheel size =
       // percent of wheel minus respin move
       // times size of respin move
@@ -397,7 +435,24 @@ function generateSubMoves(move) {
 // Return pokemon's moves including any submoves from swords dance or focus energy
 function getPokemonOutcomeMoves(pokemon) {
   const moves = [];
-  pokemon.moves.forEach(move => {
+
+  const pokemonMoves = pokemon.moves;
+
+  // Account for confusion or vs poliwhirl
+  let moveOffset = pokemon.moveOffset;
+
+  if (pokemon.opponent.name === 'Poliwhirl') {
+    moveOffset += 2;
+  }
+
+  if (moveOffset) {
+    // Replace each move's wheel size with the size of the one next to it
+    for(let i = 0; i < pokemonMoves.length; i++) {
+      pokemonMoves[i].shiftedWheelSize = pokemonMoves[(i + moveOffset) % (pokemonMoves.length)].realWheelSize;
+    }
+  }
+
+  pokemonMoves.forEach(move => {
     if (shouldGenerateSubMoves(move)) {
       generateSubMoves(move).forEach(subMove => moves.push(subMove));
     } else {
@@ -411,6 +466,12 @@ function getPokemonOutcomeMoves(pokemon) {
 function getMultiChanceOutcomeProbability(options = {}) {
   let {multiChancePokemon, enemyPokemon, desiredOutcomes, shouldCombine} = options;
   
+  multiChancePokemon = cloneDeep(multiChancePokemon);
+  enemyPokemon = cloneDeep(enemyPokemon);
+
+  multiChancePokemon.opponent = enemyPokemon;
+  enemyPokemon.opponent = multiChancePokemon;
+
   const multiChancePokemonMoves = getPokemonOutcomeMoves(multiChancePokemon);
   const enemyPokemonMoves = getPokemonOutcomeMoves(enemyPokemon);
 
@@ -478,6 +539,12 @@ function generateBattleOutcomes(pokemonA, pokemonB) {
     eventAction: 'compare',
     eventLabel: `${pokemonA.name}/${pokemonB.name}`
   });
+
+  pokemonA = cloneDeep(pokemonA);
+  pokemonB = cloneDeep(pokemonB);
+
+  pokemonA.opponent = pokemonB;
+  pokemonB.opponent = pokemonA;
 
   let outcomes = [];
 
